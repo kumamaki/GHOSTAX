@@ -1,28 +1,117 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <dropdownue
+      :list="list"
+      :close-on-select="true"
+      :close-on-clickaway="true"
+      v-slot="{ isOpen, value, listItems, open, filter }"
+      default-value="3"
+    >
+      <div class="dropdown">
+        <input
+          @input="filter(filterQuery)"
+          v-model="filterQuery"
+        />
+        <div
+          class="dropdown__handler"
+          @click="open"
+        >
+          {{ value || 'Choose' }}
+        </div>
+        <ul
+          class="dropdown__list"
+          v-show="isOpen"
+        >
+          <dropdownue-item
+            v-slot="{ isHighlighted, isSelected, itemEvents }"
+            v-for="item in listItems"
+            :key="item.id"
+            :list="listItems"
+            :item="item"
+          >
+            <li
+              class="dropdown__item"
+              v-on="itemEvents(item)"
+            >
+              {{ item }}
+            </li>
+          </dropdownue-item>
+        </ul>
+      </div>
+    </dropdownue>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { Dropdownue, DropdownueItem } from './components/dropdownue';
 
 export default {
-  name: "app",
+  name: 'App',
   components: {
-    HelloWorld
+    Dropdownue,
+    DropdownueItem
+  },
+  data() {
+    return {
+      filterQuery: '',
+      list: [
+        {
+          name: 'one',
+          id: 1
+        },
+        {
+          name: 'two',
+          id: 2
+        },
+        {
+          name: 'three',
+          id: 3
+        },
+        {
+          name: 'four',
+          id: 4
+        }
+      ]
+    }
   }
 };
 </script>
 
-<style>
+<style scoped lang="scss">
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: hsl(35, 68%, 86%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown {
+  color: hsl(0, 0%, 20%);
+  &__handler {
+    background-color: white;
+    padding: 1em 2em;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: hsl(0, 0%, 98%);
+    }
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+    background-color: white;
+    margin: 0;
+    margin-top: -3px;
+  }
+
+  &__item {
+    padding: .5em 1em;
+    cursor: pointer;
+    user-select: none;
+    &--isHighlighted {
+      background-color: hsl(0, 0%, 98%);
+    }
+  }
 }
 </style>
