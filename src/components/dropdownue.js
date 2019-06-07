@@ -19,6 +19,11 @@ const Dropdownue = {
       required: false,
       default: undefined
     },
+    filterQuery: {
+      type: String,
+      required: false,
+      default: ''
+    },
     closeOnSelect: {
       type: Boolean,
       required: false,
@@ -28,14 +33,19 @@ const Dropdownue = {
       type: Boolean,
       required: false,
       default: true
+    },
+    resetOnSelect: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   data() {
     return {
       isOpen: false,
-      listItems: [],
-      value: this.defaultValue,
-      filterQuery: ''
+      formedListItems: [],
+      listItemsToRender: [],
+      value: this.defaultValue
     };
   },
   watch: {
@@ -43,13 +53,13 @@ const Dropdownue = {
       immediate: true,
       deep: true,
       handler(newList) {
-        this.listItems = this.list.map((item) => {
+        this.formedListItems = Vue.observable(this.list.map((item) => {
           return Vue.observable({
             ...item,
             isSelected: item.isSelected || this.value == item.id || false,
             isHighlighted: item.isHighlighted || false
           })
-        });
+        }));
       }
     },
     isOpen() {
@@ -61,8 +71,11 @@ const Dropdownue = {
         document.removeEventListener('keydone', this.handleClickAway)
       }
     },
-    filterQuery(newFilterQuery) {
-      this.filter(newFilterQuery);
+    filterQuery: {
+      immediate: true,
+      handler(newFilterQuery) {
+        this.filter(newFilterQuery);
+      }
     }
   },
   mounted() {
@@ -70,11 +83,8 @@ const Dropdownue = {
   },
   methods: {
     listenOnChangeValue() {
-      EventBus.$on('changeValue', (newValue) => {
-        this.value = newValue;
-        if (this.closeOnSelect) {
-          this.close();
-        }
+      EventBus.$on('dropdownue:changeValue', (newValue) => {
+        this.select(newValue);
       });
     },
     handleClickAway(event) {
@@ -92,24 +102,38 @@ const Dropdownue = {
       this.isOpen = !this.isOpen;
     },
     filter(query) {
-      this.listItems = this.listItems.filter((item) => {
-        return item.name.includes(query);
-      });
+      if (query) {
+        this.listItemsToRender = this.formedListItems.filter((item) => {
+          return item.name.includes(query);
+        });
+      } else {
+        this.listItemsToRender = this.formedListItems;
+      }
+    },
+    select(value) {
+      this.value = value;
+      if (this.closeOnSelect) {
+        this.close();
+      }
+      if (this.resetOnSelect) {
+        this.filter('');
+      }
     }
   },
   render() {
     return this.$scopedSlots.default({
       isOpen: this.isOpen,
       isClosed: !this.isOpen,
+      value: this.value,
+      listItems: this.listItemsToRender,
+
       open: this.open,
       close: this.close,
       toggle: this.toggle,
-      value: this.value,
-      listItems: this.listItems,
       filter: this.filter
     });
   }
 };
 
 export { Dropdownue };
-export { DropdownueItem } from './DropdownueItem';
+export { DropdownueItem } from './dropdownueItem';
