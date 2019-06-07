@@ -24,7 +24,7 @@ const DropdownueItem = {
     blur(item) {
       item.isHighlighted = false;
     },
-    toggleSelect(item) {
+    select(item) {
       const previouslySelected = this.list.find((item) => {
         return item.isSelected;
       });
@@ -32,7 +32,7 @@ const DropdownueItem = {
         previouslySelected.isSelected = false;
       }
       item.isSelected = !item.isSelected;
-      EventBus.$emit('changeValue', item.id);
+      EventBus.$emit('dropdownue:changeValue', item.id);
     },
     getItemEvents(item) {
       return {
@@ -43,7 +43,7 @@ const DropdownueItem = {
           this.blur(item);
         },
         click: () => {
-          this.toggleSelect(item);
+          this.select(item);
         }
       }
     }
@@ -52,6 +52,7 @@ const DropdownueItem = {
     return this.$scopedSlots.default({
       isSelected: this.item.isSelected,
       isHighlighted: this.item.isHighlighted,
+
       highlight: this.highlight,
       itemMouseoverEvent: (item) => {
         return this.getItemEvents(item).mouseover();
