@@ -1,4 +1,4 @@
-import EventBus from '../EventBus';
+import EventBus from "../EventBus";
 
 const DropdownueItem = {
   props: {
@@ -25,14 +25,15 @@ const DropdownueItem = {
       item.isHighlighted = false;
     },
     select(item) {
-      const previouslySelected = this.list.find((item) => {
+      const previouslySelected = this.list.find(item => {
         return item.isSelected;
       });
       if (previouslySelected) {
         previouslySelected.isSelected = false;
       }
       item.isSelected = !item.isSelected;
-      EventBus.$emit('dropdownue:changeValue', item.id);
+      EventBus.$emit("dropdownue:changeValue", item.id);
+      this.$emit("change", item.id);
     },
     getItemEvents(item) {
       return {
@@ -45,7 +46,7 @@ const DropdownueItem = {
         click: () => {
           this.select(item);
         }
-      }
+      };
     }
   },
   render() {
@@ -54,10 +55,10 @@ const DropdownueItem = {
       isHighlighted: this.item.isHighlighted,
 
       highlight: this.highlight,
-      itemMouseoverEvent: (item) => {
+      itemMouseoverEvent: item => {
         return this.getItemEvents(item).mouseover();
       },
-      itemMouseoutEvent: (item) => {
+      itemMouseoutEvent: item => {
         return this.getItemEvents(item).mouseout();
       },
       itemEvents: this.getItemEvents
