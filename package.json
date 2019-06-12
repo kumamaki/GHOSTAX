@@ -1,6 +1,6 @@
 {
   "name": "dropdownue",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "dist/dropdownue.umd.js",
   "module": "dist/dropdownue.esm.js",
   "unpkg": "dist/dropdownue.min.js",
