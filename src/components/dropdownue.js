@@ -4,11 +4,6 @@ import hasClickedAway from "../utils/hasClickedAway";
 
 const Dropdownue = {
   props: {
-    initialValue: {
-      type: String,
-      required: false,
-      default: undefined
-    },
     list: {
       type: Array,
       required: true
