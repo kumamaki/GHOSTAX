@@ -2,6 +2,10 @@ import EventBus from "../EventBus";
 
 const DropdownueItem = {
   props: {
+    instanceId: {
+      type: String,
+      required: true
+    },
     list: {
       type: Array,
       required: true
@@ -32,7 +36,7 @@ const DropdownueItem = {
         previouslySelected.isSelected = false;
       }
       item.isSelected = !item.isSelected;
-      EventBus.$emit("dropdownue:changeValue", item.id);
+      EventBus.$emit(`dropdownue:changeValue${this.instanceId}`, item.id);
       this.$emit("change", item.id);
     },
     getItemEvents(item) {
