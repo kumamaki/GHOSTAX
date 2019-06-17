@@ -14,6 +14,10 @@
 
   var DropdownueItem = {
     props: {
+      instanceId: {
+        type: String,
+        required: true
+      },
       list: {
         type: Array,
         required: true
@@ -44,7 +48,7 @@
           previouslySelected.isSelected = false;
         }
         item.isSelected = !item.isSelected;
-        EventBus.$emit("dropdownue:changeValue", item.id);
+        EventBus.$emit(("dropdownue:changeValue" + (this.instanceId)), item.id);
         this.$emit("change", item.id);
       },
       getItemEvents: function getItemEvents(item) {
@@ -82,13 +86,10 @@
     }
   };
 
+  var uuidv4 = require('uuid/v4');
+
   var Dropdownue = {
     props: {
-      initialValue: {
-        type: String,
-        required: false,
-        default: undefined
-      },
       list: {
         type: Array,
         required: true
@@ -121,6 +122,7 @@
     },
     data: function data() {
       return {
+        instanceId: undefined,
         isOpen: false,
         formedListItems: [],
         listItemsToRender: [],
@@ -161,6 +163,9 @@
         }
       }
     },
+    created: function created() {
+      this.instanceId = uuidv4();
+    },
     mounted: function mounted() {
       this.listenOnChangeValue();
     },
@@ -168,7 +173,7 @@
       listenOnChangeValue: function listenOnChangeValue() {
         var this$1 = this;
 
-        EventBus.$on("dropdownue:changeValue", function (newValue) {
+        EventBus.$on(("dropdownue:changeValue" + (this.instanceId)), function (newValue) {
           this$1.select(newValue);
         });
       },
@@ -211,6 +216,7 @@
     },
     render: function render() {
       return this.$scopedSlots.default({
+        instanceId: this.instanceId,
         isOpen: this.isOpen,
         isClosed: !this.isOpen,
         value: this.value,

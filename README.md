@@ -13,9 +13,9 @@ Almost every project needs a dropdown somewhere, And If you are like me, you jus
 ## Installation
 
 ```bash
-yarn add dropdownue
+yarn add dropdownue uuid
 # OR
-npm i dropdownue
+npm i dropdownue uuid
 ```
 
 ## Usage
