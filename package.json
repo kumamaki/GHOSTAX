@@ -1,6 +1,6 @@
 {
   "name": "dropdownue",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/dropdownue.umd.js",
   "module": "dist/dropdownue.esm.js",
   "unpkg": "dist/dropdownue.min.js",
@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "core-js": "^2.6.5",
+    "uuid-random": "^1.0.9",
     "vue": "^2.6.10"
   },
   "devDependencies": {

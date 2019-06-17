@@ -1,4 +1,5 @@
 import Vue from "vue";
+import uuid from "uuid-random";
 import EventBus from "../EventBus";
 import hasClickedAway from "../utils/hasClickedAway";
 
@@ -36,6 +37,7 @@ const Dropdownue = {
   },
   data() {
     return {
+      instanceId: undefined,
       isOpen: false,
       formedListItems: [],
       listItemsToRender: [],
@@ -76,12 +78,15 @@ const Dropdownue = {
       }
     }
   },
+  created() {
+    this.instanceId = uuid();
+  },
   mounted() {
     this.listenOnChangeValue();
   },
   methods: {
     listenOnChangeValue() {
-      EventBus.$on("dropdownue:changeValue", newValue => {
+      EventBus.$on(`dropdownue:changeValue${this.instanceId}`, newValue => {
         this.select(newValue);
       });
     },
@@ -124,6 +129,7 @@ const Dropdownue = {
   },
   render() {
     return this.$scopedSlots.default({
+      instanceId: this.instanceId,
       isOpen: this.isOpen,
       isClosed: !this.isOpen,
       value: this.value,

@@ -43,7 +43,7 @@ You can use `<dropdownue>` like this. **required props are listed on API section
 <dropdownue
   :list="list"
   default-value="value"
-  v-slot="{ isOpen, value: providedValue, listItems, toggle }"
+  v-slot="{ instanceId, isOpen, value: providedValue, listItems, toggle }"
   @change="handleValueChange"
 >
   ...
@@ -84,10 +84,12 @@ export default {
 ### `<dropdownue-item>`
 
 Inside your `<dropdownue>`, there it goes a `<dropdownue-item>` with `v-for` on it.  
-**Remember to attach `itemEvents` to `v-on` of your list items**
+:bangbang: ** You have to get instanceId from `<dropdown>` and pass it to `<dropdown-item>` **  
+:exclamation: **Remember to attach `itemEvents` to `v-on` of your list items**  
 
 ```html
 <dropdownue-item
+  :instance-id="instanceId"
   v-slot="{ isHighlighted, isSelected, itemEvents }"
   v-for="item in listItems"
   :key="item.id"
