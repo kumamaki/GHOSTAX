@@ -1,7 +1,8 @@
 import Vue from "vue";
-import uuid from "uuid-random";
 import EventBus from "../EventBus";
 import hasClickedAway from "../utils/hasClickedAway";
+
+const uuidv4 = require('uuid/v4');
 
 const Dropdownue = {
   props: {
@@ -79,7 +80,7 @@ const Dropdownue = {
     }
   },
   created() {
-    this.instanceId = uuid();
+    this.instanceId = uuidv4();
   },
   mounted() {
     this.listenOnChangeValue();
