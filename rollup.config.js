@@ -1,6 +1,7 @@
 import pkg from './package.json';
 import multiEntry from "rollup-plugin-multi-entry";
 import buble from 'rollup-plugin-buble';
+import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import { terser } from "rollup-plugin-terser";
 

@@ -14,6 +14,10 @@
 
   var DropdownueItem = {
     props: {
+      instanceId: {
+        type: String,
+        required: true
+      },
       list: {
         type: Array,
         required: true
@@ -44,7 +48,8 @@
           previouslySelected.isSelected = false;
         }
         item.isSelected = !item.isSelected;
-        EventBus.$emit('dropdownue:changeValue', item.id);
+        EventBus.$emit(("dropdownue:changeValue" + (this.instanceId)), item.id);
+        this.$emit("change", item.id);
       },
       getItemEvents: function getItemEvents(item) {
         var this$1 = this;
@@ -59,7 +64,7 @@
           click: function () {
             this$1.select(item);
           }
-        }
+        };
       }
     },
     render: function render() {
@@ -81,13 +86,10 @@
     }
   };
 
+  var uuidv4 = require('uuid/v4');
+
   var Dropdownue = {
     props: {
-      initialValue: {
-        type: String,
-        required: false,
-        default: undefined
-      },
       list: {
         type: Array,
         required: true
@@ -100,7 +102,7 @@
       filterQuery: {
         type: String,
         required: false,
-        default: ''
+        default: ""
       },
       closeOnSelect: {
         type: Boolean,
@@ -120,6 +122,7 @@
     },
     data: function data() {
       return {
+        instanceId: undefined,
         isOpen: false,
         formedListItems: [],
         listItemsToRender: [],
@@ -133,20 +136,24 @@
         handler: function handler(newList) {
           var this$1 = this;
 
-          this.formedListItems = Vue.observable(this.list.map(function (item) {
-            return Vue.observable(Object.assign({}, item,
-              {isSelected: item.isSelected || this$1.value == item.id || false,
-              isHighlighted: item.isHighlighted || false}))
-          }));
+          this.formedListItems = Vue.observable(
+            this.list.map(function (item) {
+              var newList = Vue.observable(Object.assign({}, item,
+                {isSelected: item.isSelected || this$1.value == item.id || false,
+                isHighlighted: item.isHighlighted || false}));
+              this$1.$emit("updateList", newList);
+              return newList;
+            })
+          );
         }
       },
       isOpen: function isOpen() {
         if (this.isOpen) {
-          document.addEventListener('click', this.handleClickAway);
-          document.addEventListener('keydown', this.handleClickAway);
+          document.addEventListener("click", this.handleClickAway);
+          document.addEventListener("keydown", this.handleClickAway);
         } else {
-          document.removeEventListener('click', this.handleClickAway);
-          document.removeEventListener('keydone', this.handleClickAway);
+          document.removeEventListener("click", this.handleClickAway);
+          document.removeEventListener("keydone", this.handleClickAway);
         }
       },
       filterQuery: {
@@ -156,6 +163,9 @@
         }
       }
     },
+    created: function created() {
+      this.instanceId = uuidv4();
+    },
     mounted: function mounted() {
       this.listenOnChangeValue();
     },
@@ -163,23 +173,26 @@
       listenOnChangeValue: function listenOnChangeValue() {
         var this$1 = this;
 
-        EventBus.$on('dropdownue:changeValue', function (newValue) {
+        EventBus.$on(("dropdownue:changeValue" + (this.instanceId)), function (newValue) {
           this$1.select(newValue);
         });
       },
       handleClickAway: function handleClickAway(event) {
-        if (hasClickedAway(this.$el, event) || event.key === 'Escape') {
+        if (hasClickedAway(this.$el, event) || event.key === "Escape") {
           this.close();
         }
       },
       open: function open() {
         this.isOpen = true;
+        this.$emit("open");
       },
       close: function close() {
         this.isOpen = false;
+        this.$emit("close");
       },
       toggle: function toggle() {
         this.isOpen = !this.isOpen;
+        this.$emit("toggle", this.isOpen);
       },
       filter: function filter(query) {
         if (query) {
@@ -192,16 +205,18 @@
       },
       select: function select(value) {
         this.value = value;
+        this.$emit("change", value);
         if (this.closeOnSelect) {
           this.close();
         }
         if (this.resetOnSelect) {
-          this.filter('');
+          this.filter("");
         }
       }
     },
     render: function render() {
       return this.$scopedSlots.default({
+        instanceId: this.instanceId,
         isOpen: this.isOpen,
         isClosed: !this.isOpen,
         value: this.value,
