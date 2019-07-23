@@ -1,18 +1,26 @@
 module.exports = {
   root: true,
+
   parserOptions: {
     parser: 'babel-eslint'
   },
+
   env: {
     node: true
   },
+
   plugins: ['vue'],
-  extends: [
-    'plugin:vue/recommended',
-  ],
+
+  extends: ['plugin:vue/recommended', 'plugin:vue/essential', '@vue/airbnb'],
+
   rules: {
     indent: ['error', 2],
-    'no-param-reassign': ['error', { props: false }],
+    'no-param-reassign': [
+      'error',
+      {
+        props: false
+      }
+    ],
     'no-unused-vars': [
       'error',
       {
@@ -39,7 +47,7 @@ module.exports = {
     'global-require': 'off',
     'prefer-promise-reject-errors': 'off',
     'function-paren-newline': 'off',
-    'no-console': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'prefer-arrow-callback': 'off',
     'func-names': 'off',
     'max-len': 'off',
@@ -55,6 +63,11 @@ module.exports = {
     ],
     'vue/html-self-closing': 'off',
     'vue/attributes-order': 'off',
-    'vue/require-prop-types': 'off'
+    'vue/require-prop-types': 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/extensions': 'off',
+    eqeqeq: 'off',
+    'import/prefer-default-export': 'off'
   }
 };
