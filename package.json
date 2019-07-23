@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "rollup --config rollup.config.js",
-    "link-modules": "link-module-alias"
+    "lint": "vue-cli-service lint",
+    "link-modules": "link-module-alias",
+    "postinstall": "yarn run link-modules"
   },
   "main": "dist/dropdownue.esm.js",
   "module": "dist/dropdownue.umd.js",
@@ -18,20 +20,17 @@
     "*.json",
     "*.js"
   ],
-  "_moduleAliases": {
-    "~root" : "./src",
-    "~components" : "./src/components",
-    "~assets" : "./src/assets",
-    "~library" : "./src/library"
-  },
   "dependencies": {
     "core-js": "^3.1.4",
-    "vue": "^2.6.10"
+    "uuid": "^3.3.2",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.7"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-plugin-babel": "^3.9.2",
+    "@vue/cli-plugin-eslint": "^3.9.2",
     "@vue/cli-service": "^3.8.0",
+    "@vue/eslint-config-airbnb": "^4.0.0",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "eslint": "6.1.0",
@@ -42,9 +41,11 @@
     "eslint-plugin-vue": "^5.2.3",
     "fibers": "^4.0.1",
     "link-module-alias": "^1.2.0",
+    "lint-staged": "^8.1.5",
     "node-sass": "^4.12.0",
     "postcss-aspect-ratio": "^1.0.2",
     "postcss-atrule-bem": "^4.0.0",
+    "postcss-css-reset": "^1.0.2",
     "postcss-discard-duplicates": "^4.0.2",
     "postcss-easing-gradients": "^3.0.1",
     "postcss-flexbox": "^1.0.3",
@@ -64,14 +65,32 @@
     "postcss-short": "^5.0.0",
     "rollup": "^1.17.0",
     "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-multi-entry": "^2.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-vue": "^5.0.1",
     "sass": "^1.22.7",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "style-resources-loader": "^1.2.1",
-    "vue-router": "^3.0.7",
+    "vue-cli-plugin-style-resources-loader": "^0.1.3",
     "vue-template-compiler": "^2.6.10"
+  },
+  "_moduleAliases": {
+    "~root": "./src",
+    "~components": "./src/components",
+    "~assets": "./src/assets",
+    "~styles": "./src/assets/styles",
+    "~library": "./src/library"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }

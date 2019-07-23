@@ -1,9 +1,9 @@
-import pkg from './package.json';
-import multiEntry from "rollup-plugin-multi-entry";
+import multiEntry from 'rollup-plugin-multi-entry';
 import buble from 'rollup-plugin-buble';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
-import { terser } from "rollup-plugin-terser";
+import { terser } from 'rollup-plugin-terser';
+import pkg from './package.json';
 
 export default {
   input: './src/library/dropdownue.js',
@@ -32,6 +32,7 @@ export default {
         moduleDirectory: 'node_modules'
       }
     }),
+    commonjs(),
     terser()
   ],
   external: [

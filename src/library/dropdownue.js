@@ -1,6 +1,6 @@
-import Vue from "vue";
-import EventBus from "../EventBus";
-import hasClickedAway from "../utils/hasClickedAway";
+import Vue from 'vue';
+import EventBus from '../EventBus';
+import hasClickedAway from './utils/hasClickedAway';
 
 const uuidv4 = require('uuid/v4');
 
@@ -18,7 +18,7 @@ const Dropdownue = {
     filterQuery: {
       type: String,
       required: false,
-      default: ""
+      default: ''
     },
     closeOnSelect: {
       type: Boolean,
@@ -51,13 +51,13 @@ const Dropdownue = {
       deep: true,
       handler(newList) {
         this.formedListItems = Vue.observable(
-          this.list.map(item => {
+          this.list.map((item) => {
             const newList = Vue.observable({
               ...item,
               isSelected: item.isSelected || this.value == item.id || false,
               isHighlighted: item.isHighlighted || false
             });
-            this.$emit("updateList", newList);
+            this.$emit('updateList', newList);
             return newList;
           })
         );
@@ -65,11 +65,11 @@ const Dropdownue = {
     },
     isOpen() {
       if (this.isOpen) {
-        document.addEventListener("click", this.handleClickAway);
-        document.addEventListener("keydown", this.handleClickAway);
+        document.addEventListener('click', this.handleClickAway);
+        document.addEventListener('keydown', this.handleClickAway);
       } else {
-        document.removeEventListener("click", this.handleClickAway);
-        document.removeEventListener("keydone", this.handleClickAway);
+        document.removeEventListener('click', this.handleClickAway);
+        document.removeEventListener('keydone', this.handleClickAway);
       }
     },
     filterQuery: {
@@ -87,30 +87,30 @@ const Dropdownue = {
   },
   methods: {
     listenOnChangeValue() {
-      EventBus.$on(`dropdownue:changeValue${this.instanceId}`, newValue => {
+      EventBus.$on(`dropdownue:changeValue${this.instanceId}`, (newValue) => {
         this.select(newValue);
       });
     },
     handleClickAway(event) {
-      if (hasClickedAway(this.$el, event) || event.key === "Escape") {
+      if (hasClickedAway(this.$el, event) || event.key === 'Escape') {
         this.close();
       }
     },
     open() {
       this.isOpen = true;
-      this.$emit("open");
+      this.$emit('open');
     },
     close() {
       this.isOpen = false;
-      this.$emit("close");
+      this.$emit('close');
     },
     toggle() {
       this.isOpen = !this.isOpen;
-      this.$emit("toggle", this.isOpen);
+      this.$emit('toggle', this.isOpen);
     },
     filter(query) {
       if (query) {
-        this.listItemsToRender = this.formedListItems.filter(item => {
+        this.listItemsToRender = this.formedListItems.filter((item) => {
           return item.name.includes(query);
         });
       } else {
@@ -119,12 +119,12 @@ const Dropdownue = {
     },
     select(value) {
       this.value = value;
-      this.$emit("change", value);
+      this.$emit('change', value);
       if (this.closeOnSelect) {
         this.close();
       }
       if (this.resetOnSelect) {
-        this.filter("");
+        this.filter('');
       }
     }
   },
@@ -145,4 +145,4 @@ const Dropdownue = {
 };
 
 export { Dropdownue };
-export { DropdownueItem } from "./dropdownueItem";
+export { DropdownueItem } from './dropdownueItem';
