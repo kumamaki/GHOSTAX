@@ -11,10 +11,11 @@ module.exports = {
 
   plugins: ['vue'],
 
-  extends: ['plugin:vue/recommended', 'plugin:vue/essential', '@vue/airbnb'],
-
   rules: {
-    indent: ['error', 2],
+    indent: [
+      'error',
+      2
+    ],
     'no-param-reassign': [
       'error',
       {
@@ -29,7 +30,10 @@ module.exports = {
         ignoreRestSiblings: false
       }
     ],
-    'arrow-body-style': ['error', 'always'],
+    'arrow-body-style': [
+      'error',
+      'always'
+    ],
     'space-before-function-paren': [
       'error',
       {
@@ -38,7 +42,10 @@ module.exports = {
         asyncArrow: 'always'
       }
     ],
-    'comma-dangle': ['error', 'never'],
+    'comma-dangle': [
+      'error',
+      'never'
+    ],
     'consistent-return': 'off',
     'no-shadow': 'off',
     'no-plusplus': 'off',
@@ -47,7 +54,7 @@ module.exports = {
     'global-require': 'off',
     'prefer-promise-reject-errors': 'off',
     'function-paren-newline': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': 'off',
     'prefer-arrow-callback': 'off',
     'func-names': 'off',
     'max-len': 'off',
@@ -62,12 +69,29 @@ module.exports = {
       }
     ],
     'vue/html-self-closing': 'off',
-    'vue/attributes-order': 'off',
-    'vue/require-prop-types': 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'no-debugger': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true
+      }
+    ],
     'import/extensions': 'off',
     eqeqeq: 'off',
-    'import/prefer-default-export': 'off'
-  }
+    'import/prefer-default-export': 'off',
+    'vue/array-bracket-spacing': 'error',
+    'vue/arrow-spacing': 'error',
+    'vue/brace-style': 'error',
+    'vue/no-restricted-syntax': 'error',
+    'vue/object-curly-spacing': 'error',
+    'vue/space-unary-ops': 'error',
+    'vue/v-on-function-call': 'error',
+    'vue/camelcase': 'error'
+  },
+
+  extends: [
+    'plugin:vue/recommended',
+    'plugin:vue/essential',
+    '@vue/airbnb'
+  ]
 };
