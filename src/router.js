@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '~components/Home/Home.vue';
+import Home from '~pages/Home/Home';
+import Dropdownue from '~pages/Dropdown/Dropdown';
 
 Vue.use(Router);
 
@@ -9,7 +10,14 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: 'dropdownue',
+          name: 'root-dropdownue',
+          component: Dropdownue
+        }
+      ]
     }
   ]
 });

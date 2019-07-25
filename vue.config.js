@@ -4,5 +4,12 @@ module.exports = {
       preProcessor: 'scss',
       patterns: ['./src/assets/styles/variables/*.scss']
     }
+  },
+
+  assetsDir: 'assets',
+  productionSourceMap: false,
+
+  css: {
+    sourceMap: true
   }
 };
