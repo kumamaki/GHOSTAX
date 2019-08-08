@@ -1,7 +1,8 @@
-$grid: 8px;
-$grid--normal: $grid * 2;
-$grid--medium: $grid * 3;
-$grid--large: $grid * 4;
-$grid--xlarge: $grid * 5;
-$grid--xxlarge: $grid * 6;
-$grid--xxxlarge: $grid * 7;
+$grid: 0.5rem;
+$grid--normal: calc(#{$grid} * 2);
+$grid--medium: calc(#{$grid} * 3);
+$grid--large: calc(#{$grid} * 4);
+$grid--xlarge: calc(#{$grid} * 5);
+$grid--xxlarge: calc(#{$grid} * 6);
+$grid--xxxlarge: calc(#{$grid} * 7);
+$grid--huge: calc(#{$grid} * 10);

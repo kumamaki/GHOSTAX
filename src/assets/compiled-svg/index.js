@@ -1,4 +1,5 @@
 /* eslint-disable */
-require('./ghost')
-require('./tilde')
-require('./vue')
+import './ghost'
+import './glasses'
+import './tilde'
+import './vue'
