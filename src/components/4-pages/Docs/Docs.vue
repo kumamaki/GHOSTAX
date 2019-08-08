@@ -1,15 +1,16 @@
 <template>
-  <present class="dropdownu">
-  </present>
+  <div class="docs">
+    <docs-sheet class="docs__sheet" />
+  </div>
 </template>
 
 <script>
-import Present from '~layouts/Present/Present';
+import DocsSheet from '~layouts/DocsSheet/DocsSheet';
 
 export default {
-  name: 'DropdownueLayout',
+  name: 'DocsPage',
   components: {
-    Present
+    DocsSheet
   },
   props: {},
   data() {
@@ -19,7 +20,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.dropdownu {
+.docs {
 
 }
 </style>

@@ -1,7 +1,10 @@
 <template>
-  <main class="present">
-    <the-header class="present__header" />
-    <div class="present__content">
+  <main class="presentor">
+    <the-header
+      :collapse="$router.currentRoute.name !== 'home'"
+      class="presentor__header"
+    />
+    <div class="presentor__content">
       <slot />
     </div>
   </main>
@@ -11,7 +14,7 @@
 import TheHeader from '~organisms/TheHeader/TheHeader';
 
 export default {
-  name: 'PresentLayout',
+  name: 'PresentorLayout',
   components: {
     TheHeader
   },
@@ -23,15 +26,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.present {
+.presentor {
   box: vertical middle;
 
   &__header {
-    margin: ms(3) 0;
+    margin-top: $grid--huge;
   }
 
   &__content {
-
+    margin: $grid--huge 0;
   }
 
 }

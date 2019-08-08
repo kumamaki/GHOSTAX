@@ -2,7 +2,10 @@
   <div class="projectDescription">
     <p>
       <span>
-        Ghost is a <i>renderless</i>
+        <span class="brand">
+          Ghostr
+        </span>
+        is a <i>renderless</i>
         <a
           href="https://vuejs.org/"
           class="vue"
@@ -13,7 +16,10 @@
         framework.
       </span>
       <br />
-      <a href="https://adamwathan.me/renderless-components-in-vuejs/">
+      <a
+        href="https://adamwathan.me/renderless-components-in-vuejs/"
+        target="_blank"
+      >
         What is vue renderless?
       </a>
       <br />
@@ -25,7 +31,7 @@
     </p>
 
     <p>
-      There already are many many UI frameworks for vue. and the problem with them is - you gussed it - they add their own highly opinionated interface.
+      There are already many many UI frameworks for vue. and the problem with them is - you gussed it - they add their own highly opinionated interface.
       and then, any sort of effort for changin the styles to match the look you need to be, leads to an awful and ugly CSS.
       of course they are handy when you want prototype, or you don't even care about the interface. but what if you want your custom style?
       which you should want! what if you work in a team that has a UI/UX department?
@@ -37,7 +43,7 @@
 
 <script>
 export default {
-  name: 'ProjectDescription',
+  name: 'ProjectDescriptionOrganism',
   props: {},
   data() {
     return {};
@@ -51,11 +57,17 @@ export default {
   color: $color-gray-700;
   width: 500px;
 
+  .brand {
+    font-family: 'Londrina Solid';
+    font-size: 1.1em;
+  }
+
   a {
     text-decoration: underline;
     color: $color-primary-700;
     &.vue {
-      padding: .25rem .5rem;
+      padding: .15rem .5rem;
+      font-size: 0.9em;
       background-color: $blue-white;
       border-radius: 3px;
       margin: 0 0.5rem;
@@ -69,6 +81,11 @@ export default {
         fill: #35495e;
       }
     }
+  }
+
+  b {
+    font-weight: 600;
+    color: $color-primary-900;
   }
 
   p {
