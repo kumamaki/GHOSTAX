@@ -21,6 +21,6 @@ export default {
 
 <style scoped lang="scss">
 .docs {
-
+  width: var(--general-width);
 }
 </style>

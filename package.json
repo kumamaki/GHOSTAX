@@ -92,6 +92,7 @@
     "~src": "./src",
     "~components": "./src/components",
     "~assets": "./src/assets",
+    "~images": "./src/assets/images",
     "~styles": "./src/assets/styles",
     "~library": "./src/library",
     "~icons": "./src/assets/compiled-svg",

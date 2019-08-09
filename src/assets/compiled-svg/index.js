@@ -1,5 +1,5 @@
 /* eslint-disable */
-import './ghost'
+import './ghostax'
 import './glasses'
 import './tilde'
 import './vue'
