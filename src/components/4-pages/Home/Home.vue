@@ -1,29 +1,29 @@
 <template>
   <div class="home">
-    <content-holder class="home__contentHolder">
-      <project-description class="home__description" />
-      <base-button
-        :to="{
-          name: 'docs'
-        }"
-        class="home__docsLink"
-        icon="glasses"
-      >
-        Check out the docs!
-      </base-button>
-    </content-holder>
+    <home-content class="home__content" />
+    <home-hero class="home__hero" />
+    <!-- <project-description class="home__description" /> -->
+    <!-- <base-button
+      :to="{
+        name: 'docs'
+      }"
+      class="home__docsLink"
+      icon="glasses"
+    >
+      Check out the docs!
+    </base-button> -->
   </div>
 </template>
 
 <script>
-import ContentHolder from '~organisms/ContentHolder/ContentHolder';
-import ProjectDescription from '~organisms/ProjectDescription/ProjectDescription';
+import HomeHero from './Hero';
+import HomeContent from './Content';
 
 export default {
-  name: 'HomePage',
+  name: 'Home',
   components: {
-    ContentHolder,
-    ProjectDescription
+    HomeHero,
+    HomeContent
   },
   props: {},
   data() {
@@ -34,21 +34,17 @@ export default {
 
 <style scoped lang="scss">
 .home {
-  &__header {
+  width: 1920px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &__content {
 
   }
 
-  &__contentHolder {
-    flex-grow: 1;
-    box: vertical center;
-  }
+  &__hero {
 
-  &__description {
   }
-
-  &__docsLink {
-    margin-top: ms(3);
-  }
-
 }
 </style>

@@ -1,17 +1,20 @@
 <template>
   <section class="docs">
-    <app-navigation class="docs__navigatinon" />
+    <docs-navigation
+      class="docs__navigatinon"
+      parent-name="docs"
+    />
     <router-view class="docs__content" />
   </section>
 </template>
 
 <script>
-import AppNavigation from '~molecules/Navigation/Navigation';
+import DocsNavigation from '~molecules/Navigation/Navigation';
 
 export default {
   name: 'DocsSheetLayout',
   components: {
-    AppNavigation
+    DocsNavigation
   },
   props: {},
   data() {
@@ -23,7 +26,7 @@ export default {
 <style scoped lang="scss">
 .docs {
   display: grid;
-  grid-template-columns: 12.5rem auto;
+  grid-template-columns: calc(#{$grid * 25}) auto;
   grid-column-gap: $grid--xlarge;
 
   &__navigatinon {
@@ -31,9 +34,6 @@ export default {
 
   &__content {
     padding-left: $grid--xxlarge;
-  }
-
-  &__sectionManager {
   }
 }
 </style>
