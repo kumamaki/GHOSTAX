@@ -2,6 +2,7 @@ import Vue from 'vue';
 import _upperFirst from 'lodash.upperfirst';
 import _camelCase from 'lodash.camelcase';
 import SvgIcon from 'vue-svgicon';
+import Vuebar from 'vuebar';
 import App from './App.vue';
 import router from './router';
 
@@ -35,6 +36,8 @@ Vue.config.productionTip = false;
 Vue.use(SvgIcon, {
   tagName: 'svg-icon'
 });
+
+Vue.use(Vuebar);
 
 new Vue({
   router,

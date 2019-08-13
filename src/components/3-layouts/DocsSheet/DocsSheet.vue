@@ -1,10 +1,10 @@
 <template>
-  <section class="docs">
+  <section class="docsSheet">
     <docs-navigation
-      class="docs__navigatinon"
+      class="docsSheet__navigatinon"
       parent-name="docs"
     />
-    <router-view class="docs__content" />
+    <router-view class="docsSheet__content" />
   </section>
 </template>
 
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.docs {
+.docsSheet {
   display: grid;
   grid-template-columns: calc(#{$grid * 25}) auto;
   grid-column-gap: $grid--xlarge;
@@ -33,7 +33,7 @@ export default {
   }
 
   &__content {
-    padding-left: $grid--xxlarge;
+    min-height: 0;
   }
 }
 </style>

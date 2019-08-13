@@ -1,20 +1,19 @@
 <template>
   <nav class="navigation">
-    <ul class="navigation__list">
-      <li
-        v-for="child in children"
-        :key="child.name"
-        class="navigation__item"
-      >
-        {{ normalizeName(child.name) }}
-      </li>
-    </ul>
+    <navigation-list
+      :parent-name="parentName"
+    />
   </nav>
 </template>
 
 <script>
+import NavigationList from './NavigationList';
+
 export default {
   name: 'NavigationMolecule',
+  components: {
+    NavigationList
+  },
   props: {
     parentName: {
       type: String,
@@ -25,20 +24,8 @@ export default {
     return {};
   },
   computed: {
-    children() {
-      return this.$route.matched.filter((route) => {
-        if (route.name) {
-          return route.name.includes(`${this.parentName}-`);
-        }
-        return false;
-      });
-    }
-  },
-  methods: {
-    normalizeName(name) {
-      return name.replace(`${this.parentName}-`, '');
-    }
   }
+
 };
 </script>
 

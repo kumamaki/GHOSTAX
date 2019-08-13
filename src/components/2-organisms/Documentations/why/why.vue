@@ -1,19 +1,14 @@
 <template>
-  <div class="projectDescription">
+  <div class="why">
+    <h1>
+      why?
+    </h1>
     <p>
       <span>
         <span class="brand">
           Ghostr
         </span>
-        is a <i>renderless</i>
-        <a
-          href="https://vuejs.org/"
-          class="vue"
-        >
-          <svg-icon name="vue" />
-          vue
-        </a>
-        framework.
+        is a <i>renderless</i> vue framework.
       </span>
       <br />
       <a
@@ -43,7 +38,7 @@
 
 <script>
 export default {
-  name: 'ProjectDescription',
+  name: 'Why',
   props: {},
   data() {
     return {};
@@ -52,44 +47,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.projectDescription {
-  padding: ms(2);
-  color: $color-gray-700;
-  width: 500px;
+.why {
 
-  .brand {
-    font-family: 'Londrina Solid';
-    font-size: 1.1em;
-  }
-
-  a {
-    text-decoration: underline;
-    color: $color-primary-700;
-    &.vue {
-      padding: .15rem .5rem;
-      font-size: 0.9em;
-      background-color: $blue-white;
-      border-radius: 3px;
-      margin: 0 0.5rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: currentColor;
-      ::v-deep path:nth-child(1) {
-        fill: #41b883;
-      }
-      ::v-deep path:nth-child(2) {
-        fill: #35495e;
-      }
-    }
-  }
-
-  b {
-    font-weight: 600;
-    color: $color-primary-900;
-  }
-
-  p {
-    margin-top:  1rem;
-  }
 }
 </style>
