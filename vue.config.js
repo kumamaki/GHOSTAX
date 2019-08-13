@@ -11,5 +11,8 @@ module.exports = {
 
   css: {
     sourceMap: true
+  },
+
+  chainWebpack: (config) => {
   }
 };

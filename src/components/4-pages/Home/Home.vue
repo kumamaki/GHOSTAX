@@ -34,7 +34,7 @@ export default {
 
 <style scoped lang="scss">
 .home {
-  width: 1920px;
+  width: 100%;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;

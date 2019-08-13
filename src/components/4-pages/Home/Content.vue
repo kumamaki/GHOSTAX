@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import GhostaxLogo from '~atoms/ghostax';
+import GhostaxLogo from '~atoms/Ghostax';
 
 export default {
   name: 'HomeContent',
