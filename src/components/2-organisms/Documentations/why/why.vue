@@ -6,7 +6,7 @@
     <p>
       <span>
         <span class="brand">
-          Ghostr
+          GHOSTAX
         </span>
         is a <i>renderless</i> vue framework.
       </span>
