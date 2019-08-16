@@ -1,15 +1,12 @@
 <template>
   <section class="content">
     <header class="content__header">
-      <ghostax-logo class="content__logo" />
-      <div class="content__texts">
-        <h1 class="content__title">
-          GHOSTAX
-        </h1>
-        <h2 class="content__description">
-          abstracts the logic!
-        </h2>
-      </div>
+      <app-logo
+        :omit-logo="true"
+        :mask="true"
+        class="content__logo"
+        size="big"
+      />
     </header>
     <article class="content__sheet">
       <p>
@@ -44,12 +41,12 @@
 </template>
 
 <script>
-import GhostaxLogo from '~atoms/Ghostax';
+import AppLogo from '~molecules/Logo/Logo';
 
 export default {
   name: 'HomeContent',
   components: {
-    GhostaxLogo
+    AppLogo
   },
   props: {},
   data() {
@@ -69,14 +66,11 @@ export default {
   justify-self: center;
 
   &__header {
-    display: grid;
-    grid-template-columns: [logo-start] 100px [logo-end text-start] auto [text-end];
-    grid-column-gap: $grid--normal;
-    align-items: center;
+    size: 100%;
   }
 
   &__logo {
-    size: 100px;
+    size: 100%;
   }
 
   &__texts {
@@ -91,7 +85,7 @@ export default {
   }
 
   &__description {
-    font-family: 'operator mono lig book';
+    font-family: $mono-typeface;
     font-size: ms(1);
     font-style: italic;
     color: $color-primary-500;
@@ -99,25 +93,30 @@ export default {
   }
 
   &__sheet {
-    padding: $grid--medium;
+    padding: $grid--medium 0;
     margin-top: $grid--medium;
+
     ::v-deep {
+
       a {
         text-decoration: underline;
         color: $color-primary-700;
+
         &.vue {
           padding: .15rem .5rem;
-          font-size: 0.9em;
+          font-size: .9em;
           background-color: $blue-white;
           border-radius: 3px;
-          margin: 0 0.5rem;
+          margin: 0 .5rem;
           text-decoration: none;
           color: currentColor;
+
           path:nth-child(1) {
-            fill: #41b883;
+            fill: #41B883;
           }
+
           path:nth-child(2) {
-            fill: #35495e;
+            fill: #35495E;
           }
         }
       }
@@ -126,7 +125,6 @@ export default {
 
   &__cta {
     justify-self: start;
-    margin-left: $grid--medium;
   }
 }
 </style>

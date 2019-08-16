@@ -1,11 +1,30 @@
 <template>
-  <div class="logo">
-    <ghostax class="logo__image" />
-    <div class="logo__texts">
-      <h1 class="logo__name">
+  <div
+    :class="{
+      'logo--noImage': omitLogo
+    }"
+    class="logo"
+  >
+    <ghostax
+      v-if="!omitLogo"
+      class="logo__image"
+    />
+    <div
+      :class="[`logo__texts--${size}`]"
+      class="logo__texts"
+    >
+      <h1
+        :class="[`logo__name--${size}`, {
+          'logo__name--mask': mask
+        }]"
+        class="logo__name"
+      >
         GHOSTAX
       </h1>
-      <h2 class="logo__slogan">
+      <h2
+        :class="[`logo__slogan--${size}`]"
+        class="logo__slogan"
+      >
         abstracts the logic!
       </h2>
     </div>
@@ -20,7 +39,24 @@ export default {
   components: {
     Ghostax
   },
-  props: {},
+  props: {
+    size: {
+      type: String,
+      required: false,
+      default: 'small',
+      validator(value) {
+        return ['big', 'medium', 'small'].includes(value);
+      }
+    },
+    omitLogo: {
+      type: Boolean,
+      default: false
+    },
+    mask: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {};
   }
@@ -29,10 +65,16 @@ export default {
 
 <style scoped lang="scss">
 .logo {
+  --logo-size: 70px;
+
   display: grid;
   grid-template-columns: [logo-start] var(--logo-size) [logo-end text-start] auto [text-end];
   grid-column-gap: $grid--normal;
   align-items: center;
+
+  &--noImage {
+    grid-template-columns: auto;
+  }
 
   &__image {
     size: var(--logo-size);
@@ -47,14 +89,32 @@ export default {
     font-weight: 600;
     color: #26215D;
     line-height: 1;
+    position: relative;
+
+    &--mask {
+      background-image: url('~@/assets/images/galaxy.png');
+      background-size: 150%;
+      background-repeat: no-repeat;
+      background-clip: text;
+      color: transparent;
+      background-position: 55% 75%;
+    }
+
+    &--big {
+      font-size: ms(6);
+      font-weight: 900;
+    }
   }
 
   &__slogan {
-    font-family: 'operator mono lig book';
+    font-family: $mono-typeface;
     font-size: ms(0);
-    font-style: italic;
     color: $color-primary-500;
     font-weight: 600;
+
+    &--big {
+      font-size: ms(2);
+    }
   }
 }
 </style>

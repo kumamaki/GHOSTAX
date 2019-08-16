@@ -2,16 +2,6 @@
   <div class="home">
     <home-content class="home__content" />
     <home-hero class="home__hero" />
-    <!-- <project-description class="home__description" /> -->
-    <!-- <base-button
-      :to="{
-        name: 'docs'
-      }"
-      class="home__docsLink"
-      icon="glasses"
-    >
-      Check out the docs!
-    </base-button> -->
   </div>
 </template>
 
