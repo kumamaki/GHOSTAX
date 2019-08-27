@@ -36,7 +36,6 @@ Vue.config.productionTip = false;
 Vue.use(SvgIcon, {
   tagName: 'svg-icon'
 });
-
 Vue.use(Vuebar);
 
 new Vue({

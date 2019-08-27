@@ -24,6 +24,8 @@ export default {
 
 <style scoped lang="scss">
 .docs {
+  --logo-size: 70px;
+
   width: var(--general-width);
   height: calc(100vh - #{$grid--xxlarge});
   margin: 0 auto;

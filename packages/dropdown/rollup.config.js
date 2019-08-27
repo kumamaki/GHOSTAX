@@ -6,18 +6,21 @@ import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 export default {
-  input: './src/library/dropdownue.js',
+  input: './src/dropdown.js',
   output: [
     {
+      name: 'dropdown',
       file: pkg.main,
       exports: 'named',
       format: 'es'
     },
     {
+      name: 'dropdown',
       file: pkg.module,
       format: 'cjs'
     },
     {
+      name: 'dropdown',
       file: pkg.browser,
       format: 'iife'
     }

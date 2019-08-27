@@ -1,6 +1,7 @@
 <template>
   <nav class="navigation">
     <navigation-list
+      class="navigation__list"
       :parent-name="parentName"
     />
   </nav>
@@ -33,12 +34,13 @@ export default {
 .navigation {
 
   &__list {
-
+    display: grid;
+    grid-template-rows: auto-fit;
+    grid-row-gap: $grid--large;
   }
 
   &__item {
     text-transform: capitalize;
   }
-
 }
 </style>

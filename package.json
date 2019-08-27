@@ -1,5 +1,5 @@
 {
-  "name": "ghostr",
+  "name": "ghostax",
   "description": "Renderless vue framework",
   "version": "0.0.0",
   "private": true,
@@ -12,10 +12,6 @@
     "generate:symlinks": "link-module-alias",
     "postinstall": "yarn generate:icons && yarn generate:symlinks"
   },
-  "main": "dist/dropdownue.esm.js",
-  "module": "dist/dropdownue.umd.js",
-  "browser": "dist/dropdownue.min.js",
-  "unpkg": "dist/dropdownue.min.js",
   "files": [
     "dist/*",
     "src/*",
@@ -23,16 +19,20 @@
     "*.json",
     "*.js"
   ],
+  "workspaces": [
+     "packages/*"
+  ],
   "dependencies": {
     "core-js": "^2.6.8",
     "lodash.camelcase": "^4.3.0",
     "lodash.isempty": "^4.4.0",
     "lodash.upperfirst": "^4.3.1",
     "obj-traverse": "^1.0.0",
+    "prismjs": "^1.17.1",
     "spiritjs": "^2.4.1",
-    "uuid": "^3.3.2",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
+    "vue-prism-component": "^1.1.1",
     "vue-router": "^3.0.7",
     "vuebar": "^0.0.20"
   },
@@ -50,6 +50,7 @@
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-vue": "^5.2.3",
     "fibers": "^4.0.1",
+    "lerna": "^3.16.4",
     "link-module-alias": "^1.2.0",
     "lint-staged": "^8.1.5",
     "modularscale-sass": "^3.0.8",
@@ -75,13 +76,6 @@
     "postcss-selector-not": "^4.0.0",
     "postcss-shape": "^0.0.1",
     "postcss-short": "^5.0.0",
-    "rollup": "^1.17.0",
-    "rollup-plugin-buble": "^0.19.8",
-    "rollup-plugin-commonjs": "^10.0.1",
-    "rollup-plugin-multi-entry": "^2.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.1",
-    "rollup-plugin-vue": "^5.0.1",
     "sass": "^1.22.7",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -98,14 +92,14 @@
     "~assets": "./src/assets",
     "~images": "./src/assets/images",
     "~styles": "./src/assets/styles",
-    "~library": "./src/library",
     "~helpers": "./src/helpers",
     "~icons": "./src/assets/compiled-svg",
     "~atoms": "./src/components/0-atoms",
     "~molecules": "./src/components/1-molecules",
     "~organisms": "./src/components/2-organisms",
     "~layouts": "./src/components/3-layouts",
-    "~pages": "./src/components/4-pages"
+    "~pages": "./src/components/4-pages",
+    "~packages": "./packages"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

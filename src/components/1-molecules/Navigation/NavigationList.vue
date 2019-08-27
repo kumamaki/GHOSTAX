@@ -109,6 +109,9 @@ export default {
     color: $color-gray-500;
     font-size: ms(-1);
     font-weight: 700;
+    display: grid;
+    grid-template-rows: auto-fit;
+    grid-row-gap: $grid--large;
   }
 }
 </style>

@@ -1,6 +1,6 @@
-import EventBus from '../EventBus';
+import EventBus from '~packages/EventBus';
 
-const DropdownueItem = {
+const DropdownItem = {
   props: {
     instanceId: {
       type: String,
@@ -70,4 +70,4 @@ const DropdownueItem = {
   }
 };
 
-export { DropdownueItem };
+export { DropdownItem };
