@@ -30,7 +30,7 @@ export default new Router({
           },
           children: [
             {
-              path: 'introduction/',
+              path: 'introduction',
               name: 'docs-introduction',
               component: DocsContent,
               meta: {
@@ -54,6 +54,27 @@ export default new Router({
                   meta: {
                     docName: 'installation',
                     title: 'Installation'
+                  }
+                }
+              ]
+            },
+            {
+              path: 'components',
+              name: 'docs-components',
+              component: DocsContent,
+              meta: {
+                title: 'Components'
+              },
+              redirect: {
+                name: 'docs-components-dropdown'
+              },
+              children: [
+                {
+                  path: 'dropdown',
+                  name: 'docs-components-dropdown',
+                  meta: {
+                    docName: 'dropdown',
+                    title: 'Dropdown'
                   }
                 }
               ]

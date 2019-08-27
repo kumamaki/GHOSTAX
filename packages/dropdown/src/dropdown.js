@@ -1,14 +1,24 @@
-import Vue from 'vue';
-import EventBus from '../EventBus';
-import hasClickedAway from './utils/hasClickedAway';
+import uuidv4 from 'uuid/v4';
+import EventBus from '~packages/EventBus';
+import { hasClickedAway, listHelpers, optionsHelpers } from './helpers';
 
-const uuidv4 = require('uuid/v4');
 
-const Dropdownue = {
+const defaultOptions = {
+  closeOnSelect: true,
+  closeOnClickaway: true,
+  resetFilterOnSelect: true,
+  fields: {
+    unique: 'id',
+    label: 'label'
+  }
+};
+
+const Dropdown = {
+  name: 'GhostaxDropdown',
   props: {
-    list: {
+    rawList: {
       type: Array,
-      required: true
+      required: false
     },
     defaultValue: {
       type: String,
@@ -20,49 +30,36 @@ const Dropdownue = {
       required: false,
       default: ''
     },
-    closeOnSelect: {
-      type: Boolean,
+    options: {
+      type: Object,
       required: false,
-      default: true
-    },
-    closeOnClickaway: {
-      type: Boolean,
-      required: false,
-      default: true
-    },
-    resetOnSelect: {
-      type: Boolean,
-      required: false,
-      default: true
+      default() {
+        return {};
+      }
     }
   },
   data() {
     return {
-      instanceId: undefined,
+      instanceId: uuidv4(),
       isOpen: false,
-      formedListItems: [],
-      listItemsToRender: [],
       value: this.defaultValue
     };
   },
-  watch: {
-    list: {
-      immediate: true,
-      deep: true,
-      handler(newList) {
-        this.formedListItems = Vue.observable(
-          this.list.map((item) => {
-            const newList = Vue.observable({
-              ...item,
-              isSelected: item.isSelected || this.value == item.id || false,
-              isHighlighted: item.isHighlighted || false
-            });
-            this.$emit('updateList', newList);
-            return newList;
-          })
-        );
-      }
+  computed: {
+    nomalizedOptions() {
+      optionsHelpers.validate(this.options, defaultOptions);
+      return optionsHelpers.normalize(this.options, defaultOptions);
     },
+    normalizedList() {
+      return listHelpers.normalize(this.rawList, this.value);
+    },
+    listToRender() {
+      return this.normalizedList.filter((item) => {
+        return item[this.nomalizedOptions.fields.label].includes(this.filterQuery);
+      });
+    }
+  },
+  watch: {
     isOpen() {
       if (this.isOpen) {
         document.addEventListener('click', this.handleClickAway);
@@ -71,23 +68,18 @@ const Dropdownue = {
         document.removeEventListener('click', this.handleClickAway);
         document.removeEventListener('keydone', this.handleClickAway);
       }
-    },
-    filterQuery: {
-      immediate: true,
-      handler(newFilterQuery) {
-        this.filter(newFilterQuery);
-      }
     }
   },
-  created() {
-    this.instanceId = uuidv4();
-  },
   mounted() {
+    this.normalizeOptions();
     this.listenOnChangeValue();
   },
   methods: {
+    normalizeOptions() {
+      this.normalizedOptions = optionsHelpers.normalize(this.options);
+    },
     listenOnChangeValue() {
-      EventBus.$on(`dropdownue:changeValue${this.instanceId}`, (newValue) => {
+      EventBus.$on(`ghostax/dropdown:changeValue${this.instanceId}`, (newValue) => {
         this.select(newValue);
       });
     },
@@ -108,13 +100,13 @@ const Dropdownue = {
       this.isOpen = !this.isOpen;
       this.$emit('toggle', this.isOpen);
     },
-    filter(query) {
+    filterList(query) {
       if (query) {
-        this.listItemsToRender = this.formedListItems.filter((item) => {
-          return item.name.includes(query);
+        this.listToRender = this.normalizedList.filter((item) => {
+          return item[this.nomalizedOptions.fields.label].includes(query);
         });
       } else {
-        this.listItemsToRender = this.formedListItems;
+        this.listToRender = this.normalizedList;
       }
     },
     select(value) {
@@ -124,7 +116,7 @@ const Dropdownue = {
         this.close();
       }
       if (this.resetOnSelect) {
-        this.filter('');
+        this.filterList('');
       }
     }
   },
@@ -134,7 +126,7 @@ const Dropdownue = {
       isOpen: this.isOpen,
       isClosed: !this.isOpen,
       value: this.value,
-      listItems: this.listItemsToRender,
+      listToRender: this.listToRender,
 
       open: this.open,
       close: this.close,
@@ -144,5 +136,5 @@ const Dropdownue = {
   }
 };
 
-export { Dropdownue };
-export { DropdownueItem } from './dropdownueItem';
+export { Dropdown };
+export { DropdownItem } from './dropdownItem';

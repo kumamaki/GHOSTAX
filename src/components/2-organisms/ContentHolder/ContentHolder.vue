@@ -17,6 +17,9 @@
 </template>
 
 <script>
+import 'prismjs';
+import 'prismjs/themes/prism.css';
+
 export default {
   name: 'ContentHolder',
   props: {
@@ -39,13 +42,17 @@ export default {
   --inner-gap: #{$grid--large};
 
   display: grid;
-  grid-template-columns: auto 100px;
+  grid-template-columns: auto;
   border-radius: 5px;
   padding: var(--inner-gap);
   background-color: #FFFFFF;
   box-shadow: 0 0 100px rgba(0, 0, 0, .05);
   color: $color-gray-800;
   line-height: 1.618;
+
+  &__inner {
+    padding-right: $grid--large;
+  }
 
   ::v-deep {
 
@@ -111,4 +118,18 @@ export default {
     }
   }
 }
+</style>
+
+<style lang="scss">
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background-color: #F6F8FF;
+  padding: 0;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  font-family: $mono-typeface;
+}
+
 </style>
