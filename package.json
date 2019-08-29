@@ -6,7 +6,6 @@
   "scripts": {
     "prepare": "yarn generate:icons && yarn generate:symlinks",
     "serve": "yarn prepare && vue-cli-service serve",
-    "build": "yarn prepare && rollup --config rollup.config.js",
     "lint": "vue-cli-service lint",
     "generate:icons": "vsvg -s ./src/assets/raw-svg -t ./src/assets/compiled-svg --es6",
     "generate:symlinks": "link-module-alias",
@@ -20,10 +19,10 @@
     "*.js"
   ],
   "workspaces": [
-     "packages/*"
+    "packages/*"
   ],
   "dependencies": {
-    "core-js": "^2.6.8",
+    "core-js": "^3.2.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.isempty": "^4.4.0",
     "lodash.upperfirst": "^4.3.1",
@@ -43,8 +42,8 @@
     "@vue/eslint-config-airbnb": "^4.0.0",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
-    "eslint": "6.1.0",
-    "eslint-config-airbnb": "17.1.1",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb": "18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
@@ -52,7 +51,7 @@
     "fibers": "^4.0.1",
     "lerna": "^3.16.4",
     "link-module-alias": "^1.2.0",
-    "lint-staged": "^8.1.5",
+    "lint-staged": "^9.2.5",
     "modularscale-sass": "^3.0.8",
     "node-sass": "^4.12.0",
     "postcss-aspect-ratio": "^1.0.2",
@@ -78,7 +77,7 @@
     "postcss-short": "^5.0.0",
     "sass": "^1.22.7",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
+    "style-loader": "^1.0.0",
     "style-resources-loader": "^1.2.1",
     "stylelint-config-standard": "^18.3.0",
     "vue-cli-plugin-style-resources-loader": "^0.1.3",

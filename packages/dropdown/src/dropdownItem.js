@@ -1,5 +1,3 @@
-import EventBus from '~packages/EventBus';
-
 const DropdownItem = {
   props: {
     instanceId: {
@@ -36,7 +34,7 @@ const DropdownItem = {
         previouslySelected.isSelected = false;
       }
       item.isSelected = !item.isSelected;
-      EventBus.$emit(`dropdownue:changeValue${this.instanceId}`, item.id);
+      // EventBus.$emit(`dropdownue:changeValue${this.instanceId}`, item.id);
       this.$emit('change', item.id);
     },
     getItemEvents(item) {

@@ -49,8 +49,7 @@
 </template>
 
 <script>
-// import { Dropdown, DropdownItem } from '@ghostax/dropdown';
-import { Dropdown, DropdownItem } from '~packages/dropdown/src/dropdown.js';
+import { Dropdown, DropdownItem } from '@ghostax/dropdown';
 
 export default {
   name: 'DropdownDemo',
