@@ -1,4 +1,4 @@
-import deepMerge from 'deepmerge';
+const deepMerge = require('deepmerge');
 
 
 const hasClickedAway = (element, event) => {

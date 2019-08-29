@@ -1,5 +1,4 @@
 import uuidv4 from 'uuid/v4';
-import EventBus from '~packages/EventBus';
 import { hasClickedAway, listHelpers, optionsHelpers } from './helpers';
 
 
@@ -79,9 +78,9 @@ const Dropdown = {
       this.normalizedOptions = optionsHelpers.normalize(this.options);
     },
     listenOnChangeValue() {
-      EventBus.$on(`ghostax/dropdown:changeValue${this.instanceId}`, (newValue) => {
-        this.select(newValue);
-      });
+      // EventBus.$on(`ghostax/dropdown:changeValue${this.instanceId}`, (newValue) => {
+      //   this.select(newValue);
+      // });
     },
     handleClickAway(event) {
       if (hasClickedAway(this.$el, event) || event.key === 'Escape') {
