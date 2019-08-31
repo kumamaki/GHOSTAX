@@ -1,6 +1,7 @@
 <template>
   <div class="dropdown">
     <dropdown
+      v-model="value"
       v-slot="{
         listToRender,
         instance,
@@ -9,7 +10,6 @@
 
         toggle
       }"
-      :default-value="2"
       :raw-list="list"
     >
       <div class="dropdown__inner">
@@ -81,6 +81,7 @@ export default {
   props: {},
   data() {
     return {
+      value: '',
       list: [
         {
           id: 0,

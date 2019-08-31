@@ -19,8 +19,8 @@ const Dropdown = {
       type: Array,
       required: false
     },
-    defaultValue: {
-      type: String,
+    value: {
+      type: [String, Number],
       required: false,
       default: undefined
     },
@@ -41,7 +41,6 @@ const Dropdown = {
     return {
       instanceId: uuidv4(),
       isOpen: false,
-      value: this.defaultValue,
       localFilterQuery: this.filterQuery
     };
   },
@@ -77,9 +76,6 @@ const Dropdown = {
     },
     localFilterQuery(newFilterQery) {
       this.localFilterQuery = newFilterQery;
-    },
-    value(newValue) {
-      this.$emit('change', newValue);
     }
   },
   mounted() {
@@ -95,7 +91,7 @@ const Dropdown = {
       this.unselectAny();
       const itemToChange = listHelpers.findByUID.call(this, itemID);
       itemToChange.isSelected = true;
-      this.value = itemID;
+      this.$emit('input', itemID);
       this.afterSelect(itemID);
     },
     unselectAny(field) {
