@@ -41,11 +41,12 @@ const Dropdown = {
     return {
       instanceId: uuidv4(),
       isOpen: false,
-      value: this.defaultValue
+      value: this.defaultValue,
+      localFilterQuery: this.filterQuery
     };
   },
   computed: {
-    nomalizedOptions() {
+    normalizedOptions() {
       optionsHelpers.validate(this.options, defaultOptions);
       return optionsHelpers.normalize(this.options, defaultOptions);
     },
@@ -54,8 +55,14 @@ const Dropdown = {
     },
     listToRender() {
       return this.normalizedList.filter((item) => {
-        return item[this.nomalizedOptions.fields.label].includes(this.filterQuery);
+        return item[this.normalizedOptions.fields.label].includes(this.localFilterQuery);
       });
+    },
+    selectedLabel() {
+      const selectedItem = listHelpers.findSelected.call(this);
+      if (selectedItem) {
+        return selectedItem[this.normalizedOptions.fields.label];
+      }
     }
   },
   watch: {
@@ -67,20 +74,53 @@ const Dropdown = {
         document.removeEventListener('click', this.handleClickAway);
         document.removeEventListener('keydone', this.handleClickAway);
       }
+    },
+    localFilterQuery(newFilterQery) {
+      this.localFilterQuery = newFilterQery;
+    },
+    value(newValue) {
+      this.$emit('change', newValue);
     }
   },
   mounted() {
-    this.normalizeOptions();
-    this.listenOnChangeValue();
+    this.listenOnEvents();
   },
   methods: {
-    normalizeOptions() {
-      this.normalizedOptions = optionsHelpers.normalize(this.options);
+    listenOnEvents() {
+      this.$on('select', (itemID) => { this.select(itemID); });
+      this.$on('highlight', (itemID) => { this.highlight(itemID); });
+      this.$on('blur', (itemID) => { this.blur(itemID); });
     },
-    listenOnChangeValue() {
-      // EventBus.$on(`ghostax/dropdown:changeValue${this.instanceId}`, (newValue) => {
-      //   this.select(newValue);
-      // });
+    select(itemID) {
+      this.unselectAny();
+      const itemToChange = listHelpers.findByUID.call(this, itemID);
+      itemToChange.isSelected = true;
+      this.value = itemID;
+      this.afterSelect(itemID);
+    },
+    unselectAny(field) {
+      const itemToUnselect = this.normalizedList.find((listItem) => {
+        return listItem.isSelected;
+      });
+      if (itemToUnselect) {
+        itemToUnselect.isSelected = false;
+      }
+    },
+    afterSelect(itemID) {
+      if (this.normalizedOptions.closeOnSelect) {
+        this.close();
+      }
+      if (this.normalizedOptions.resetOnSelect) {
+        this.localFilterQuery = '';
+      }
+    },
+    highlight(itemID) {
+      const itemToHighlight = listHelpers.findByUID.call(this, itemID);
+      itemToHighlight.isHighlighted = true;
+    },
+    blur(itemID) {
+      const itemToBlur = listHelpers.findByUID.call(this, itemID);
+      itemToBlur.isHighlighted = false;
     },
     handleClickAway(event) {
       if (hasClickedAway(this.$el, event) || event.key === 'Escape') {
@@ -102,35 +142,31 @@ const Dropdown = {
     filterList(query) {
       if (query) {
         this.listToRender = this.normalizedList.filter((item) => {
-          return item[this.nomalizedOptions.fields.label].includes(query);
+          return item[this.normalizedOptions.fields.label].includes(query);
         });
       } else {
         this.listToRender = this.normalizedList;
-      }
-    },
-    select(value) {
-      this.value = value;
-      this.$emit('change', value);
-      if (this.closeOnSelect) {
-        this.close();
-      }
-      if (this.resetOnSelect) {
-        this.filterList('');
       }
     }
   },
   render() {
     return this.$scopedSlots.default({
       instanceId: this.instanceId,
+      instance: this,
       isOpen: this.isOpen,
       isClosed: !this.isOpen,
       value: this.value,
+      wholeList: this.normalizedList,
       listToRender: this.listToRender,
+      selected: {
+        uid: this.value,
+        label: this.selectedLabel
+      },
 
       open: this.open,
       close: this.close,
       toggle: this.toggle,
-      filter: this.filter
+      filter: this.filterList
     });
   }
 };

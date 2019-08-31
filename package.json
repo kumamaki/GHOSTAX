@@ -22,6 +22,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "core-js": "^3.2.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.isempty": "^4.4.0",
