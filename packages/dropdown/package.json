@@ -9,6 +9,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "bili --config ./bili.config.js",
     "watch": "bili --watch --config ./bili.config.js"
@@ -26,5 +29,6 @@
   },
   "peerDependencies": {
     "vue": "^2.6.x"
-  }
+  },
+  "gitHead": "b78e456ba7b49ff4d342f8fa30c247f7fc6ff2ce"
 }
