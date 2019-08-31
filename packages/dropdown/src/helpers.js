@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 const deepMerge = require('deepmerge');
 
 
@@ -10,13 +12,25 @@ export { hasClickedAway };
 
 const listHelpers = {
   normalize(list = [], currentValue) {
-    return list.map((item) => {
-      const newList = {
-        ...item,
-        isSelected: item.isSelected || currentValue == item.id || false,
-        isHighlighted: item.isHighlighted || false
-      };
-      return newList;
+    return Vue.observable(
+      list.map((item) => {
+        const newList = {
+          ...item,
+          isSelected: item.isSelected || currentValue == item.id || false,
+          isHighlighted: item.isHighlighted || false
+        };
+        return newList;
+      })
+    );
+  },
+  findByUID(itemID) {
+    return this.normalizedList.find((listItem) => {
+      return listItem[this.normalizedOptions.fields.unique] === itemID;
+    });
+  },
+  findSelected() {
+    return this.normalizedList.find((listItem) => {
+      return listItem.isSelected;
     });
   }
 };
@@ -26,7 +40,9 @@ export { listHelpers };
 
 const optionsHelpers = {
   normalize(options, defaultOption) {
-    return deepMerge(defaultOption, options);
+    return Vue.observable(
+      deepMerge(defaultOption, options)
+    );
   },
   validate(passedOptions, defaultOptions) {
     Object.keys(passedOptions).forEach((passedOptionKey) => {

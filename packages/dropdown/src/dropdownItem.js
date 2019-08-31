@@ -1,11 +1,7 @@
 const DropdownItem = {
   props: {
-    instanceId: {
-      type: String,
-      required: true
-    },
-    list: {
-      type: Array,
+    instance: {
+      type: Object,
       required: true
     },
     item: {
@@ -14,28 +10,17 @@ const DropdownItem = {
     }
   },
   data() {
-    return {
-      isSelected: false,
-      isHighlighted: false
-    };
+    return {};
   },
   methods: {
     highlight(item) {
-      item.isHighlighted = true;
+      this.instance.$emit('highlight', item.id);
     },
     blur(item) {
-      item.isHighlighted = false;
+      this.instance.$emit('blur', item.id);
     },
     select(item) {
-      const previouslySelected = this.list.find((item) => {
-        return item.isSelected;
-      });
-      if (previouslySelected) {
-        previouslySelected.isSelected = false;
-      }
-      item.isSelected = !item.isSelected;
-      // EventBus.$emit(`dropdownue:changeValue${this.instanceId}`, item.id);
-      this.$emit('change', item.id);
+      this.instance.$emit('select', item.id);
     },
     getItemEvents(item) {
       return {

@@ -3,42 +3,63 @@
     <dropdown
       v-slot="{
         listToRender,
-        instanceId,
+        instance,
         isOpen,
+        selected,
 
-        open
+        toggle
       }"
+      :default-value="2"
       :raw-list="list"
     >
       <div class="dropdown__inner">
         <button
           class="dropdown__handler"
-          @click="open"
+          @click="toggle"
         >
-          <div class="dropdown__iconHolder">
+          <div
+            :class="{
+              'dropdown__iconHolder--stateOpen': isOpen
+            }"
+            class="dropdown__iconHolder"
+          >
             <svg-icon
               name="arrow"
+              :class="{
+                'dropdown__icon--stateOpen': isOpen
+              }"
               class="dropdown__icon"
             />
           </div>
           <span class="dropdown__placeholder">
-            Select item
+            {{ selected.label || 'Select item' }}
           </span>
         </button>
         <ul
           :class="{
-            'dropdown__list--isVisible': isOpen
+            'dropdown__list--stateOpen': isOpen
           }"
           class="dropdown__list"
         >
           <dropdown-item
             v-for="listItem in listToRender"
             :key="listItem.id"
-            :instance-id="instanceId"
-            :list="listToRender"
+            v-slot="{
+              itemEvents,
+              isHighlighted,
+              isSelected
+            }"
+            :instance="instance"
             :item="listItem"
           >
-            <li class="dropdown__item">
+            <li
+              :class="{
+                'dropdown__item--isSelected': isSelected,
+                'dropdown__item--isHovered': isHighlighted
+              }"
+              class="dropdown__item"
+              v-on="itemEvents(listItem)"
+            >
               {{ listItem.label }}
             </li>
           </dropdown-item>
@@ -76,22 +97,6 @@ export default {
         {
           id: 3,
           label: 'Fourth item'
-        },
-        {
-          id: 4,
-          label: 'Fifth item'
-        },
-        {
-          id: 5,
-          label: 'Sixth item'
-        },
-        {
-          id: 6,
-          label: 'Seventh item'
-        },
-        {
-          id: 7,
-          label: 'Eighth item'
         }
       ]
     };
@@ -101,22 +106,26 @@ export default {
 
 <style scoped lang="scss">
 .dropdown {
-  --height: 55px;
-  --width: 200px;
-  --border-radius: 10em;
+  --height: 45px;
+  --width: auto;
+  --border-radius: 3px;
+  --background-color: #{$color-primary-200};
+  --background-color--hover: #{$color-primary-300};
 
   width: var(--width);
+  display: flex;
 
   &__inner {
     position: relative;
+    min-width: 150px;
   }
 
   &__handler {
-    box: horizontal;
+    box: horizontal middle;
     width: 100%;
     height: var(--height);
     border-radius: var(--border-radius);
-    background-color: $color-primary-200;
+    background-color: var(--background-color);
     cursor: pointer;
   }
 
@@ -124,53 +133,68 @@ export default {
     box: center middle;
     height: var(--height);
     width: var(--height);
-    background-color: $color-primary-300;
     border-radius: var(--border-radius);
+    background-color: var(--background-color);
+
+    &--stateOpen {
+    }
   }
 
   &__icon {
-    color: $color-primary-700;
+    color: $color-gray-800;
+    transition: transform .2s;
+
+    &--stateOpen {
+      color: $color-primary-700;
+      transform: rotateZ(180deg);
+    }
   }
 
   &__placeholder {
     box: center;
-    color: mix(#000000, $color-primary-200, 50%);
-    padding: $grid--normal;
+    padding-right: $grid--normal;
+    color: $color-gray-700;
+    font-weight: 600;
+    font-size: .9em;
   }
 
   &__list {
-    background-color: #FFFFFF;
+    background-color: var(--background-color);
     position: absolute;
-    left: calc((var(--height) / 2) - .6rem);
-    top: calc(100% - #{$grid});
+    top: calc(100% - 2px);
+    left: 0;
+    right: 0;
     min-width: var(--width);
-    padding: $grid 0;
-    color: $color-primary-900;
-    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, .1);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(30px);
+    padding-top: $grid;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    transition: clip-path .2s, transform .1s;
+    transition-timing-function: cubic-bezier(0, .57, .01, .95);
+    clip-path: circle(0% at 0 0);
+    transform: translateY(-1rem);
 
-    &--isVisible {
-      opacity: 1;
-      pointer-events: all;
+    &--stateOpen {
+      clip-path: circle(150% at 0% 0%);
       transform: translateY(0);
-    }
-
-    &::before {
-      content: '';
-      width: 15px;
-      height: 15px;
-      position: absolute;
-      bottom: 100%;
-      transform: rotateZ(45deg) translateX(8px) translateY(4px);
-      border-radius: 2px 0 2px 0;
-      background: #FFFFFF;
     }
   }
 
   &__item {
     padding: $grid $grid--normal;
+    color: $color-gray-800;
+    cursor: pointer;
+    user-select: none;
+
+    & + & {
+      border-top: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    &--isSelected {
+      background-color: var(--background-color--hover);
+    }
+
+    &--isHovered {
+      background-color: var(--background-color--hover);
+    }
   }
 }
 </style>
