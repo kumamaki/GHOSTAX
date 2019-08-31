@@ -21,9 +21,9 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "bili": "^4.8.1",
     "bili-babel": "^0.2.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0"
   },
