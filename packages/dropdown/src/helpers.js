@@ -16,7 +16,7 @@ const listHelpers = {
       list.map((item) => {
         const newList = {
           ...item,
-          isSelected: item.isSelected || currentValue == item.id || false,
+          isSelected: item.isSelected || String(currentValue) == String(item[this.normalizedOptions.fields.unique]) || false,
           isHighlighted: item.isHighlighted || false
         };
         return newList;
