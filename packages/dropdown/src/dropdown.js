@@ -46,11 +46,11 @@ const Dropdown = {
   },
   computed: {
     normalizedOptions() {
-      optionsHelpers.validate(this.options, defaultOptions);
-      return optionsHelpers.normalize(this.options, defaultOptions);
+      optionsHelpers.validate.apply(this, [this.options, defaultOptions]);
+      return optionsHelpers.normalize.apply(this, [this.options, defaultOptions]);
     },
     normalizedList() {
-      return listHelpers.normalize(this.rawList, this.value);
+      return listHelpers.normalize.apply(this, [this.rawList, this.value]);
     },
     listToRender() {
       return this.normalizedList.filter((item) => {
