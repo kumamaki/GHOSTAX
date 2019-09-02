@@ -22,21 +22,27 @@
     "packages/*"
   ],
   "dependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "add": "^2.0.6",
     "core-js": "^3.2.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.isempty": "^4.4.0",
     "lodash.upperfirst": "^4.3.1",
+    "marked": "^0.7.0",
     "obj-traverse": "^1.0.0",
     "prismjs": "^1.17.1",
     "spiritjs": "^2.4.1",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
+    "vue-fragment": "^1.5.1",
     "vue-prism-component": "^1.1.1",
     "vue-router": "^3.0.7",
-    "vuebar": "^0.0.20"
+    "vuebar": "^0.0.20",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-preset-jsx": "^1.1.0",
     "@vue/cli-plugin-babel": "^3.9.2",
     "@vue/cli-plugin-eslint": "^3.9.2",
     "@vue/cli-service": "^3.8.0",
