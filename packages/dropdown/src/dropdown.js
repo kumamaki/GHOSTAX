@@ -46,8 +46,8 @@ const Dropdown = {
   },
   computed: {
     normalizedOptions() {
-      optionsHelpers.validate.apply(this, [this.options, defaultOptions]);
-      return optionsHelpers.normalize.apply(this, [this.options, defaultOptions]);
+      optionsHelpers.validate.apply(this, [defaultOptions]);
+      return optionsHelpers.normalize.apply(this, [defaultOptions]);
     },
     normalizedList() {
       return listHelpers.normalize.apply(this, [this.rawList, this.value]);
@@ -111,6 +111,7 @@ const Dropdown = {
       }
     },
     highlight(itemID) {
+      console.log(itemID);
       const itemToHighlight = listHelpers.findByUID.call(this, itemID);
       itemToHighlight.isHighlighted = true;
     },

@@ -23,9 +23,9 @@ const listHelpers = {
       })
     );
   },
-  findByUID(itemID) {
+  findByUID(uid) {
     return this.normalizedList.find((listItem) => {
-      return listItem[this.normalizedOptions.fields.unique] === itemID;
+      return listItem[this.normalizedOptions.fields.unique] === uid;
     });
   },
   findSelected() {
@@ -39,13 +39,13 @@ export { listHelpers };
 
 
 const optionsHelpers = {
-  normalize(options, defaultOption) {
+  normalize(defaultOption) {
     return Vue.observable(
-      deepMerge(defaultOption, options)
+      deepMerge(defaultOption, this.options)
     );
   },
-  validate(passedOptions, defaultOptions) {
-    Object.keys(passedOptions).forEach((passedOptionKey) => {
+  validate(defaultOptions) {
+    Object.keys(this.options).forEach((passedOptionKey) => {
       if (!defaultOptions.hasOwnProperty(passedOptionKey)) {
         console.error(`${passedOptionKey} doesn't seem to be a valid option. valid options are -> ${defaultOptions}`);
       }
