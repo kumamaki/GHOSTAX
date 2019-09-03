@@ -12,15 +12,20 @@ const DropdownItem = {
   data() {
     return {};
   },
+  computed: {
+    uniqueField() {
+      return this.instance.normalizedOptions.fields.unique;
+    }
+  },
   methods: {
     highlight(item) {
-      this.instance.$emit('highlight', item.id);
+      this.instance.$emit('highlight', item[this.uniqueField]);
     },
     blur(item) {
-      this.instance.$emit('blur', item.id);
+      this.instance.$emit('blur', item[this.uniqueField]);
     },
     select(item) {
-      this.instance.$emit('select', item.id);
+      this.instance.$emit('select', item[this.uniqueField]);
     },
     getItemEvents(item) {
       return {
