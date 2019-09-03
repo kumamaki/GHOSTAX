@@ -111,7 +111,6 @@ const Dropdown = {
       }
     },
     highlight(itemID) {
-      console.log(itemID);
       const itemToHighlight = listHelpers.findByUID.call(this, itemID);
       itemToHighlight.isHighlighted = true;
     },
