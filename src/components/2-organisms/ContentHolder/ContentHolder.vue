@@ -17,8 +17,7 @@
 </template>
 
 <script>
-import 'prismjs';
-import 'prismjs/themes/prism.css';
+import 'highlightjs/styles/docco.css';
 
 export default {
   name: 'ContentHolder',
@@ -56,6 +55,14 @@ export default {
 
   ::v-deep {
 
+    h2,
+    h3,
+    h4 {
+      color: $color-primary-900;
+      margin-bottom: $grid;
+      margin-top: $grid--large;
+    }
+
     h1 {
       font-size: ms(3);
       color: $color-primary-500;
@@ -65,12 +72,65 @@ export default {
 
     h2 {
       font-size: ms(2);
-      margin-bottom: $grid--normal;
     }
 
     h3 {
       font-size: ms(1);
-      margin-bottom: $grid--normal;
+      font-weight: 500;
+    }
+
+    h4 {
+      font-size: ms(0);
+      font-weight: 700;
+      color: $color-warning-900;
+    }
+
+    pre {
+      margin: 0;
+      margin: $grid--normal 0;
+      font-size: .85em;
+      border-radius: 15px;
+      padding: $grid--normal;
+    }
+
+    p code,
+    h2 code,
+    h3 code,
+    h4 code {
+      border-radius: 5px;
+      padding: 0 .25em;
+      background-color: $color-gray-100;
+      font-size: .9em;
+    }
+
+    table {
+      margin: $grid--normal 0;
+      font-size: .9em;
+
+      thead {
+
+        th {
+          padding: .5em;
+          text-align: left;
+          color: $color-info-800;
+          font-weight: 600;
+        }
+      }
+
+      tbody {
+
+        tr {
+          border-bottom: 1px solid $color-gray-100;
+        }
+
+        td {
+          padding: .5em;
+
+          &:first-child {
+            color: $color-primary-800;
+          }
+        }
+      }
     }
 
     .vuebar-element {

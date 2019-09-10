@@ -1,91 +1,59 @@
 /* eslint-disable */
 <template>
   <div class="dropdown">
-    <markdown-parser>
-      # Dropdown
-
-      ## Installation
-
-      <pre><prism language="javascript">
-      npm i @ghostax/dropdown
-      // or
-      yarn add @ghostax/dropdown
-      </prism></pre>
-
-      ## Demo
-
-      <dropdown-demo />
-
-      ## Usage
-
-      <pre><prism language="javascript">
-      import { Dropdownue, DropdownueItem } from "@ghostax/dropdown";
-
-      export default {
-        ...
-        components: {
-          Dropdownue,
-          DropdownueItem
-        }
-        ...
-      };
-      </prism></pre>
-    </markdown-parser>
-    <!-- <h1>
+    <h1>
       Dropdown
     </h1>
+
+    <MdIntro />
+
     <h2>
       Installation
     </h2>
-    <prism language="bash">
-      npm i @ghostax/dropdown
-      // or
-      yarn add @ghostax/dropdown
-    </prism>
-    <br />
+    <MdInstallation />
+
     <h2>
       Demo
     </h2>
-    <div class="demo">
-      <dropdown-demo />
-    </div>
-    <br />
+    <MdDemo />
+    <dropdown-demo class="dropdown__demo" />
+
     <h2>
       Usage
     </h2>
-    <prism language="html">
-      {{`
-      <div>
-        <strong>foo</strong>
-      </div>
-      `}}
-    </prism>
-    <pre><prism language="javascript">
-      import { Dropdownue, DropdownueItem } from "@ghostax/dropdown";
+    <MdUsage />
 
-      export default {
-        ...
-        components: {
-          Dropdownue,
-          DropdownueItem
-        }
-        ...
-      };
-    </prism></pre> -->
+    <h2>
+      API
+    </h2>
+    <MdAPI />
+
+    <h2>
+      Caveats
+    </h2>
+    <MdCaveats />
   </div>
 </template>
 
 <script>
-import Prism from 'vue-prism-component';
-import MarkdownParser from '~organisms/MarkdownParser/MarkdownParser';
 import DropdownDemo from './DropdownDemo';
+import MdIntro from './Intro.md';
+import MdInstallation from './Installation.md';
+import MdDemo from './Demo.md';
+import MdUsage from './Usage.md';
+import MdAPI from './API.md';
+import MdCaveats from './Caveats.md';
 
 export default {
   name: 'Dropdown',
   components: {
-    MarkdownParser,
+    MdIntro,
+    MdInstallation,
+    MdDemo,
     DropdownDemo,
-    Prism
+    MdUsage,
+    MdAPI,
+    MdCaveats
   },
   props: {},
   data() {
@@ -97,5 +65,8 @@ export default {
 <style scoped lang="scss">
 .dropdown {
 
+  &__demo {
+    margin-top: $grid--medium;
+  }
 }
 </style>

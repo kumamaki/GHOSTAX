@@ -155,7 +155,6 @@ export default {
     box: center;
     padding-right: $grid--normal;
     color: $color-gray-700;
-    font-weight: 600;
     font-size: .9em;
   }
 
