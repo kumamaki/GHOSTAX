@@ -113,10 +113,12 @@ const Dropdown = {
     highlight(itemID) {
       const itemToHighlight = listHelpers.findByUID.call(this, itemID);
       itemToHighlight.isHighlighted = true;
+      this.$emit('highlight', itemID);
     },
     blur(itemID) {
       const itemToBlur = listHelpers.findByUID.call(this, itemID);
       itemToBlur.isHighlighted = false;
+      this.$emit('blur', itemID);
     },
     handleClickAway(event) {
       if (hasClickedAway(this.$el, event) || event.key === 'Escape') {
@@ -143,6 +145,7 @@ const Dropdown = {
       } else {
         this.listToRender = this.normalizedList;
       }
+      this.$emit('filter');
     }
   },
   render() {

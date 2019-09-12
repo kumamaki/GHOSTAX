@@ -110,11 +110,14 @@ export default {
   --height: 45px;
   --width: auto;
   --border-radius: 3px;
-  --background-color: #{$color-primary-200};
-  --background-color--hover: #{$color-primary-300};
+  --forground-color: #{$color-info-100};
+  --background-color: #{$color-info-600};
+  --background-color-darken: #{$color-info-700};
+  --background-color--hover: #{$color-info-800};
 
   width: var(--width);
   display: flex;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .1));
 
   &__inner {
     position: relative;
@@ -128,6 +131,7 @@ export default {
     border-radius: var(--border-radius);
     background-color: var(--background-color);
     cursor: pointer;
+    color: var(--forground-color);
   }
 
   &__iconHolder {
@@ -142,11 +146,9 @@ export default {
   }
 
   &__icon {
-    color: $color-gray-800;
     transition: transform .2s;
 
     &--stateOpen {
-      color: $color-primary-700;
       transform: rotateZ(180deg);
     }
   }
@@ -154,25 +156,24 @@ export default {
   &__placeholder {
     box: center;
     padding-right: $grid--normal;
-    color: $color-gray-700;
     font-size: .9em;
   }
 
   &__list {
-    background-color: var(--background-color);
+    background-color: var(--background-color-darken);
     position: absolute;
     top: calc(100% - 2px);
     left: 0;
     right: 0;
     min-width: var(--width);
-    padding-top: $grid;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
-    transition: clip-path .2s, transform .1s;
+    transition: clip-path .3s, transform .2s .3s, opacity .3s;
     transition-timing-function: cubic-bezier(0, .57, .01, .95);
     clip-path: circle(0% at 0 0);
     transform: translateY(-1rem);
 
     &--stateOpen {
+      transition: clip-path .3s, transform .3s, opacity .3s;
       clip-path: circle(150% at 0% 0%);
       transform: translateY(0);
     }
@@ -180,12 +181,12 @@ export default {
 
   &__item {
     padding: $grid $grid--normal;
-    color: $color-gray-800;
+    color: gray(100);
     cursor: pointer;
     user-select: none;
 
     & + & {
-      border-top: 1px solid rgba(0, 0, 0, .1);
+      border-top: 1px solid var(--background-color--hover);
     }
 
     &--isSelected {
