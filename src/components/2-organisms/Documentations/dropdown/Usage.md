@@ -1,4 +1,4 @@
-```js
+```javascript
 import { Dropdown, DropdownItem } from "@ghostax/dropdown";
 
 export default {
@@ -13,7 +13,7 @@ export default {
 
 ### `Dropdown`
 
-You can use `<dropdown>` like this. __required props are listed on API section__
+You can use `<dropdown>` like this. **required props are listed on API section**
 
 ```vue
 <dropdown
@@ -30,13 +30,14 @@ You can use `<dropdown>` like this. __required props are listed on API section__
     }"
     class="dropdown__list"
   >
-    // <dropdown-item>...</dropdown-item> may be here
+    <!-- <dropdown-item>...</dropdown-item> may be here -->
   </ul>
 </dropdown>
 ```
+
 and in your script section
 
-```js
+```javascript
 data() {
     return {
         list: [
@@ -60,7 +61,7 @@ data() {
 
 ### `DropdownItem` Component
 
-Inside your `<dropdown>`, there it goes a `<dropdown-item>` with `v-for` on it.  
+Inside your `<dropdown>`, there it goes a `<dropdown-item>` with `v-for` on it.
 
 ❗ **You have to get instance from `<dropdown>` and pass it to `<dropdown-item>`**
 
