@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var objTraverser=require("obj-traverse/lib/obj-traverse"),findRawRoute=function(e,r){var o,n=null==e?void 0:null===(o=e.options)||void 0===o?void 0:o.routes;if(!n)return null;var t=null;return n.some(function(e){return t=objTraverser.findFirst(e,"children",r)}),t||null};exports.findRawRoute=findRawRoute;
+//# sourceMappingURL=vue-router.js.map

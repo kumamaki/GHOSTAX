@@ -78,6 +78,27 @@ export default new Router({
                   }
                 }
               ]
+            },
+            {
+              path: 'helpers',
+              name: 'docs-helpers',
+              component: DocsContent,
+              meta: {
+                title: 'Helpers'
+              },
+              redirect: {
+                name: 'docs-helpers-vueRouter'
+              },
+              children: [
+                {
+                  path: 'vue-router',
+                  name: 'docs-helpers-vueRouter',
+                  meta: {
+                    docName: 'vue-router',
+                    title: 'Vue Router'
+                  }
+                }
+              ]
             }
           ]
         }

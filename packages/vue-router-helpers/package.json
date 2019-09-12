@@ -1,11 +1,11 @@
 {
-  "name": "@ghostax/dropdown",
-  "description": "GHOSTAX: Vue renderless dropdown component",
-  "version": "2.0.2-alpha.4",
-  "main": "dist/dropdown.umd.js",
-  "module": "dist/dropdown.esm.js",
-  "unpkg": "dist/dropdown.umd.js",
-  "jsdelivr": "dist/dropdown.umd.js",
+  "name": "@ghostax/vue-router",
+  "description": "Helper functions to work with vue-router",
+  "version": "0.0.0",
+  "main": "dist/vue-router.umd.js",
+  "module": "dist/vue-router.esm.js",
+  "unpkg": "dist/vue-router.umd.js",
+  "jsdelivr": "dist/vue-router.umd.js",
   "files": [
     "dist"
   ],
@@ -17,10 +17,8 @@
     "watch": "bili --watch --config ./bili.config.js"
   },
   "dependencies": {
-    "deepmerge": "^4.0.0",
     "lodash.ismatch": "^4.4.0",
-    "obj-traverse": "^1.0.0",
-    "uuid": "^3.3.3"
+    "obj-traverse": "^1.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
@@ -31,6 +29,5 @@
   },
   "peerDependencies": {
     "vue": "^2.6.x"
-  },
-  "gitHead": "26515dd13d6c0099e7bf2492939081f02e27885b"
+  }
 }
