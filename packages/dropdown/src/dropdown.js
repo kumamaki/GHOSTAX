@@ -83,9 +83,9 @@ const Dropdown = {
   },
   methods: {
     listenOnEvents() {
-      this.$on('select', (itemID) => { this.select(itemID); });
-      this.$on('highlight', (itemID) => { this.highlight(itemID); });
-      this.$on('blur', (itemID) => { this.blur(itemID); });
+      this.$on('item-select', (itemID) => { this.select(itemID); });
+      this.$on('item-highlight', (itemID) => { this.highlight(itemID); });
+      this.$on('item-blur', (itemID) => { this.blur(itemID); });
     },
     select(itemID) {
       this.unselectAny();
