@@ -19,13 +19,13 @@ const DropdownItem = {
   },
   methods: {
     highlight(item) {
-      this.instance.$emit('highlight', item[this.uniqueField]);
+      this.instance.$emit('item-highlight', item[this.uniqueField]);
     },
     blur(item) {
-      this.instance.$emit('blur', item[this.uniqueField]);
+      this.instance.$emit('item-blur', item[this.uniqueField]);
     },
     select(item) {
-      this.instance.$emit('select', item[this.uniqueField]);
+      this.instance.$emit('item-select', item[this.uniqueField]);
     },
     getItemEvents(item) {
       return {
