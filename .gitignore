@@ -19,5 +19,5 @@ yarn-error.log*
 *.sln
 *.sw?
 report.*
-packages/dropdown/dist
+packages/*/dist
 lerna-debug.log
