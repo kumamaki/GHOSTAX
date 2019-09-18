@@ -21,6 +21,11 @@ export default {
     'node-resolve': {
       browser: true,
       preferBuiltins: false
+    },
+    strip: {
+      debugger: true,
+      functions: ['console.*', 'assert.*', 'debug', 'alert'],
+      sourceMap: true
     }
   }
 };
