@@ -1,5 +1,7 @@
 import { optionsHelpers } from './_helpers';
 
+const _times = require('lodash.times');
+
 const defaultOptions = {
   fields: {
     query: {
@@ -19,6 +21,11 @@ export default {
     pageLimit: {
       type: Number,
       required: true
+    },
+    areaCount: {
+      type: Number,
+      required: false,
+      default: 5
     },
     options: {
       type: Object,
@@ -66,6 +73,35 @@ export default {
       }
       return null;
     },
+    area() {
+      const start = 1;
+      const end = this.totalPages;
+      const area = [this.currentPage];
+      const areaCount = this.areaCount - 1;
+      const idealPreSpan = Math.floor(areaCount / 2);
+      const idealPostSpan = Math.ceil(areaCount / 2);
+      const { actualPreSpan, preLeftOvers } = (() => {
+        const leftPointer = this.currentPage - idealPreSpan;
+        if (leftPointer >= start) {
+          return { actualPreSpan: leftPointer, preLeftOvers: 0 };
+        }
+        return { actualPreSpan: this.currentPage - 1, preLeftOvers: idealPreSpan - (this.currentPage - 1) };
+      })();
+      const { actualPostSpan, postLeftOvers } = (() => {
+        const rightPointer = this.currentPage + idealPostSpan;
+        if (rightPointer <= end) {
+          return { actualPostSpan: rightPointer, postLeftOvers: 0 };
+        }
+        return { actualPostSpan: end - this.currentPage, postLeftOvers: idealPostSpan - (end - this.currentPage) };
+      })();
+      _times(actualPreSpan + postLeftOvers, (preSpanNumber) => {
+        area.unshift(this.currentPage - preSpanNumber);
+      });
+      _times(actualPostSpan + preLeftOvers, (postSpanNumber) => {
+        area.push(this.currentPage - postSpanNumber);
+      });
+      return area;
+    },
     query() {
       return `${this.normalizedOptions.fields.query.pageSize}=${this.pageLimit}&${this.normalizedOptions.fields.query.pageNumber}=${this.currentPage}`;
     }
@@ -87,19 +123,18 @@ export default {
     }
   },
   render(h) {
-    if (this.hasPromise) {
-      return this.$scopedSlots.default({
-        query: this.query,
-        totalPages: this.totalPages,
-        tail: this.tail,
-        hasNextPage: this.hasNextPage,
-        hasPrevPage: this.hasPrevPage,
-        nextPage: this.nextPage,
-        prevPage: this.prevPage,
+    return this.$scopedSlots.default({
+      query: this.query,
+      totalPages: this.totalPages,
+      tail: this.tail,
+      hasNextPage: this.hasNextPage,
+      hasPrevPage: this.hasPrevPage,
+      nextPage: this.nextPage,
+      prevPage: this.prevPage,
+      area: this.area,
 
-        goToNextPage: this.goToNextPage,
-        goToPrevPage: this.goToPrevPage
-      });
-    }
+      goToNextPage: this.goToNextPage,
+      goToPrevPage: this.goToPrevPage
+    });
   }
 };
