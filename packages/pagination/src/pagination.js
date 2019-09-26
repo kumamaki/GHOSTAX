@@ -74,6 +74,9 @@ export default {
       return null;
     },
     area() {
+      if (this.totalDocs <= this.pageLimit) {
+        return [1];
+      }
       const start = 1;
       const end = this.totalPages;
       const area = [this.currentPage];
