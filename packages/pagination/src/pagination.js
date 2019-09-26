@@ -22,6 +22,10 @@ export default {
       type: Number,
       required: true
     },
+    currentPage: {
+      type: Number,
+      required: true
+    },
     areaCount: {
       type: Number,
       required: false,
@@ -37,10 +41,17 @@ export default {
   },
   data() {
     return {
-      currentPage: 1
     };
   },
   watch: {
+    currentPage() {
+      this.$emit('update', {
+        query: this.query,
+        area: this.area,
+        pageSize: this.pageLimit,
+        pageNumber: this.currentPage
+      });
+    }
   },
   computed: {
     normalizedOptions() {
@@ -86,22 +97,23 @@ export default {
       const { actualPreSpan, preLeftOvers } = (() => {
         const leftPointer = this.currentPage - idealPreSpan;
         if (leftPointer >= start) {
-          return { actualPreSpan: leftPointer, preLeftOvers: 0 };
+          return { actualPreSpan: (this.currentPage - leftPointer), preLeftOvers: 0 };
         }
         return { actualPreSpan: this.currentPage - 1, preLeftOvers: idealPreSpan - (this.currentPage - 1) };
       })();
       const { actualPostSpan, postLeftOvers } = (() => {
         const rightPointer = this.currentPage + idealPostSpan;
         if (rightPointer <= end) {
-          return { actualPostSpan: rightPointer, postLeftOvers: 0 };
+          return { actualPostSpan: rightPointer - this.currentPage, postLeftOvers: 0 };
         }
         return { actualPostSpan: end - this.currentPage, postLeftOvers: idealPostSpan - (end - this.currentPage) };
       })();
-      _times(actualPreSpan + postLeftOvers, (preSpanNumber) => {
-        area.unshift(this.currentPage - preSpanNumber);
+
+      _times(actualPreSpan + postLeftOvers, (preSpanNumberIndex) => {
+        area.unshift(this.currentPage - (preSpanNumberIndex + 1));
       });
-      _times(actualPostSpan + preLeftOvers, (postSpanNumber) => {
-        area.push(this.currentPage - postSpanNumber);
+      _times(actualPostSpan + preLeftOvers, (postSpanNumberIndex) => {
+        area.push(this.currentPage + (postSpanNumberIndex + 1));
       });
       return area;
     },
@@ -127,14 +139,16 @@ export default {
   },
   render(h) {
     return this.$scopedSlots.default({
-      query: this.query,
       totalPages: this.totalPages,
       tail: this.tail,
       hasNextPage: this.hasNextPage,
       hasPrevPage: this.hasPrevPage,
       nextPage: this.nextPage,
       prevPage: this.prevPage,
+      query: this.query,
       area: this.area,
+      pageSize: this.pageLimit,
+      pageNumber: this.currentPage,
 
       goToNextPage: this.goToNextPage,
       goToPrevPage: this.goToPrevPage
