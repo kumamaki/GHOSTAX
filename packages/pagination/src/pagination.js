@@ -72,6 +72,15 @@ export default {
     hasPrevPage() {
       return this.tail > this.pageLimit;
     },
+    hasFirstPage() {
+      return this.currentPage !== 1;
+    },
+    hasLastPage() {
+      return this.currentPage !== this.totalPages;
+    },
+    fillsTheLimit() {
+      return this.totalDocs >= this.tail;
+    },
     nextPage() {
       if (this.hasNextPage) {
         return this.currentPage + 1;
@@ -83,6 +92,18 @@ export default {
         return this.currentPage - 1;
       }
       return null;
+    },
+    showingInfo() {
+      return {
+        from: ((this.currentPage - 1) * this.pageLimit) + 1,
+        to: (() => {
+          if (this.fillsTheLimit) {
+            return this.currentPage * this.pageLimit;
+          }
+          return this.totalDocs;
+        })(),
+        of: this.totalDocs
+      };
     },
     area() {
       if (this.totalDocs <= this.pageLimit) {
@@ -143,12 +164,16 @@ export default {
       tail: this.tail,
       hasNextPage: this.hasNextPage,
       hasPrevPage: this.hasPrevPage,
+      hasFirstPage: this.hasNextPage,
+      hasLastPage: this.hasPrevPage,
       nextPage: this.nextPage,
       prevPage: this.prevPage,
       query: this.query,
       area: this.area,
       pageSize: this.pageLimit,
       pageNumber: this.currentPage,
+      showingInfo: this.showingInfo,
+      fillsTheLimit: this.fillsTheLimit,
 
       goToNextPage: this.goToNextPage,
       goToPrevPage: this.goToPrevPage
