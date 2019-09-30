@@ -63,14 +63,14 @@ export default {
         this.totalDocs / this.pageLimit
       );
     },
-    tail() {
+    progress() {
       return this.currentPage * this.pageLimit;
     },
     hasNextPage() {
-      return this.tail < this.totalDocs;
+      return this.progress < this.totalDocs;
     },
     hasPrevPage() {
-      return this.tail > this.pageLimit;
+      return this.progress > this.pageLimit;
     },
     hasFirstPage() {
       return this.currentPage !== 1;
@@ -79,7 +79,7 @@ export default {
       return this.currentPage !== this.totalPages;
     },
     fillsTheLimit() {
-      return this.totalDocs >= this.tail;
+      return this.totalDocs >= this.progress;
     },
     nextPage() {
       if (this.hasNextPage) {
@@ -109,33 +109,84 @@ export default {
       if (this.totalDocs <= this.pageLimit) {
         return [1];
       }
-      const start = 1;
-      const end = this.totalPages;
+      const veryStart = 1;
+      const veryEnd = this.totalPages;
       const area = [this.currentPage];
       const areaCount = this.areaCount - 1;
+      const { currentPage } = this;
       const idealPreSpan = Math.floor(areaCount / 2);
       const idealPostSpan = Math.ceil(areaCount / 2);
-      const { actualPreSpan, preLeftOvers } = (() => {
-        const leftPointer = this.currentPage - idealPreSpan;
-        if (leftPointer >= start) {
-          return { actualPreSpan: (this.currentPage - leftPointer), preLeftOvers: 0 };
-        }
-        return { actualPreSpan: this.currentPage - 1, preLeftOvers: idealPreSpan - (this.currentPage - 1) };
-      })();
-      const { actualPostSpan, postLeftOvers } = (() => {
-        const rightPointer = this.currentPage + idealPostSpan;
-        if (rightPointer <= end) {
-          return { actualPostSpan: rightPointer - this.currentPage, postLeftOvers: 0 };
-        }
-        return { actualPostSpan: end - this.currentPage, postLeftOvers: idealPostSpan - (end - this.currentPage) };
+
+      const { gotPreOverflow, preLeftOver } = (() => {
+        const gotPreOverflow = (currentPage - idealPreSpan) < veryStart;
+        const preLeftOver = (() => {
+          if (gotPreOverflow) {
+            return Math.abs((idealPreSpan - (currentPage - veryStart)));
+          }
+          return 0;
+        })();
+        return { gotPreOverflow, preLeftOver };
       })();
 
-      _times(actualPreSpan + postLeftOvers, (preSpanNumberIndex) => {
-        area.unshift(this.currentPage - (preSpanNumberIndex + 1));
+      const { gotPostOverflow, postLeftOver } = (() => {
+        const gotPostOverflow = (currentPage + idealPostSpan) > veryEnd;
+        const postLeftOver = (() => {
+          if (gotPostOverflow) {
+            return Math.abs((currentPage + idealPostSpan) - veryEnd);
+          }
+          return 0;
+        })();
+        return { gotPostOverflow, postLeftOver };
+      })();
+
+      const calculatedPreSpan = (() => {
+        if (gotPreOverflow) {
+          return (currentPage - veryStart + postLeftOver);
+        }
+        return idealPreSpan + postLeftOver;
+      })();
+      const calculatedPostSpan = (() => {
+        if (gotPostOverflow) {
+          return (veryEnd - currentPage + preLeftOver);
+        }
+        return idealPreSpan + preLeftOver;
+      })();
+
+      // Generate pre pages
+      _times(calculatedPreSpan, (preSpanIndex) => {
+        const prePageNumber = preSpanIndex + 1;
+        if ((currentPage - prePageNumber) > 0) {
+          console.log(`Unshifting ${prePageNumber}`);
+          area.unshift(currentPage - prePageNumber);
+        }
       });
-      _times(actualPostSpan + preLeftOvers, (postSpanNumberIndex) => {
-        area.push(this.currentPage + (postSpanNumberIndex + 1));
+
+      // Generate post pages
+      _times(calculatedPostSpan, (postSpanIndex) => {
+        const postPageNumber = postSpanIndex + 1;
+        if ((currentPage + postPageNumber) <= veryEnd) {
+          console.log(`Pushing ${postPageNumber}`);
+          area.push(currentPage + postPageNumber);
+        }
       });
+
+      console.log({
+        idealPreSpan,
+        idealPostSpan
+      });
+      console.log({
+        gotPreOverflow,
+        preLeftOver
+      });
+      console.log({
+        gotPostOverflow,
+        postLeftOver
+      });
+      console.log({
+        calculatedPreSpan,
+        calculatedPostSpan
+      });
+
       return area;
     },
     query() {
@@ -161,7 +212,7 @@ export default {
   render(h) {
     return this.$scopedSlots.default({
       totalPages: this.totalPages,
-      tail: this.tail,
+      progress: this.progress,
       hasNextPage: this.hasNextPage,
       hasPrevPage: this.hasPrevPage,
       hasFirstPage: this.hasNextPage,
