@@ -1,7 +1,7 @@
 {
   "name": "@ghostax/vue-router",
   "description": "Helper functions to work with vue-router",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "main": "dist/vue-router.umd.js",
   "module": "dist/vue-router.esm.js",
   "unpkg": "dist/vue-router.umd.js",
