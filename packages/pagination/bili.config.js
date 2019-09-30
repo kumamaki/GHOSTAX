@@ -22,10 +22,15 @@ export default {
       browser: true,
       preferBuiltins: false
     },
-    strip: {
-      debugger: true,
-      functions: ['console.*', 'assert.*', 'debug', 'alert'],
-      sourceMap: true
-    }
+    strip: (() => {
+      if (process.env.NODE_ENV !== 'development') {
+        return {
+          debugger: true,
+          functions: ['console.*', 'assert.*', 'debug', 'alert'],
+          sourceMap: true
+        };
+      }
+      return false;
+    })()
   }
 };
