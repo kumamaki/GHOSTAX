@@ -13,8 +13,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "bili --config ./bili.config.js",
-    "watch": "bili --watch --config ./bili.config.js"
+    "build": "NODE_ENV=production bili --config ./bili.config.js",
+    "watch": "NODE_ENV=development bili --watch --config ./bili.config.js"
   },
   "dependencies": {
     "deepmerge": "^4.0.0",
@@ -30,5 +30,6 @@
   },
   "peerDependencies": {
     "vue": "^2.6.x"
-  }
+  },
+  "gitHead": "8c81dbb94d3152a3e9764f397e5330377b32d333"
 }

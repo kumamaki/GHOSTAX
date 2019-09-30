@@ -13,8 +13,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "bili --config ./bili.config.js",
-    "watch": "bili --watch --config ./bili.config.js"
+    "build": "NODE_ENV=production bili --config ./bili.config.js",
+    "watch": "NODE_ENV=development bili --watch --config ./bili.config.js"
   },
   "dependencies": {
     "lodash.ismatch": "^4.4.0",
