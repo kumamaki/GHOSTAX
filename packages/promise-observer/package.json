@@ -1,7 +1,7 @@
 {
   "name": "@ghostax/promise-observer",
   "description": "Renderless component to observe promises",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "main": "dist/promise-observer.umd.js",
   "module": "dist/promise-observer.esm.js",
   "unpkg": "dist/promise-observer.umd.js",
