@@ -1,3 +1,1 @@
-## Introduction
-
 Paginations are components to handle user navigation between pages, so that we don't have to show all the documents at once. if you want to write a pagination component, you need to handle whether there is available next or previous page; figure out page numbers that user potentially will go through it, and much more.

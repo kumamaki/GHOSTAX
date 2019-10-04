@@ -58,9 +58,9 @@ export default {
     h2,
     h3,
     h4 {
-      color: $color-primary-900;
+      color: $color-danger-400;
       margin-bottom: $grid;
-      margin-top: $grid--large;
+      margin-top: $grid--xxxlarge;
     }
 
     h1 {
@@ -72,17 +72,19 @@ export default {
 
     h2 {
       font-size: ms(2);
+      font-weight: 600;
     }
 
     h3 {
       font-size: ms(1);
-      font-weight: 500;
+      font-weight: 600;
+      color: $color-warning-600;
     }
 
     h4 {
       font-size: ms(0);
       font-weight: 700;
-      color: $color-warning-900;
+      color: $color-warning-800;
     }
 
     pre {
@@ -99,7 +101,7 @@ export default {
     h4 code {
       border-radius: 5px;
       padding: 0 .25em;
-      background-color: $color-gray-100;
+      background-color: $color-danger-100;
       font-size: .9em;
     }
 

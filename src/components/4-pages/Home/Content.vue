@@ -95,6 +95,7 @@ export default {
   &__sheet {
     padding: $grid--medium 0;
     margin-top: $grid--medium;
+    line-height: 1.618;
 
     ::v-deep {
 

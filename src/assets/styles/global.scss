@@ -1,5 +1,10 @@
 @import 'reset.scss';
 @import 'code-highlighter.scss';
+@import './fonts.scss';
+
+code {
+  font-size: 1.1em;
+}
 
 .svg-icon {
   display: inline-block;
