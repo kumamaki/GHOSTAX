@@ -1,0 +1,208 @@
+<template>
+  <gh-pagination
+    :total-docs="250"
+    :page-limit="10"
+    :area-count="8"
+    :current-page="currentPage"
+    #default="{ area, hasNextPage, hasPrevPage, hasFirstPage, hasLastPage, showingInfo, totalPages }"
+  >
+    <div class="paginator">
+      <nav class="paginator__pages">
+        <button
+          :class="{
+            'paginator__goto--state:disabled': !hasFirstPage
+          }"
+          class="paginator__goto | paginator__goto--prev"
+          @click="handlePageClick(1)"
+        >
+          <svg-icon
+            name="skip-back-mini-line"
+            class="paginator__gotoIcon"
+            :original="true"
+          />
+        </button>
+
+        <button
+          :class="{
+            'paginator__goto--state:disabled': !hasPrevPage
+          }"
+          class="paginator__goto"
+          @click="handlePageClick(+currentPage - 1)"
+        >
+          <svg-icon
+            name="arrow-left-s-line"
+            class="paginator__gotoIcon"
+            :original="true"
+          />
+        </button>
+
+        <button
+          v-for="areaItem in area"
+          :key="areaItem"
+          :class="{
+            'paginator__page--isActive': areaItem === currentPage
+          }"
+          class="paginator__page"
+          @click="handlePageClick(areaItem)"
+        >
+          {{ areaItem }}
+        </button>
+
+        <button
+          :class="{
+            'paginator__goto--state:disabled': !hasNextPage
+          }"
+          class="paginator__goto"
+          @click="handlePageClick(+currentPage + 1)"
+        >
+          <svg-icon
+            name="arrow-right-s-line"
+            class="paginator__gotoIcon"
+            :original="true"
+          />
+        </button>
+
+        <button
+          :class="{
+            'paginator__goto--state:disabled': !hasLastPage
+          }"
+          class="paginator__goto"
+          @click="handlePageClick(totalPages)"
+        >
+          <svg-icon
+            name="skip-forward-mini-line"
+            class="paginator__gotoIcon"
+            :original="true"
+          />
+        </button>
+      </nav>
+
+      <div class="paginator__showingInfo">
+        From
+        {{ showingInfo.from }}
+        To
+        {{ showingInfo.to }}
+        Of
+        {{ showingInfo.of }}
+        Items
+      </div>
+    </div>
+  </gh-pagination>
+</template>
+
+<script>
+import GhPagination from '@ghostax/pagination';
+import '~icons/arrow-right-s-line';
+import '~icons/arrow-left-s-line';
+import '~icons/skip-back-mini-line';
+import '~icons/skip-forward-mini-line';
+
+export default {
+  name: 'Paginator',
+  components: {
+    GhPagination
+  },
+  data() {
+    return {
+      currentPage: 1
+    };
+  },
+  methods: {
+    handlePageClick(newPageNumber) {
+      this.currentPage = newPageNumber;
+    }
+  }
+};
+</script>
+
+<style scoped lang="scss">
+.paginator {
+  --gap: #{ms(3)};
+
+  box: horizontal middle;
+  user-select: none;
+
+  &__pages {
+    box: horizontal middle;
+    font-size: ms(2);
+    gap: ms(1);
+  }
+
+  &__page {
+    box: horizontal middle center;
+    size: ms(2);
+    transition: color .15s;
+    position: relative;
+    z-index: 1;
+    font-weight: 300;
+
+    &::before {
+      content: '';
+      size: ms(2);
+      position: absolute 0 0 0 0;
+      background-color: $color-warning-100;
+      border-radius: 50%;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity .1s ease-in-out;
+    }
+
+    &:hover {
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &--isActive {
+      pointer-events: none;
+      color: $color-primary-700;
+      font-weight: 500;
+    }
+  }
+
+  &__goto {
+    color: $color-gray-500;
+    box: horizontal middle center;
+
+    &:hover {
+      color: $color-warning-500;
+    }
+
+    &--prev {
+
+    }
+
+    &--next {
+
+    }
+
+    &--state {
+
+      &\:disabled {
+        color: $color-gray-100;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__gotoIcon {
+    size: ms(0);
+
+    &--prev {
+
+    }
+
+    &--next {
+
+    }
+  }
+
+  &__showingInfo {
+    margin-left: var(--gap);
+    padding-left: var(--gap);
+    border-left: 2px solid $color-danger-300;
+    color: $color-warning-900;
+  }
+}
+</style>
