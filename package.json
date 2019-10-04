@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "@ghostax/dropdown": "^2.0.2-alpha.3",
+    "@ghostax/pagination": "^0.0.2",
     "@mdx-js/vue-loader": "^1.5.0",
     "add": "^2.0.6",
     "core-js": "^3.2.1",
