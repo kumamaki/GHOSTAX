@@ -13,6 +13,20 @@ module.exports = {
     sourceMap: true
   },
 
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /.mdx$/,
+          use: [
+            'babel-loader',
+            '@mdx-js/vue-loader'
+          ]
+        }
+      ]
+    }
+  },
+
   chainWebpack: (config) => {
     config.module
       .rule('md')
