@@ -56,7 +56,7 @@ export default {
 If you are an advance developer, which you are 🤘, you want to use the full power of this component. pass `area-count` to customize pages before and after current page, and customize query fields to match with backend API.
 
 ```vue
-<pagination-provider
+<gh-pagination
   :total-docs="250"
   :page-limit="10"
   :area-count="7"
@@ -107,5 +107,5 @@ If you are an advance developer, which you are 🤘, you want to use the full po
         {{ showingInfo.of }}
       </div>
   </div>
-</pagination-provider>
+</gh-pagination>
 ```

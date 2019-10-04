@@ -8,6 +8,8 @@
     <MdInstallation />
     <MdUsage />
     <MdDemo />
+    <pagination-demo class="pagination__demo" />
+    <MdApi />
   </div>
 </template>
 
@@ -16,6 +18,8 @@ import MdIntro from './Introduction.md';
 import MdInstallation from './Installation.md';
 import MdUsage from './Usage.md';
 import MdDemo from './Demo.md';
+import PaginationDemo from './Demo';
+import MdApi from './Api.md';
 
 export default {
   name: 'VueRouter',
@@ -23,7 +27,9 @@ export default {
     MdIntro,
     MdInstallation,
     MdUsage,
-    MdDemo
+    MdDemo,
+    PaginationDemo,
+    MdApi
   },
   props: {},
   data() {
@@ -33,6 +39,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.dropdown {
+.pagination {
+
+  &__demo {
+    width: 100%;
+    margin-top: ms(2);
+    padding: ms(1);
+    box: horizontal center middle;
+    border-radius: 5px;
+    background-color: $color-danger-100;
+  }
 }
 </style>

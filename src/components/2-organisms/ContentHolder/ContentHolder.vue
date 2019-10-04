@@ -3,10 +3,7 @@
     class="contentHolder"
   >
     <div
-      v-bar="{
-        preventParentScroll: true,
-        scrollThrottle: 30,
-      }"
+      v-bar
       class="contentHolder__inner"
     >
       <div>
@@ -49,8 +46,24 @@ export default {
   color: $color-gray-800;
   line-height: 1.618;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
   &__inner {
     padding-right: $grid--large;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      display: none;
+    }
   }
 
   ::v-deep {
@@ -108,6 +121,7 @@ export default {
     table {
       margin: $grid--normal 0;
       font-size: .9em;
+      width: 100%;
 
       thead {
 
