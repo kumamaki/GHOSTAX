@@ -76,6 +76,14 @@ export default new Router({
                     docName: 'dropdown',
                     title: 'Dropdown'
                   }
+                },
+                {
+                  path: 'promise-observer',
+                  name: 'docs-components-promise-observer',
+                  meta: {
+                    docName: 'promise-observer',
+                    title: 'Promise Observer'
+                  }
                 }
               ]
             },
