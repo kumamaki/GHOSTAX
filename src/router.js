@@ -84,6 +84,14 @@ export default new Router({
                     docName: 'promise-observer',
                     title: 'Promise Observer'
                   }
+                },
+                {
+                  path: 'pagination',
+                  name: 'docs-components-pagination',
+                  meta: {
+                    docName: 'pagination',
+                    title: 'Pagination'
+                  }
                 }
               ]
             },
