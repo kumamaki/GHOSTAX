@@ -21,3 +21,4 @@ yarn-error.log*
 report.*
 packages/*/dist
 lerna-debug.log
+dist/
