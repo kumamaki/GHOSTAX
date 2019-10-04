@@ -1,4 +1,6 @@
 module.exports = {
+  parallel: false,
+
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
