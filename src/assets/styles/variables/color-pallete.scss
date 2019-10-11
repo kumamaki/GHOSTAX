@@ -8,11 +8,48 @@ $color-primary-100: #FDE3E1;
 $color-primary-200: #FBC4C6;
 $color-primary-300: #F5A4AF;
 $color-primary-400: #EB8BA1;
-$color-primary-500: #DE658D;
+$color-primary-500: #EA4C89;
 $color-primary-600: #BE497C;
 $color-primary-700: #9F326C;
 $color-primary-800: #80205C;
 $color-primary-900: #6A1352;
+
+$color-primary-base: #EA4C89;
+
+$color-primary-lighten: lighten($color-primary-base, 5%);
+$color-primary-lighter: lighten($color-primary-base, 10%);
+$color-primary-lightest: lighten($color-primary-base, 15%);
+$color-primary-bright: lighten($color-primary-base, 20%);
+
+$color-primary-darken: darken($color-primary-base, 20%);
+$color-primary-darker: darken($color-primary-base, 30%);
+$color-primary-darkest: darken($color-primary-base, 30%);
+$color-primary-dim: darken($color-primary-base, 40%);
+
+$color-secondary-base: #99D8CF;
+
+$color-secondary-lighten: lighten($color-secondary-base, 5%);
+$color-secondary-lighter: lighten($color-secondary-base, 10%);
+$color-secondary-lightest: lighten($color-secondary-base, 15%);
+$color-secondary-bright: lighten($color-secondary-base, 20%);
+
+$color-secondary-darken: darken($color-secondary-base, 20%);
+$color-secondary-darker: darken($color-secondary-base, 30%);
+$color-secondary-darkest: darken($color-secondary-base, 30%);
+$color-secondary-dim: darken($color-secondary-base, 40%);
+
+$color-thirtary-base: #FFAA2E;
+
+$color-thirtary-lighten: lighten($color-thirtary-base, 5%);
+$color-thirtary-lighter: lighten($color-thirtary-base, 10%);
+$color-thirtary-lightest: lighten($color-thirtary-base, 15%);
+$color-thirtary-bright: lighten($color-thirtary-base, 20%);
+
+$color-thirtary-darken: darken($color-thirtary-base, 20%);
+$color-thirtary-darker: darken($color-thirtary-base, 30%);
+$color-thirtary-darkest: darken($color-thirtary-base, 30%);
+$color-thirtary-dim: darken($color-thirtary-base, 40%);
+
 $color-success-100: #EFFCE0;
 $color-success-200: #DCFAC1;
 $color-success-300: #C1F29F;
