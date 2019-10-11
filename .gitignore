@@ -22,3 +22,6 @@ report.*
 packages/*/dist
 lerna-debug.log
 dist/
+
+# Local Netlify folder
+.netlify
