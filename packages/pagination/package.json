@@ -4,8 +4,8 @@
   "version": "0.0.2",
   "main": "dist/pagination.umd.js",
   "module": "dist/pagination.esm.js",
-  "unpkg": "dist/pagination.umd.js",
-  "jsdelivr": "dist/pagination.umd.js",
+  "unpkg": "dist/pagination.iife.js",
+  "jsdelivr": "dist/pagination.iife.js",
   "files": [
     "dist"
   ],
