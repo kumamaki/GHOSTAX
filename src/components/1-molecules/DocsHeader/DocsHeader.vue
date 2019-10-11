@@ -1,6 +1,8 @@
 <template>
   <header class="docsHeader">
-    <app-logo class="docsHeader__logo" />
+    <router-link :to="{name: 'home'}">
+      <app-logo class="docsHeader__logo" />
+    </router-link>
   </header>
 </template>
 
