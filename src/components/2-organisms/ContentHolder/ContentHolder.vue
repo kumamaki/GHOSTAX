@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import 'highlightjs/styles/docco.css';
+import 'highlightjs/styles/atom-one-light.css';
 
 export default {
   name: 'ContentHolder',
@@ -71,7 +71,7 @@ export default {
     h2,
     h3,
     h4 {
-      color: $color-danger-400;
+      color: $color-secondary-darken;
       margin-bottom: $grid;
       margin-top: $grid--xxxlarge;
     }
@@ -91,13 +91,11 @@ export default {
     h3 {
       font-size: ms(1);
       font-weight: 600;
-      color: $color-warning-600;
     }
 
     h4 {
       font-size: ms(0);
       font-weight: 700;
-      color: $color-warning-800;
     }
 
     pre {
@@ -114,7 +112,7 @@ export default {
     h4 code {
       border-radius: 5px;
       padding: 0 .25em;
-      background-color: $color-danger-100;
+      background-color: $color-secondary-bright;
       font-size: .9em;
     }
 
@@ -128,7 +126,7 @@ export default {
         th {
           padding: .5em;
           text-align: left;
-          color: $color-info-800;
+          color: $color-thirtary-base;
           font-weight: 600;
         }
       }
