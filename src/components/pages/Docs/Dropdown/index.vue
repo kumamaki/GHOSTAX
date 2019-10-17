@@ -45,7 +45,7 @@ export default {
 .dropdown {
 
   &__demo {
-    margin-top: $grid--medium;
+    margin-top: calc(#{$grid--medium} * -1);
   }
 }
 </style>

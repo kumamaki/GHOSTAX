@@ -113,7 +113,7 @@ export default {
         th {
           padding: .5em;
           text-align: left;
-          color: $color-thirtary-base;
+          color: gray(30);
           font-weight: 600;
         }
       }
@@ -128,7 +128,7 @@ export default {
           padding: .5em;
 
           &:first-child {
-            color: $color-primary-800;
+            color: $color-primary-darken;
           }
         }
       }
@@ -182,15 +182,14 @@ export default {
 </style>
 
 <style lang="scss">
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
-  background-color: #F6F8FF;
-  padding: 0;
-}
-
 code[class*='language-'],
 pre[class*='language-'] {
   font-family: $mono-typeface;
 }
 
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background-color: #F6F8FF;
+  padding: 0;
+}
 </style>
