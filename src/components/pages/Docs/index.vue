@@ -33,7 +33,7 @@ export default {
   align-items: start;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: max-content minmax(0, 1fr);
   gap: $grid--xxlarge;
   margin-top: $grid--xxlarge;
   position: relative;
@@ -44,7 +44,7 @@ export default {
   }
 
   &__sheet {
-
+    min-width: 0;
   }
 
   &__content {
