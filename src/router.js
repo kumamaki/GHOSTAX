@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Root from '~pages/Root/Root';
-import Home from '~pages/Home/Home';
+import Root from '~pages/Root';
+import Home from '~pages/Home';
 
-const Docs = () => { return import('~pages/Docs/Docs'); };
-const DocsContent = () => { return import('~organisms/DocsContent/DocsContent'); };
+const Docs = () => { return import('~pages/Docs'); };
+const DocsOrchester = () => { return import('~pages/Docs/Orchester'); };
 
 Vue.use(Router);
 
@@ -32,7 +32,7 @@ export default new Router({
             {
               path: 'introduction',
               name: 'docs-introduction',
-              component: DocsContent,
+              component: DocsOrchester,
               meta: {
                 title: 'Introduction'
               },
@@ -44,16 +44,8 @@ export default new Router({
                   path: 'why',
                   name: 'docs-introduction-why',
                   meta: {
-                    docName: 'why',
+                    docName: 'Why',
                     title: 'Why?'
-                  }
-                },
-                {
-                  path: 'installation',
-                  name: 'docs-introduction-installation',
-                  meta: {
-                    docName: 'installation',
-                    title: 'Installation'
                   }
                 }
               ]
@@ -61,7 +53,7 @@ export default new Router({
             {
               path: 'components',
               name: 'docs-components',
-              component: DocsContent,
+              component: DocsOrchester,
               meta: {
                 title: 'Components'
               },
@@ -73,7 +65,7 @@ export default new Router({
                   path: 'dropdown',
                   name: 'docs-components-dropdown',
                   meta: {
-                    docName: 'dropdown',
+                    docName: 'Dropdown',
                     title: 'Dropdown'
                   }
                 },
@@ -81,7 +73,7 @@ export default new Router({
                   path: 'promise-observer',
                   name: 'docs-components-promise-observer',
                   meta: {
-                    docName: 'promise-observer',
+                    docName: 'PromiseObserver',
                     title: 'Promise Observer'
                   }
                 },
@@ -89,7 +81,7 @@ export default new Router({
                   path: 'pagination',
                   name: 'docs-components-pagination',
                   meta: {
-                    docName: 'pagination',
+                    docName: 'Pagination',
                     title: 'Pagination'
                   }
                 }
@@ -98,7 +90,7 @@ export default new Router({
             {
               path: 'helpers',
               name: 'docs-helpers',
-              component: DocsContent,
+              component: DocsOrchester,
               meta: {
                 title: 'Helpers'
               },
@@ -107,10 +99,10 @@ export default new Router({
               },
               children: [
                 {
-                  path: 'vue-router',
+                  path: 'VueRouter',
                   name: 'docs-helpers-vueRouter',
                   meta: {
-                    docName: 'vue-router',
+                    docName: 'VueRouter',
                     title: 'Vue Router'
                   }
                 }

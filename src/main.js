@@ -2,7 +2,6 @@ import Vue from 'vue';
 import _upperFirst from 'lodash.upperfirst';
 import _camelCase from 'lodash.camelcase';
 import SvgIcon from 'vue-svgicon';
-import Vuebar from 'vuebar';
 import App from './App.vue';
 import router from './router';
 
@@ -11,7 +10,7 @@ import '~styles/base.scss';
 import '~styles/global.scss';
 
 const requireComponent = require.context(
-  './components/0-atoms',
+  './components/core',
   false,
   /Base[A-Z]\w+\.(vue|js)$/
 );
@@ -36,7 +35,6 @@ Vue.config.productionTip = false;
 Vue.use(SvgIcon, {
   tagName: 'svg-icon'
 });
-Vue.use(Vuebar);
 
 new Vue({
   router,
