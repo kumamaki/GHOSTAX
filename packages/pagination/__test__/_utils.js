@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import Pagination from '@ghostax/pagination';
+import Pagination from '../src/pagination';
 
 const localVue = createLocalVue();
 
