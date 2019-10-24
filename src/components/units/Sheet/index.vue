@@ -60,6 +60,12 @@ export default {
       color: $color-secondary-darken;
       margin-bottom: $grid;
       margin-top: $grid--large;
+
+      &::before {
+        content: '#';
+        color: currentColor;
+        margin-right: .25em;
+      }
     }
 
     h1 {

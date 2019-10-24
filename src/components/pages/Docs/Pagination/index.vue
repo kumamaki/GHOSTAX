@@ -1,11 +1,12 @@
 <template>
   <div class="pagination">
     <MdIntro />
+    <MdTOC />
     <MdInstallation />
     <MdUsage />
     <MdDemo />
     <pagination-demo class="pagination__demo" />
-    <MdApi />
+    <MdAPI />
   </div>
 </template>
 
@@ -15,7 +16,8 @@ import MdInstallation from '~docs/Pagination/Installation.md';
 import MdUsage from '~docs/Pagination/Usage.md';
 import MdDemo from '~docs/Pagination/Demo.md';
 import PaginationDemo from './Demo';
-import MdApi from '~docs/Pagination/Api.md';
+import MdAPI from '~docs/Pagination/API.md';
+import MdTOC from '~docs/Pagination/TOC.md';
 
 export default {
   name: 'VueRouter',
@@ -25,7 +27,8 @@ export default {
     MdUsage,
     MdDemo,
     PaginationDemo,
-    MdApi
+    MdAPI,
+    MdTOC
   },
   props: {},
   data() {

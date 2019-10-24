@@ -1,4 +1,4 @@
-import { optionsHelpers } from './_helpers';
+import { optionsHelpers, validators } from './_helpers';
 
 const _times = require('lodash.times');
 
@@ -13,23 +13,39 @@ const defaultOptions = {
 
 export default {
   name: 'Pagination',
+  model: {
+    prop: 'currentPage',
+    event: 'change-page'
+  },
   props: {
     totalDocs: {
       type: Number,
-      required: true
+      required: true,
+      validator(value) {
+        return validators.isRealNumber(value);
+      }
     },
     pageLimit: {
       type: Number,
-      required: true
+      required: true,
+      validator(value) {
+        return validators.isRealNumber(value);
+      }
     },
     currentPage: {
       type: Number,
-      required: true
+      required: true,
+      validator(value) {
+        return validators.isRealNumber(value);
+      }
     },
-    areaCount: {
+    pageNumbersSetCount: {
       type: Number,
       required: false,
-      default: 5
+      default: 5,
+      validator(value) {
+        return validators.isRealNumber(value);
+      }
     },
     options: {
       type: Object,
@@ -47,7 +63,7 @@ export default {
     currentPage() {
       this.$emit('update', {
         query: this.query,
-        area: this.area,
+        pageNumbersSet: this.pageNumbersSet,
         pageSize: this.pageLimit,
         pageNumber: this.currentPage
       });
@@ -63,14 +79,17 @@ export default {
         this.totalDocs / this.pageLimit
       );
     },
-    progress() {
+    itemsPassed() {
       return this.currentPage * this.pageLimit;
     },
+    itemsLeft() {
+      return this.totalDocs - this.itemsPassed;
+    },
     hasNextPage() {
-      return this.progress < this.totalDocs;
+      return this.itemsPassed < this.totalDocs;
     },
     hasPrevPage() {
-      return this.progress > this.pageLimit;
+      return this.itemsPassed > this.pageLimit;
     },
     hasFirstPage() {
       return this.currentPage !== 1;
@@ -79,19 +98,7 @@ export default {
       return this.currentPage !== this.totalPages;
     },
     fillsTheLimit() {
-      return this.totalDocs >= this.progress;
-    },
-    nextPage() {
-      if (this.hasNextPage) {
-        return this.currentPage + 1;
-      }
-      return null;
-    },
-    prevPage() {
-      if (this.hasPrevPage) {
-        return this.currentPage - 1;
-      }
-      return null;
+      return this.totalDocs >= this.itemsPassed;
     },
     showingInfo() {
       return {
@@ -105,17 +112,17 @@ export default {
         of: this.totalDocs
       };
     },
-    area() {
+    pageNumbersSet() {
       if (this.totalDocs <= this.pageLimit) {
         return [1];
       }
       const veryStart = 1;
       const veryEnd = this.totalPages;
-      const area = [this.currentPage];
-      const areaCount = this.areaCount - 1;
+      const pageNumbersSet = [this.currentPage];
+      const pageNumbersSetCount = this.pageNumbersSetCount - 1;
       const { currentPage } = this;
-      const idealPreSpan = Math.floor(areaCount / 2);
-      const idealPostSpan = Math.ceil(areaCount / 2);
+      const idealPreSpan = Math.floor(pageNumbersSetCount / 2);
+      const idealPostSpan = Math.ceil(pageNumbersSetCount / 2);
 
       const { gotPreOverflow, preLeftOver } = (() => {
         const gotPreOverflow = (currentPage - idealPreSpan) < veryStart;
@@ -149,15 +156,15 @@ export default {
         if (gotPostOverflow) {
           return (veryEnd - currentPage + preLeftOver);
         }
-        return idealPreSpan + preLeftOver;
+        return idealPostSpan + preLeftOver;
       })();
 
       // Generate pre pages
       _times(calculatedPreSpan, (preSpanIndex) => {
         const prePageNumber = preSpanIndex + 1;
         if ((currentPage - prePageNumber) > 0) {
-          console.log(`Unshifting ${prePageNumber}`);
-          area.unshift(currentPage - prePageNumber);
+          console.log(`Unshifting ${currentPage - prePageNumber}`);
+          pageNumbersSet.unshift(currentPage - prePageNumber);
         }
       });
 
@@ -165,8 +172,8 @@ export default {
       _times(calculatedPostSpan, (postSpanIndex) => {
         const postPageNumber = postSpanIndex + 1;
         if ((currentPage + postPageNumber) <= veryEnd) {
-          console.log(`Pushing ${postPageNumber}`);
-          area.push(currentPage + postPageNumber);
+          console.log(`Pushing ${currentPage + postPageNumber}`);
+          pageNumbersSet.push(currentPage + postPageNumber);
         }
       });
 
@@ -187,7 +194,7 @@ export default {
         calculatedPostSpan
       });
 
-      return area;
+      return pageNumbersSet;
     },
     query() {
       return `${this.normalizedOptions.fields.query.pageSize}=${this.pageLimit}&${this.normalizedOptions.fields.query.pageNumber}=${this.currentPage}`;
@@ -195,39 +202,51 @@ export default {
   },
   methods: {
     goToNextPage() {
-      if (this.nextPage) {
-        this.currentPage = this.nextPage;
+      if (this.hasNextPage) {
+        this.$emit('change-page', this.currentPage + 1);
       } else {
-        console.error(`There is no page after page ${this.currentPage}`);
+        throw new Error(`There is no page after page ${this.currentPage}`);
       }
     },
     goToPrevPage() {
-      if (this.prevPage) {
-        this.currentPage = this.prevPage;
+      if (this.hasPrevPage) {
+        this.$emit('change-page', this.currentPage - 1);
       } else {
-        console.error(`There is no page before page ${this.currentPage}`);
+        throw new Error(`There is no page before page ${this.currentPage}`);
       }
+    },
+    goToFirstPage() {
+      if (this.hasFirstPage) {
+        return this.$emit('change-page', 1);
+      }
+      throw new Error('First page is not navigatable');
+    },
+    goToLastPage() {
+      if (this.hasLastPage) {
+        return this.$emit('change-page', this.totalPages);
+      }
+      throw new Error('Last page is not navigatable');
     }
   },
   render(h) {
     return this.$scopedSlots.default({
       totalPages: this.totalPages,
-      progress: this.progress,
+      itemsPassed: this.itemsPassed,
+      itemsLeft: this.itemsLeft,
       hasNextPage: this.hasNextPage,
       hasPrevPage: this.hasPrevPage,
       hasFirstPage: this.hasFirstPage,
       hasLastPage: this.hasLastPage,
-      nextPage: this.nextPage,
-      prevPage: this.prevPage,
       query: this.query,
-      area: this.area,
+      pageNumbersSet: this.pageNumbersSet,
       pageSize: this.pageLimit,
       pageNumber: this.currentPage,
       showingInfo: this.showingInfo,
-      fillsTheLimit: this.fillsTheLimit,
 
       goToNextPage: this.goToNextPage,
-      goToPrevPage: this.goToPrevPage
+      goToPrevPage: this.goToPrevPage,
+      goToFirstPage: this.goToFirstPage,
+      goToLastPage: this.goToLastPage
     });
   }
 };

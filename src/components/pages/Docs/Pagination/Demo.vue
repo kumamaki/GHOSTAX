@@ -1,10 +1,10 @@
 <template>
   <gh-pagination
-    :total-docs="250"
+    v-model="currentPage"
+    :total-docs="400"
     :page-limit="10"
-    :area-count="8"
-    :current-page="currentPage"
-    #default="{ area, hasNextPage, hasPrevPage, hasFirstPage, hasLastPage, showingInfo, totalPages }"
+    :page-numbers-set-count="6"
+    #default="{ pageNumbersSet, hasNextPage, hasPrevPage, hasFirstPage, hasLastPage, showingInfo, totalPages, goToNextPage, goToPrevPage, goToLastPage, goToFirstPage }"
   >
     <div class="paginator">
       <nav class="paginator__pages">
@@ -13,7 +13,7 @@
             'paginator__goto--state:disabled': !hasFirstPage
           }"
           class="paginator__goto | paginator__goto--prev"
-          @click="handlePageClick(1)"
+          @click="goToFirstPage"
         >
           <svg-icon
             name="skip-back-mini-line"
@@ -27,7 +27,7 @@
             'paginator__goto--state:disabled': !hasPrevPage
           }"
           class="paginator__goto"
-          @click="handlePageClick(+currentPage - 1)"
+          @click="goToPrevPage"
         >
           <svg-icon
             name="arrow-left-s-line"
@@ -37,15 +37,15 @@
         </button>
 
         <button
-          v-for="areaItem in area"
-          :key="areaItem"
+          v-for="pageNumbersItem in pageNumbersSet"
+          :key="pageNumbersItem"
           :class="{
-            'paginator__page--isActive': areaItem === currentPage
+            'paginator__page--isActive': pageNumbersItem === currentPage
           }"
           class="paginator__page"
-          @click="handlePageClick(areaItem)"
+          @click="currentPage = pageNumbersItem"
         >
-          {{ areaItem }}
+          {{ pageNumbersItem }}
         </button>
 
         <button
@@ -53,7 +53,7 @@
             'paginator__goto--state:disabled': !hasNextPage
           }"
           class="paginator__goto"
-          @click="handlePageClick(+currentPage + 1)"
+          @click="goToNextPage"
         >
           <svg-icon
             name="arrow-right-s-line"
@@ -67,7 +67,7 @@
             'paginator__goto--state:disabled': !hasLastPage
           }"
           class="paginator__goto"
-          @click="handlePageClick(totalPages)"
+          @click="goToLastPage"
         >
           <svg-icon
             name="skip-forward-mini-line"
@@ -106,11 +106,6 @@ export default {
     return {
       currentPage: 1
     };
-  },
-  methods: {
-    handlePageClick(newPageNumber) {
-      this.currentPage = newPageNumber;
-    }
   }
 };
 </script>
