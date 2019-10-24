@@ -3,17 +3,13 @@ module.exports = {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest'
   },
   collectCoverageFrom: [
-    '*.js'
+    'packages/**/src/*.js',
+    '!*.config.js'
   ],
   coveragePathIgnorePatterns: [
-    '/node_modules/'
-  ],
-  coverageThreshold: {
-    global: {
-      statements: 100,
-      branches: 100,
-      functions: 100,
-      lines: 100
-    }
-  }
+    '/node_modules/',
+    '/__test__/',
+    '/__mocks__/',
+    '/dist/'
+  ]
 };
