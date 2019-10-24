@@ -1,17 +1,35 @@
+const path = require('path');
+
 module.exports = {
   root: true,
 
   parserOptions: {
-  		parser: "babel-eslint",
-  		ecmaVersion: 8,
-  		sourceType: "module"
-  	},
+		parser: "babel-eslint",
+		ecmaVersion: 8,
+		sourceType: "module"
+	},
 
   env: {
-    node: true
+    node: true,
+    'jest/globals': true
   },
 
-  plugins: ['vue'],
+  extends: [
+    'plugin:vue/recommended',
+    'plugin:vue/essential',
+    '@vue/airbnb',
+    'plugin:jest/all'
+  ],
+
+  plugins: ['vue', 'jest'],
+
+  settings: {
+    'import/resolver': {
+      'eslint-import-resolver-lerna': {
+        packages: path.resolve(__dirname, 'packages')
+      }
+    }
+  },
 
   rules: {
     indent: [
@@ -89,11 +107,5 @@ module.exports = {
     'vue/space-unary-ops': 'error',
     'vue/v-on-function-call': 'error',
     'vue/camelcase': 'error'
-  },
-
-  extends: [
-    'plugin:vue/recommended',
-    'plugin:vue/essential',
-    '@vue/airbnb',
-  ],
+  }
 };

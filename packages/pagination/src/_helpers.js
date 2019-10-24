@@ -17,6 +17,13 @@ const optionsHelpers = {
   }
 };
 
+const validators = {
+  isRealNumber(number) {
+    return Number.isInteger(number) && number > 0;
+  }
+};
+
 export {
-  optionsHelpers
+  optionsHelpers,
+  validators
 };
