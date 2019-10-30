@@ -1,7 +1,7 @@
 {
   "name": "@ghostax/dropdown",
   "description": "GHOSTAX: Vue renderless dropdown component",
-  "version": "2.0.3-alpha.3",
+  "version": "2.0.3",
   "main": "dist/dropdown.umd.js",
   "module": "dist/dropdown.esm.js",
   "unpkg": "dist/dropdown.iife.js",
