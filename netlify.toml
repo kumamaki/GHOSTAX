@@ -1,0 +1,5 @@
+[build]
+  command = "yarn run build"
+
+[build.environment]
+  YARN_FLAGS = "--no-lockfile"
