@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import GhPagination from '~packages/pagination/dist/pagination.esm';
+import GhPagination from '@ghostax/pagination';
 import '~icons/arrow-right-s-line';
 import '~icons/arrow-left-s-line';
 import '~icons/skip-back-mini-line';

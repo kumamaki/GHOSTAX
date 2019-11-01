@@ -2,9 +2,6 @@
 <template>
   <div class="dropdown">
     <MdIntro />
-
-    <h2>
-    </h2>
     <MdInstallation />
     <MdDemo />
     <dropdown-demo class="dropdown__demo" />

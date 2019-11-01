@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { Dropdown, DropdownItem } from '~packages/dropdown/dist/dropdown.esm';
+import { Dropdown, DropdownItem } from '@ghostax/dropdown';
 
 export default {
   name: 'DropdownDemo',
