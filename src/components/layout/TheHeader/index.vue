@@ -42,16 +42,16 @@
 
 <script>
 export default {
-  name: 'Header',
-  components: {
-  },
-  props: {
-    collapse: {
-      type: Boolean,
-      required: false,
-      default: false
+    name: 'Header',
+    components: {
+    },
+    props: {
+        collapse: {
+            type: Boolean,
+            required: false,
+            default: false
+        }
     }
-  }
 };
 </script>
 

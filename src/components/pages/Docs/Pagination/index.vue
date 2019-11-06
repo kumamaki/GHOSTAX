@@ -20,20 +20,20 @@ import MdAPI from '~docs/Pagination/API.md';
 import MdTOC from '~docs/Pagination/TOC.md';
 
 export default {
-  name: 'VueRouter',
-  components: {
-    MdIntro,
-    MdInstallation,
-    MdUsage,
-    MdDemo,
-    PaginationDemo,
-    MdAPI,
-    MdTOC
-  },
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'VueRouter',
+    components: {
+        MdIntro,
+        MdInstallation,
+        MdUsage,
+        MdDemo,
+        PaginationDemo,
+        MdAPI,
+        MdTOC
+    },
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

@@ -44,14 +44,14 @@
 import AppLogo from '~units/Logo';
 
 export default {
-  name: 'HomeContent',
-  components: {
-    AppLogo
-  },
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'HomeContent',
+    components: {
+        AppLogo
+    },
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

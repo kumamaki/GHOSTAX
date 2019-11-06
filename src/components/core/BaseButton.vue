@@ -21,50 +21,50 @@
 import _isEmpty from 'lodash.isempty';
 
 export default {
-  name: 'BaseButtonAtom',
-  props: {
-    to: {
-      type: [Object, String],
-      required: false,
-      default() {
+    name: 'BaseButtonAtom',
+    props: {
+        to: {
+            type: [Object, String],
+            required: false,
+            default() {
+                return {};
+            }
+        },
+        icon: {
+            type: String,
+            required: false,
+            default: ''
+        },
+        appearance: {
+            type: String,
+            required: false,
+            default: 'primary',
+            validator(value) {
+                return ['primary', 'secondary', 'tertiary'].includes(value);
+            }
+        }
+    },
+    data() {
         return {};
-      }
     },
-    icon: {
-      type: String,
-      required: false,
-      default: ''
+    computed: {
+        isButton() {
+            return _isEmpty(this.to);
+        },
+        isLink() {
+            return !_isEmpty(this.to);
+        }
     },
-    appearance: {
-      type: String,
-      required: false,
-      default: 'primary',
-      validator(value) {
-        return ['primary', 'secondary', 'tertiary'].includes(value);
-      }
+    methods: {
+        getComponentType() {
+            if (this.isButton) {
+                return 'button';
+            }
+            if (this.isLink) {
+                return 'router-link';
+            }
+        }
     }
-  },
-  data() {
-    return {};
-  },
-  computed: {
-    isButton() {
-      return _isEmpty(this.to);
-    },
-    isLink() {
-      return !_isEmpty(this.to);
-    }
-  },
-  methods: {
-    getComponentType() {
-      if (this.isButton) {
-        return 'button';
-      }
-      if (this.isLink) {
-        return 'router-link';
-      }
-    }
-  }
 };
 </script>
 

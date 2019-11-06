@@ -6,11 +6,11 @@
 
 <script>
 export default {
-  name: 'RootPage',
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'RootPage',
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

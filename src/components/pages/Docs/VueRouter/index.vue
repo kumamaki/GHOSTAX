@@ -20,16 +20,16 @@ import MdInstallation from '~docs/VueRouter/installation.md';
 import MdMethods from '~docs/VueRouter/methods.md';
 
 export default {
-  name: 'VueRouter',
-  components: {
-    MdIntro,
-    MdInstallation,
-    MdMethods
-  },
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'VueRouter',
+    components: {
+        MdIntro,
+        MdInstallation,
+        MdMethods
+    },
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

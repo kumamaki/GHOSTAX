@@ -21,20 +21,20 @@ import MdAPI from '~docs/Dropdown/API.md';
 import MdCaveats from '~docs/Dropdown/Caveats.md';
 
 export default {
-  name: 'Dropdown',
-  components: {
-    MdIntro,
-    MdInstallation,
-    MdDemo,
-    DropdownDemo,
-    MdUsage,
-    MdAPI,
-    MdCaveats
-  },
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'Dropdown',
+    components: {
+        MdIntro,
+        MdInstallation,
+        MdDemo,
+        DropdownDemo,
+        MdUsage,
+        MdAPI,
+        MdCaveats
+    },
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

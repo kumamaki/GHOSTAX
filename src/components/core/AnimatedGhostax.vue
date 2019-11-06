@@ -97,11 +97,11 @@
 
 <script>
 export default {
-  name: 'AnimatedGhostax',
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'AnimatedGhostax',
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

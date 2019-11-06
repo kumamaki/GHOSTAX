@@ -31,29 +31,29 @@ import _isEmpty from 'lodash.isempty';
 import { findRoute } from '~helpers/router';
 
 export default {
-  name: 'NavigationList',
-  props: {
-    parentName: {
-      type: String,
-      required: true
+    name: 'NavigationList',
+    props: {
+        parentName: {
+            type: String,
+            required: true
+        },
+        indentNumber: {
+            type: Number,
+            required: false,
+            default: 0
+        }
     },
-    indentNumber: {
-      type: Number,
-      required: false,
-      default: 0
-    }
-  },
-  data() {
-    return {};
-  },
-  computed: {
-    children() {
-      return findRoute(this.$router.options.routes, this.parentName).children;
+    data() {
+        return {};
     },
-    hasMoreChildren() {
-      return !_isEmpty(this.children);
+    computed: {
+        children() {
+            return findRoute(this.$router.options.routes, this.parentName).children;
+        },
+        hasMoreChildren() {
+            return !_isEmpty(this.children);
+        }
     }
-  }
 };
 </script>
 

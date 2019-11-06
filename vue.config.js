@@ -1,43 +1,45 @@
 module.exports = {
-  parallel: false,
+    parallel: false,
 
-  pluginOptions: {
-    'style-resources-loader': {
-      preProcessor: 'scss',
-      patterns: ['./src/assets/styles/variables/*.scss']
-    }
-  },
+    lintOnSave: false,
 
-  assetsDir: 'assets',
-  productionSourceMap: false,
-
-  css: {
-    sourceMap: true
-  },
-
-  configureWebpack: {
-    module: {
-      rules: [
-        {
-          test: /.mdx$/,
-          use: [
-            'babel-loader',
-            '@mdx-js/vue-loader'
-          ]
+    pluginOptions: {
+        'style-resources-loader': {
+            preProcessor: 'scss',
+            patterns: ['./src/assets/styles/variables/*.scss']
         }
-      ]
-    }
-  },
+    },
 
-  chainWebpack: (config) => {
-    config.module
-      .rule('md')
-      .test(/\.md$/)
-      .use('vue-loader')
-      .loader('vue-loader')
-      .end()
-      .use('@vusion/md-vue-loader')
-      .loader('@vusion/md-vue-loader')
-      .end();
-  }
+    assetsDir: 'assets',
+    productionSourceMap: false,
+
+    css: {
+        sourceMap: true
+    },
+
+    configureWebpack: {
+        module: {
+            rules: [
+                {
+                    test: /.mdx$/,
+                    use: [
+                        'babel-loader',
+                        '@mdx-js/vue-loader'
+                    ]
+                }
+            ]
+        }
+    },
+
+    chainWebpack: (config) => {
+        config.module
+            .rule('md')
+            .test(/\.md$/)
+            .use('vue-loader')
+            .loader('vue-loader')
+            .end()
+            .use('@vusion/md-vue-loader')
+            .loader('@vusion/md-vue-loader')
+            .end();
+    }
 };

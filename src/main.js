@@ -10,33 +10,33 @@ import '~styles/base.scss';
 import '~styles/global.scss';
 
 const requireComponent = require.context(
-  './components/core',
-  false,
-  /Base[A-Z]\w+\.(vue|js)$/
+    './components/core',
+    false,
+    /Base[A-Z]\w+\.(vue|js)$/
 );
 requireComponent.keys().forEach((fileName) => {
-  const componentConfig = requireComponent(fileName);
-  const componentName = _upperFirst(
-    _camelCase(
-      fileName
-        .split('/')
-        .pop()
-        .replace(/\.\w+$/, '')
-    )
-  );
-  Vue.component(
-    componentName,
-    componentConfig.default || componentConfig
-  );
+    const componentConfig = requireComponent(fileName);
+    const componentName = _upperFirst(
+        _camelCase(
+            fileName
+                .split('/')
+                .pop()
+                .replace(/\.\w+$/, '')
+        )
+    );
+    Vue.component(
+        componentName,
+        componentConfig.default || componentConfig
+    );
 });
 
 Vue.config.productionTip = false;
 
 Vue.use(SvgIcon, {
-  tagName: 'svg-icon'
+    tagName: 'svg-icon'
 });
 
 new Vue({
-  router,
-  render: (h) => { return h(App); }
+    router,
+    render: (h) => { return h(App); }
 }).$mount('#app');

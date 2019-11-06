@@ -16,22 +16,22 @@
 import Sheet from '~units/Sheet';
 
 export default {
-  name: 'DocsOrchester',
-  components: {
-    Sheet
-  },
-  props: {},
-  data() {
-    return {};
-  },
-  computed: {
-    documentationFile() {
-      const { docName } = this.$route.meta;
-      return () => {
-        return import(`./${docName}/index.vue`);
-      };
+    name: 'DocsOrchester',
+    components: {
+        Sheet
+    },
+    props: {},
+    data() {
+        return {};
+    },
+    computed: {
+        documentationFile() {
+            const { docName } = this.$route.meta;
+            return () => {
+                return import(`./${docName}/index.vue`);
+            };
+        }
     }
-  }
 };
 </script>
 

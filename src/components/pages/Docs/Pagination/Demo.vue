@@ -98,15 +98,15 @@ import '~icons/skip-back-mini-line';
 import '~icons/skip-forward-mini-line';
 
 export default {
-  name: 'Paginator',
-  components: {
-    GhPagination
-  },
-  data() {
-    return {
-      currentPage: 1
-    };
-  }
+    name: 'Paginator',
+    components: {
+        GhPagination
+    },
+    data() {
+        return {
+            currentPage: 1
+        };
+    }
 };
 </script>
 

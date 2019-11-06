@@ -35,31 +35,31 @@
 import Ghostax from '~core/Ghostax';
 
 export default {
-  name: 'Logo',
-  components: {
-    Ghostax
-  },
-  props: {
-    size: {
-      type: String,
-      required: false,
-      default: 'small',
-      validator(value) {
-        return ['big', 'medium', 'small'].includes(value);
-      }
+    name: 'Logo',
+    components: {
+        Ghostax
     },
-    omitLogo: {
-      type: Boolean,
-      default: false
+    props: {
+        size: {
+            type: String,
+            required: false,
+            default: 'small',
+            validator(value) {
+                return ['big', 'medium', 'small'].includes(value);
+            }
+        },
+        omitLogo: {
+            type: Boolean,
+            default: false
+        },
+        mask: {
+            type: Boolean,
+            default: false
+        }
     },
-    mask: {
-      type: Boolean,
-      default: false
+    data() {
+        return {};
     }
-  },
-  data() {
-    return {};
-  }
 };
 </script>
 
