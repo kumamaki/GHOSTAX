@@ -35,11 +35,11 @@
 
 <script>
 export default {
-  name: 'Why',
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'Why',
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

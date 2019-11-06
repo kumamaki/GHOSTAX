@@ -101,20 +101,20 @@ import spirit from 'spiritjs';
 import animationData from './ghostax.json';
 
 export default {
-  name: 'HomeHero',
-  props: {},
-  data() {
-    return {};
-  },
-  mounted() {
-    spirit.loadAnimation({
-      container: this.$refs.hero,
-      animationData,
-      loop: true
-    }).then((timeline) => {
-      return timeline.play();
-    });
-  }
+    name: 'HomeHero',
+    props: {},
+    data() {
+        return {};
+    },
+    mounted() {
+        spirit.loadAnimation({
+            container: this.$refs.hero,
+            animationData,
+            loop: true
+        }).then((timeline) => {
+            return timeline.play();
+        });
+    }
 };
 </script>
 

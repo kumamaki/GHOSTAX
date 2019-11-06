@@ -17,16 +17,16 @@
 import 'highlightjs/styles/atom-one-light.css';
 
 export default {
-  name: 'Sheet',
-  props: {
-    title: {
-      type: String,
-      required: true
+    name: 'Sheet',
+    props: {
+        title: {
+            type: String,
+            required: true
+        }
+    },
+    data() {
+        return {};
     }
-  },
-  data() {
-    return {};
-  }
 
 };
 </script>

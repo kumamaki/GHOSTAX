@@ -10,15 +10,15 @@ import HomeHero from './Hero';
 import HomeContent from './Content';
 
 export default {
-  name: 'Home',
-  components: {
-    HomeHero,
-    HomeContent
-  },
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'Home',
+    components: {
+        HomeHero,
+        HomeContent
+    },
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

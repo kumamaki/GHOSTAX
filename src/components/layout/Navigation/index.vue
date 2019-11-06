@@ -15,22 +15,22 @@ import AppLogo from '~units/Logo';
 import NavigationList from './List';
 
 export default {
-  name: 'NavigationMolecule',
-  components: {
-    AppLogo,
-    NavigationList
-  },
-  props: {
-    parentName: {
-      type: String,
-      required: true
+    name: 'NavigationMolecule',
+    components: {
+        AppLogo,
+        NavigationList
+    },
+    props: {
+        parentName: {
+            type: String,
+            required: true
+        }
+    },
+    data() {
+        return {};
+    },
+    computed: {
     }
-  },
-  data() {
-    return {};
-  },
-  computed: {
-  }
 
 };
 </script>

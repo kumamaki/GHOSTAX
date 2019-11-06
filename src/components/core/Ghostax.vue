@@ -284,11 +284,11 @@
 
 <script>
 export default {
-  name: 'Ghostax',
-  props: {},
-  data() {
-    return {};
-  }
+    name: 'Ghostax',
+    props: {},
+    data() {
+        return {};
+    }
 };
 </script>
 

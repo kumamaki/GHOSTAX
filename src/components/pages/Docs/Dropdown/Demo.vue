@@ -73,35 +73,35 @@
 import { Dropdown, DropdownItem } from '@ghostax/dropdown';
 
 export default {
-  name: 'DropdownDemo',
-  components: {
-    Dropdown,
-    DropdownItem
-  },
-  props: {},
-  data() {
-    return {
-      value: '',
-      list: [
-        {
-          id: 0,
-          label: 'First item'
-        },
-        {
-          id: 1,
-          label: 'Second item'
-        },
-        {
-          id: 2,
-          label: 'Third item'
-        },
-        {
-          id: 3,
-          label: 'Fourth item'
-        }
-      ]
-    };
-  }
+    name: 'DropdownDemo',
+    components: {
+        Dropdown,
+        DropdownItem
+    },
+    props: {},
+    data() {
+        return {
+            value: '',
+            list: [
+                {
+                    id: 0,
+                    label: 'First item'
+                },
+                {
+                    id: 1,
+                    label: 'Second item'
+                },
+                {
+                    id: 2,
+                    label: 'Third item'
+                },
+                {
+                    id: 3,
+                    label: 'Fourth item'
+                }
+            ]
+        };
+    }
 };
 </script>
 
