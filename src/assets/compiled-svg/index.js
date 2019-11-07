@@ -1,5 +1,7 @@
 /* eslint-disable */
+import './arrow-left-circle-line'
 import './arrow-left-s-line'
+import './arrow-right-circle-line'
 import './arrow-right-s-line'
 import './arrow'
 import './glasses'

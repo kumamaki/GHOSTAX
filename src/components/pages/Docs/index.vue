@@ -6,34 +6,24 @@
     />
     <section class="docs__sheet">
       <router-view class="docs__content" />
+      <docs-next-prev class="docs__nextPrev" />
     </section>
-    <nav class="docs__navigate">
-      {{ prevRoute }}
-      {{ nextRoute }}
-    </nav>
   </div>
 </template>
 
 <script>
-import { findNextRelativeRoute, findPrevRelativeRoute } from '~packages/vue-router-helpers/src/vue-router';
 import DocsNavigation from '~layout/Navigation';
+import DocsNextPrev from './NextPrev';
 
 export default {
     name: 'DocsPage',
     components: {
-        DocsNavigation
+        DocsNavigation,
+        DocsNextPrev
     },
     props: {},
     data() {
         return {};
-    },
-    computed: {
-        nextRoute() {
-            return findNextRelativeRoute(this.$router, this.$route);
-        },
-        prevRoute() {
-            return findPrevRelativeRoute(this.$router, this.$route);
-        }
     }
 };
 </script>
@@ -50,6 +40,7 @@ export default {
     gap: $grid--xxlarge;
     margin-top: $grid--xxlarge;
     position: relative;
+    margin-bottom: $grid--xlarge;
 
     &__navigation {
         position: sticky;
@@ -62,6 +53,10 @@ export default {
 
     &__content {
 
+    }
+
+    &__nextPrev {
+        margin-top: $grid--xxlarge;
     }
 }
 </style>
