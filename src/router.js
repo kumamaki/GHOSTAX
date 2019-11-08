@@ -98,12 +98,12 @@ export default new Router({
                                 title: 'Helpers'
                             },
                             redirect: {
-                                name: 'docs-helpers-vueRouter'
+                                name: 'docs-helpers-vue-router'
                             },
                             children: [
                                 {
                                     path: 'vue-router',
-                                    name: 'docs-helpers-vueRouter',
+                                    name: 'docs-helpers-vue-router',
                                     meta: {
                                         docName: 'VueRouter',
                                         title: 'Vue Router'

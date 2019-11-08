@@ -4,6 +4,7 @@
             class="docsContent"
             :title="$route.meta.title"
         >
+            <package-stats :name="$route.name.replace(/docs-\w+-/, '')" />
             <component
                 :is="documentationFile"
                 v-if="documentationFile"
@@ -14,11 +15,13 @@
 
 <script>
 import Sheet from '~units/Sheet';
+import PackageStats from '~units/PackageStats/index.vue';
 
 export default {
     name: 'DocsOrchester',
     components: {
-        Sheet
+        Sheet,
+        PackageStats
     },
     props: {},
     data() {

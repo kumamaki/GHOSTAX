@@ -41,8 +41,8 @@ export default {
 <style scoped lang="scss">
 .dropdown {
 
-  &__demo {
-    margin-top: calc(#{$grid--medium} * -1);
-  }
+    &__demo {
+        margin-top: calc(#{$grid--medium} * -1);
+    }
 }
 </style>

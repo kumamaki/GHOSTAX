@@ -112,92 +112,92 @@ export default {
 
 <style scoped lang="scss">
 .paginator {
-  --gap: #{ms(3)};
+    --gap: #{ms(3)};
 
-  box: horizontal middle;
-  user-select: none;
-
-  &__pages {
     box: horizontal middle;
-    font-size: ms(2);
-    gap: ms(1);
-  }
+    user-select: none;
 
-  &__page {
-    box: horizontal middle center;
-    size: ms(2);
-    transition: color .15s;
-    position: relative;
-    z-index: 1;
-    font-weight: 300;
-
-    &::before {
-      content: '';
-      size: ms(2);
-      position: absolute 0 0 0 0;
-      background-color: $color-thirtary-bright;
-      border-radius: 50%;
-      opacity: 0;
-      z-index: -1;
-      transition: opacity .1s ease-in-out;
+    &__pages {
+        box: horizontal middle;
+        font-size: ms(2);
+        gap: ms(1);
     }
 
-    &:hover {
+    &__page {
+        box: horizontal middle center;
+        size: ms(2);
+        transition: color .15s;
+        position: relative;
+        z-index: 1;
+        font-weight: 300;
 
-      &::before {
-        opacity: 1;
-      }
+        &::before {
+            content: '';
+            size: ms(2);
+            position: absolute 0 0 0 0;
+            background-color: $color-thirtary-bright;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity .1s ease-in-out;
+        }
+
+        &:hover {
+
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        &--isActive {
+            pointer-events: none;
+            color: $color-thirtary-base;
+            font-weight: 500;
+        }
     }
 
-    &--isActive {
-      pointer-events: none;
-      color: $color-thirtary-base;
-      font-weight: 500;
-    }
-  }
+    &__goto {
+        color: gray(50);
+        box: horizontal middle center;
 
-  &__goto {
-    color: gray(50);
-    box: horizontal middle center;
+        &:hover {
+            color: $color-thirtary-darken;
+        }
 
-    &:hover {
-      color: $color-thirtary-darken;
-    }
+        &--prev {
 
-    &--prev {
+        }
 
-    }
+        &--next {
 
-    &--next {
+        }
 
-    }
+        &--state {
 
-    &--state {
-
-      &\:disabled {
-        color: gray(80);
-        pointer-events: none;
-      }
-    }
-  }
-
-  &__gotoIcon {
-    size: ms(0);
-
-    &--prev {
-
+            &\:disabled {
+                color: gray(80);
+                pointer-events: none;
+            }
+        }
     }
 
-    &--next {
+    &__gotoIcon {
+        size: ms(0);
 
+        &--prev {
+
+        }
+
+        &--next {
+
+        }
     }
-  }
 
-  &__showingInfo {
-    margin-left: var(--gap);
-    padding-left: var(--gap);
-    border-left: 2px solid $color-thirtary-lighter;
-    color: $color-thirtary-darkest;
-  }
+    &__showingInfo {
+        margin-left: var(--gap);
+        padding-left: var(--gap);
+        border-left: 2px solid $color-thirtary-lighter;
+        color: $color-thirtary-darkest;
+    }
 }
 </style>

@@ -40,13 +40,13 @@ export default {
 <style scoped lang="scss">
 .pagination {
 
-  &__demo {
-    width: 100%;
-    margin-top: ms(2);
-    padding: ms(1);
-    box: horizontal center middle;
-    border-radius: 5px;
-    background-color: gray(96);
-  }
+    &__demo {
+        width: 100%;
+        margin-top: ms(2);
+        padding: ms(1);
+        box: horizontal center middle;
+        border-radius: 5px;
+        background-color: gray(96);
+    }
 }
 </style>
