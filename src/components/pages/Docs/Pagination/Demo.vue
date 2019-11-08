@@ -1,93 +1,93 @@
 <template>
-  <gh-pagination
-    v-model="currentPage"
-    :total-docs="400"
-    :page-limit="10"
-    :page-numbers-set-count="6"
-    #default="{ pageNumbersSet, hasNextPage, hasPrevPage, hasFirstPage, hasLastPage, showingInfo, totalPages, goToNextPage, goToPrevPage, goToLastPage, goToFirstPage }"
-  >
-    <div class="paginator">
-      <nav class="paginator__pages">
-        <button
-          :class="{
-            'paginator__goto--state:disabled': !hasFirstPage
-          }"
-          class="paginator__goto | paginator__goto--prev"
-          @click="goToFirstPage"
-        >
-          <svg-icon
-            name="skip-back-mini-line"
-            class="paginator__gotoIcon"
-            :original="true"
-          />
-        </button>
+    <gh-pagination
+        v-model="currentPage"
+        :total-docs="400"
+        :page-limit="10"
+        :page-numbers-set-count="6"
+        #default="{ pageNumbersSet, hasNextPage, hasPrevPage, hasFirstPage, hasLastPage, showingInfo, totalPages, goToNextPage, goToPrevPage, goToLastPage, goToFirstPage }"
+    >
+        <div class="paginator">
+            <nav class="paginator__pages">
+                <button
+                    :class="{
+                        'paginator__goto--state:disabled': !hasFirstPage
+                    }"
+                    class="paginator__goto | paginator__goto--prev"
+                    @click="goToFirstPage"
+                >
+                    <svg-icon
+                        name="skip-back-mini-line"
+                        class="paginator__gotoIcon"
+                        :original="true"
+                    />
+                </button>
 
-        <button
-          :class="{
-            'paginator__goto--state:disabled': !hasPrevPage
-          }"
-          class="paginator__goto"
-          @click="goToPrevPage"
-        >
-          <svg-icon
-            name="arrow-left-s-line"
-            class="paginator__gotoIcon"
-            :original="true"
-          />
-        </button>
+                <button
+                    :class="{
+                        'paginator__goto--state:disabled': !hasPrevPage
+                    }"
+                    class="paginator__goto"
+                    @click="goToPrevPage"
+                >
+                    <svg-icon
+                        name="arrow-left-s-line"
+                        class="paginator__gotoIcon"
+                        :original="true"
+                    />
+                </button>
 
-        <button
-          v-for="pageNumbersItem in pageNumbersSet"
-          :key="pageNumbersItem"
-          :class="{
-            'paginator__page--isActive': pageNumbersItem === currentPage
-          }"
-          class="paginator__page"
-          @click="currentPage = pageNumbersItem"
-        >
-          {{ pageNumbersItem }}
-        </button>
+                <button
+                    v-for="pageNumbersItem in pageNumbersSet"
+                    :key="pageNumbersItem"
+                    :class="{
+                        'paginator__page--isActive': pageNumbersItem === currentPage
+                    }"
+                    class="paginator__page"
+                    @click="currentPage = pageNumbersItem"
+                >
+                    {{ pageNumbersItem }}
+                </button>
 
-        <button
-          :class="{
-            'paginator__goto--state:disabled': !hasNextPage
-          }"
-          class="paginator__goto"
-          @click="goToNextPage"
-        >
-          <svg-icon
-            name="arrow-right-s-line"
-            class="paginator__gotoIcon"
-            :original="true"
-          />
-        </button>
+                <button
+                    :class="{
+                        'paginator__goto--state:disabled': !hasNextPage
+                    }"
+                    class="paginator__goto"
+                    @click="goToNextPage"
+                >
+                    <svg-icon
+                        name="arrow-right-s-line"
+                        class="paginator__gotoIcon"
+                        :original="true"
+                    />
+                </button>
 
-        <button
-          :class="{
-            'paginator__goto--state:disabled': !hasLastPage
-          }"
-          class="paginator__goto"
-          @click="goToLastPage"
-        >
-          <svg-icon
-            name="skip-forward-mini-line"
-            class="paginator__gotoIcon"
-            :original="true"
-          />
-        </button>
-      </nav>
+                <button
+                    :class="{
+                        'paginator__goto--state:disabled': !hasLastPage
+                    }"
+                    class="paginator__goto"
+                    @click="goToLastPage"
+                >
+                    <svg-icon
+                        name="skip-forward-mini-line"
+                        class="paginator__gotoIcon"
+                        :original="true"
+                    />
+                </button>
+            </nav>
 
-      <div class="paginator__showingInfo">
-        From
-        {{ showingInfo.from }}
-        To
-        {{ showingInfo.to }}
-        Of
-        {{ showingInfo.of }}
-        Items
-      </div>
-    </div>
-  </gh-pagination>
+            <div class="paginator__showingInfo">
+                From
+                {{ showingInfo.from }}
+                To
+                {{ showingInfo.to }}
+                Of
+                {{ showingInfo.of }}
+                Items
+            </div>
+        </div>
+    </gh-pagination>
 </template>
 
 <script>

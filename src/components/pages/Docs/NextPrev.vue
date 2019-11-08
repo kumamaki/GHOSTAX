@@ -1,35 +1,35 @@
 <template>
-  <nav class="nextPrev">
-    <router-link
-      v-if="prevRoute"
-      class="nextPrev__link"
-      :to="{name: prevRoute.name}"
-    >
-      <svg-icon
-        name="arrow-left-circle-line"
-        class="nextPrev__icon"
-        :original="true"
-      />
-      <span class="nextPrev__text">
-        {{ prevRoute.meta.title }}
-      </span>
-    </router-link>
+    <nav class="nextPrev">
+        <router-link
+            v-if="prevRoute"
+            class="nextPrev__link"
+            :to="{name: prevRoute.name}"
+        >
+            <svg-icon
+                name="arrow-left-circle-line"
+                class="nextPrev__icon"
+                :original="true"
+            />
+            <span class="nextPrev__text">
+                {{ prevRoute.meta.title }}
+            </span>
+        </router-link>
 
-    <router-link
-      v-if="nextRoute"
-      class="nextPrev__link"
-      :to="{name: nextRoute.name}"
-    >
-      <span class="nextPrev__text">
-        {{ nextRoute.meta.title }}
-      </span>
-      <svg-icon
-        name="arrow-right-circle-line"
-        class="nextPrev__icon"
-        :original="true"
-      />
-    </router-link>
-  </nav>
+        <router-link
+            v-if="nextRoute"
+            class="nextPrev__link"
+            :to="{name: nextRoute.name}"
+        >
+            <span class="nextPrev__text">
+                {{ nextRoute.meta.title }}
+            </span>
+            <svg-icon
+                name="arrow-right-circle-line"
+                class="nextPrev__icon"
+                :original="true"
+            />
+        </router-link>
+    </nav>
 </template>
 
 <script>

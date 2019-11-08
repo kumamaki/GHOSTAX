@@ -1,43 +1,43 @@
 <template>
-  <header
-    :class="{
-      'header--isCollapsed': collapse
-    }"
-    class="header"
-  >
-    <div class="header__logoHolder">
-      <svg-icon
+    <header
         :class="{
-          'header__logoIcon--isCollapsed': collapse
+            'header--isCollapsed': collapse
         }"
-        class="header__logoIcon"
-        name="ghost"
-      />
-    </div>
-    <div
-      :class="{
-        'header__textsHolder--isCollapsed': collapse
-      }"
-      class="header__textsHolder"
+        class="header"
     >
-      <h1
-        :class="{
-          'header__title--isCollapsed': collapse
-        }"
-        class="header__title"
-      >
-        Ghostr
-      </h1>
-      <h2
-        :class="{
-          'header__description--isCollapsed': collapse
-        }"
-        class="header__description"
-      >
-        abstracts the logic!
-      </h2>
-    </div>
-  </header>
+        <div class="header__logoHolder">
+            <svg-icon
+                :class="{
+                    'header__logoIcon--isCollapsed': collapse
+                }"
+                class="header__logoIcon"
+                name="ghost"
+            />
+        </div>
+        <div
+            :class="{
+                'header__textsHolder--isCollapsed': collapse
+            }"
+            class="header__textsHolder"
+        >
+            <h1
+                :class="{
+                    'header__title--isCollapsed': collapse
+                }"
+                class="header__title"
+            >
+                Ghostr
+            </h1>
+            <h2
+                :class="{
+                    'header__description--isCollapsed': collapse
+                }"
+                class="header__description"
+            >
+                abstracts the logic!
+            </h2>
+        </div>
+    </header>
 </template>
 
 <script>

@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
-    <home-content class="home__content" />
-    <home-hero class="home__hero" />
-  </div>
+    <div class="home">
+        <home-content class="home__content" />
+        <home-hero class="home__hero" />
+    </div>
 </template>
 
 <script>

@@ -1,72 +1,72 @@
 <template>
-  <div class="dropdown">
-    <dropdown
-      v-model="value"
-      v-slot="{
-        listToRender,
-        instance,
-        isOpen,
-        selected,
-
-        toggle
-      }"
-      :raw-list="list"
-    >
-      <div class="dropdown__inner">
-        <button
-          class="dropdown__handler"
-          @click="toggle"
-        >
-          <div
-            :class="{
-              'dropdown__iconHolder--stateOpen': isOpen
-            }"
-            class="dropdown__iconHolder"
-          >
-            <svg-icon
-              name="arrow"
-              :class="{
-                'dropdown__icon--stateOpen': isOpen
-              }"
-              class="dropdown__icon"
-            />
-          </div>
-          <span class="dropdown__placeholder">
-            {{ selected.label || 'Select item' }}
-          </span>
-        </button>
-        <ul
-          :class="{
-            'dropdown__list--stateOpen': isOpen
-          }"
-          class="dropdown__list"
-        >
-          <dropdown-item
-            v-for="listItem in listToRender"
-            :key="listItem.id"
+    <div class="dropdown">
+        <dropdown
+            v-model="value"
             v-slot="{
-              itemEvents,
-              isHighlighted,
-              isSelected
+                listToRender,
+                instance,
+                isOpen,
+                selected,
+
+                toggle
             }"
-            :instance="instance"
-            :item="listItem"
-          >
-            <li
-              :class="{
-                'dropdown__item--isSelected': isSelected,
-                'dropdown__item--isHovered': isHighlighted
-              }"
-              class="dropdown__item"
-              v-on="itemEvents(listItem)"
-            >
-              {{ listItem.label }}
-            </li>
-          </dropdown-item>
-        </ul>
-      </div>
-    </dropdown>
-  </div>
+            :raw-list="list"
+        >
+            <div class="dropdown__inner">
+                <button
+                    class="dropdown__handler"
+                    @click="toggle"
+                >
+                    <div
+                        :class="{
+                            'dropdown__iconHolder--stateOpen': isOpen
+                        }"
+                        class="dropdown__iconHolder"
+                    >
+                        <svg-icon
+                            name="arrow"
+                            :class="{
+                                'dropdown__icon--stateOpen': isOpen
+                            }"
+                            class="dropdown__icon"
+                        />
+                    </div>
+                    <span class="dropdown__placeholder">
+                        {{ selected.label || 'Select item' }}
+                    </span>
+                </button>
+                <ul
+                    :class="{
+                        'dropdown__list--stateOpen': isOpen
+                    }"
+                    class="dropdown__list"
+                >
+                    <dropdown-item
+                        v-for="listItem in listToRender"
+                        :key="listItem.id"
+                        v-slot="{
+                            itemEvents,
+                            isHighlighted,
+                            isSelected
+                        }"
+                        :instance="instance"
+                        :item="listItem"
+                    >
+                        <li
+                            :class="{
+                                'dropdown__item--isSelected': isSelected,
+                                'dropdown__item--isHovered': isHighlighted
+                            }"
+                            class="dropdown__item"
+                            v-on="itemEvents(listItem)"
+                        >
+                            {{ listItem.label }}
+                        </li>
+                    </dropdown-item>
+                </ul>
+            </div>
+        </dropdown>
+    </div>
 </template>
 
 <script>

@@ -1,14 +1,14 @@
 /* eslint-disable */
 <template>
-  <div class="dropdown">
-    <MdIntro />
-    <MdInstallation />
-    <MdDemo />
-    <dropdown-demo class="dropdown__demo" />
-    <MdUsage />
-    <MdAPI />
-    <MdCaveats />
-  </div>
+    <div class="dropdown">
+        <MdIntro />
+        <MdInstallation />
+        <MdDemo />
+        <dropdown-demo class="dropdown__demo" />
+        <MdUsage />
+        <MdAPI />
+        <MdCaveats />
+    </div>
 </template>
 
 <script>

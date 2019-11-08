@@ -1,13 +1,13 @@
 <template>
-  <div class="pagination">
-    <MdIntro />
-    <MdTOC />
-    <MdInstallation />
-    <MdUsage />
-    <MdDemo />
-    <pagination-demo class="pagination__demo" />
-    <MdAPI />
-  </div>
+    <div class="pagination">
+        <MdIntro />
+        <MdTOC />
+        <MdInstallation />
+        <MdUsage />
+        <MdDemo />
+        <pagination-demo class="pagination__demo" />
+        <MdAPI />
+    </div>
 </template>
 
 <script>
