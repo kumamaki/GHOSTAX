@@ -1,13 +1,13 @@
 <template>
-  <nav class="navigation">
-    <router-link :to="{name: 'home'}">
-      <app-logo class="docsHeader__logo" />
-    </router-link>
-    <navigation-list
-      class="navigation__list"
-      :parent-name="parentName"
-    />
-  </nav>
+    <nav class="navigation">
+        <router-link :to="{name: 'home'}">
+            <app-logo class="docsHeader__logo" />
+        </router-link>
+        <navigation-list
+            class="navigation__list"
+            :parent-name="parentName"
+        />
+    </nav>
 </template>
 
 <script>

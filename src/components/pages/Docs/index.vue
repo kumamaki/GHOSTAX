@@ -1,14 +1,14 @@
 <template>
-  <div class="docs">
-    <docs-navigation
-      class="docs__navigation"
-      parent-name="docs"
-    />
-    <section class="docs__sheet">
-      <router-view class="docs__content" />
-      <docs-next-prev class="docs__nextPrev" />
-    </section>
-  </div>
+    <div class="docs">
+        <docs-navigation
+            class="docs__navigation"
+            parent-name="docs"
+        />
+        <section class="docs__sheet">
+            <router-view class="docs__content" />
+            <docs-next-prev class="docs__nextPrev" />
+        </section>
+    </div>
 </template>
 
 <script>

@@ -1,29 +1,29 @@
 <template>
-  <ul
-    class="navigationList"
-  >
-    <li
-      v-for="(child) in children"
-      :key="child.name"
-      class="navigationList__item"
+    <ul
+        class="navigationList"
     >
-      <router-link
-        :to="{
-          name: child.name
-        }"
-        class="navigationList__name"
-      >
-        {{ child.meta.title }}
-      </router-link>
-      <NavigationList
-        v-if="hasMoreChildren"
-        :parent-name="child.name"
-        :indent-number="indentNumber + 1"
-        :class="[`navigationList--inner--${indentNumber}`]"
-        class="navigationList--inner"
-      />
-    </li>
-  </ul>
+        <li
+            v-for="(child) in children"
+            :key="child.name"
+            class="navigationList__item"
+        >
+            <router-link
+                :to="{
+                    name: child.name
+                }"
+                class="navigationList__name"
+            >
+                {{ child.meta.title }}
+            </router-link>
+            <NavigationList
+                v-if="hasMoreChildren"
+                :parent-name="child.name"
+                :indent-number="indentNumber + 1"
+                :class="[`navigationList--inner--${indentNumber}`]"
+                class="navigationList--inner"
+            />
+        </li>
+    </ul>
 </template>
 
 <script>

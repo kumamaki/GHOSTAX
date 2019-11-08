@@ -1,16 +1,16 @@
 <template>
-  <section
-    class="sheet"
-  >
-    <div
-      class="sheet__inner"
+    <section
+        class="sheet"
     >
-      <h1>
-        {{ title }}
-      </h1>
-      <slot />
-    </div>
-  </section>
+        <div
+            class="sheet__inner"
+        >
+            <h1>
+                {{ title }}
+            </h1>
+            <slot />
+        </div>
+    </section>
 </template>
 
 <script>

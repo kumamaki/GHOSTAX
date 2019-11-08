@@ -1,17 +1,17 @@
 <template>
-  <div class="vueRouter">
-    <MdIntro />
+    <div class="vueRouter">
+        <MdIntro />
 
-    <h2>
-      Installation
-    </h2>
-    <MdInstallation />
+        <h2>
+            Installation
+        </h2>
+        <MdInstallation />
 
-    <h2>
-      Methods
-    </h2>
-    <MdMethods />
-  </div>
+        <h2>
+            Methods
+        </h2>
+        <MdMethods />
+    </div>
 </template>
 
 <script>

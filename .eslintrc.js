@@ -106,6 +106,13 @@ module.exports = {
     'vue/object-curly-spacing': 'error',
     'vue/space-unary-ops': 'error',
     'vue/v-on-function-call': 'error',
-    'vue/camelcase': 'error'
+    'vue/camelcase': 'error',
+    'vue/html-indent': ['error', 4, {
+        "attribute": 1,
+        "baseIndent": 1,
+        "closeBracket": 0,
+        "alignAttributesVertically": true,
+        "ignores": []
+    }]
   }
 };

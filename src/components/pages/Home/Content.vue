@@ -1,43 +1,43 @@
 <template>
-  <section class="content">
-    <header class="content__header">
-      <app-logo
-        :omit-logo="true"
-        :mask="true"
-        class="content__logo"
-        size="big"
-      />
-    </header>
-    <article class="content__sheet">
-      <p>
-        GHOSTAX is a renderless
-        <a
-          href="https://vuejs.org/"
-          class="vue"
-          target="_blank"
+    <section class="content">
+        <header class="content__header">
+            <app-logo
+                :omit-logo="true"
+                :mask="true"
+                class="content__logo"
+                size="big"
+            />
+        </header>
+        <article class="content__sheet">
+            <p>
+                GHOSTAX is a renderless
+                <a
+                    href="https://vuejs.org/"
+                    class="vue"
+                    target="_blank"
+                >
+                    <svg-icon name="vue" />
+                    vue
+                </a>
+                framework that doesn’t render any DOM from itself.
+                <i>
+                    like a free ghost.
+                </i>
+            </p>
+            <p>
+                You can use renderless components to forget about the logic complexity, and write your very own DOM and CSS.
+            </p>
+        </article>
+        <base-button
+            :to="{
+                name: 'docs'
+            }"
+            class="content__cta"
+            icon="glasses"
         >
-          <svg-icon name="vue" />
-          vue
-        </a>
-        framework that doesn’t render any DOM from itself.
-        <i>
-          like a free ghost.
-        </i>
-      </p>
-      <p>
-        You can use renderless components to forget about the logic complexity, and write your very own DOM and CSS.
-      </p>
-    </article>
-    <base-button
-      :to="{
-        name: 'docs'
-      }"
-      class="content__cta"
-      icon="glasses"
-    >
-      Check out docs!
-    </base-button>
-  </section>
+            Check out docs!
+        </base-button>
+    </section>
 </template>
 
 <script>

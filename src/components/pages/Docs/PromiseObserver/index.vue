@@ -1,11 +1,11 @@
 /* eslint-disable */
 <template>
-  <div class="promiseObserver">
-    <MdIntro />
-    <MdInstallation />
-    <MdUsage />
-    <MdApi />
-  </div>
+    <div class="promiseObserver">
+        <MdIntro />
+        <MdInstallation />
+        <MdUsage />
+        <MdApi />
+    </div>
 </template>
 
 <script>

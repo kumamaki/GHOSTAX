@@ -1,7 +1,7 @@
 <template>
-  <main class="root">
-    <router-view />
-  </main>
+    <main class="root">
+        <router-view />
+    </main>
 </template>
 
 <script>

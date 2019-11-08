@@ -1,20 +1,20 @@
 <template>
-  <componenet
-    :is="getComponentType()"
-    :to="to"
-    :class="[`button--${appearance}`]"
-    class="button"
-  >
-    <svg-icon
-      v-if="icon"
-      :name="icon"
-      class="button__icon"
+    <componenet
+        :is="getComponentType()"
+        :to="to"
+        :class="[`button--${appearance}`]"
+        class="button"
     >
-    </svg-icon>
-    <span class="button__text">
-      <slot />
-    </span>
-  </componenet>
+        <svg-icon
+            v-if="icon"
+            :name="icon"
+            class="button__icon"
+        >
+        </svg-icon>
+        <span class="button__text">
+            <slot />
+        </span>
+    </componenet>
 </template>
 
 <script>

@@ -1,34 +1,34 @@
 <template>
-  <div
-    :class="{
-      'logo--noImage': omitLogo
-    }"
-    class="logo"
-  >
-    <ghostax
-      v-if="!omitLogo"
-      class="logo__image"
-    />
     <div
-      :class="[`logo__texts--${size}`]"
-      class="logo__texts"
+        :class="{
+            'logo--noImage': omitLogo
+        }"
+        class="logo"
     >
-      <h1
-        :class="[`logo__name--${size}`, {
-          'logo__name--mask': mask
-        }]"
-        class="logo__name"
-      >
-        GHOSTAX
-      </h1>
-      <h2
-        :class="[`logo__slogan--${size}`]"
-        class="logo__slogan"
-      >
-        abstracts the logic!
-      </h2>
+        <ghostax
+            v-if="!omitLogo"
+            class="logo__image"
+        />
+        <div
+            :class="[`logo__texts--${size}`]"
+            class="logo__texts"
+        >
+            <h1
+                :class="[`logo__name--${size}`, {
+                    'logo__name--mask': mask
+                }]"
+                class="logo__name"
+            >
+                GHOSTAX
+            </h1>
+            <h2
+                :class="[`logo__slogan--${size}`]"
+                class="logo__slogan"
+            >
+                abstracts the logic!
+            </h2>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
