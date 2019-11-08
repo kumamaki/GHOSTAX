@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { Dropdown, DropdownItem } from '@ghostax/dropdown';
+import { Dropdown, DropdownItem } from '~packages/dropdown/src/dropdown.js';
 
 export default {
     name: 'DropdownDemo',
@@ -107,95 +107,95 @@ export default {
 
 <style scoped lang="scss">
 .dropdown {
-  --height: 45px;
-  --width: auto;
-  --border-radius: 3px;
-  --forground-color: #{$color-secondary-lighten};
-  --background-color: #{$color-secondary-darken};
-  --background-color-darken: #{$color-secondary-darker};
-  --background-color--hover: #{$color-secondary-darkest};
+    --height: 45px;
+    --width: auto;
+    --border-radius: 3px;
+    --forground-color: #{$color-secondary-lighten};
+    --background-color: #{$color-secondary-darken};
+    --background-color-darken: #{$color-secondary-darker};
+    --background-color--hover: #{$color-secondary-darkest};
 
-  width: var(--width);
-  display: flex;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .1));
+    width: var(--width);
+    display: flex;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .1));
 
-  &__inner {
-    position: relative;
-    min-width: 150px;
-  }
-
-  &__handler {
-    box: horizontal middle;
-    width: 100%;
-    height: var(--height);
-    border-radius: var(--border-radius);
-    background-color: var(--background-color);
-    cursor: pointer;
-    color: gray(100);
-  }
-
-  &__iconHolder {
-    box: center middle;
-    height: var(--height);
-    width: var(--height);
-    border-radius: var(--border-radius);
-    background-color: var(--background-color);
-
-    &--stateOpen {
-    }
-  }
-
-  &__icon {
-    transition: transform .2s;
-
-    &--stateOpen {
-      transform: rotateZ(180deg);
-    }
-  }
-
-  &__placeholder {
-    box: center;
-    padding-right: $grid--normal;
-    font-size: .9em;
-  }
-
-  &__list {
-    background-color: var(--background-color-darken);
-    position: absolute;
-    top: calc(100% - 2px);
-    left: 0;
-    right: 0;
-    min-width: var(--width);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    transition: clip-path .3s, transform .2s .3s, opacity .3s;
-    transition-timing-function: cubic-bezier(0, .57, .01, .95);
-    clip-path: circle(0% at 0 0);
-    transform: translateY(-1rem);
-
-    &--stateOpen {
-      transition: clip-path .3s, transform .3s, opacity .3s;
-      clip-path: circle(150% at 0% 0%);
-      transform: translateY(0);
-    }
-  }
-
-  &__item {
-    padding: $grid $grid--normal;
-    color: gray(100);
-    cursor: pointer;
-    user-select: none;
-
-    & + & {
-      border-top: 1px solid var(--background-color--hover);
+    &__inner {
+        position: relative;
+        min-width: 150px;
     }
 
-    &--isSelected {
-      background-color: var(--background-color--hover);
+    &__handler {
+        box: horizontal middle;
+        width: 100%;
+        height: var(--height);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        cursor: pointer;
+        color: gray(100);
     }
 
-    &--isHovered {
-      background-color: var(--background-color--hover);
+    &__iconHolder {
+        box: center middle;
+        height: var(--height);
+        width: var(--height);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+
+        &--stateOpen {
+        }
     }
-  }
+
+    &__icon {
+        transition: transform .2s;
+
+        &--stateOpen {
+            transform: rotateZ(180deg);
+        }
+    }
+
+    &__placeholder {
+        box: center;
+        padding-right: $grid--normal;
+        font-size: .9em;
+    }
+
+    &__list {
+        background-color: var(--background-color-darken);
+        position: absolute;
+        top: calc(100% - 2px);
+        left: 0;
+        right: 0;
+        min-width: var(--width);
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        transition: clip-path .3s, transform .2s .3s, opacity .3s;
+        transition-timing-function: cubic-bezier(0, .57, .01, .95);
+        clip-path: circle(0% at 0 0);
+        transform: translateY(-1rem);
+
+        &--stateOpen {
+            transition: clip-path .3s, transform .3s, opacity .3s;
+            clip-path: circle(150% at 0% 0%);
+            transform: translateY(0);
+        }
+    }
+
+    &__item {
+        padding: $grid $grid--normal;
+        color: gray(100);
+        cursor: pointer;
+        user-select: none;
+
+        & + & {
+            border-top: 1px solid var(--background-color--hover);
+        }
+
+        &--isSelected {
+            background-color: var(--background-color--hover);
+        }
+
+        &--isHovered {
+            background-color: var(--background-color--hover);
+        }
+    }
 }
 </style>
