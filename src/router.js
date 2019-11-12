@@ -48,7 +48,8 @@ export default new Router({
                                     name: 'docs-introduction-why',
                                     meta: {
                                         docName: 'Why',
-                                        title: 'Why?'
+                                        title: 'Why?',
+                                        showStats: false
                                     }
                                 }
                             ]

@@ -4,7 +4,10 @@
             class="docsContent"
             :title="$route.meta.title"
         >
-            <package-stats :name="$route.name.replace(/docs-\w+-/, '')" />
+            <package-stats
+                v-if="$route.meta.showStats !== false"
+                :name="$route.name.replace(/docs-\w+-/, '')"
+            />
             <component
                 :is="documentationFile"
                 v-if="documentationFile"
