@@ -1,6 +1,10 @@
 <template>
-    <div class="docs">
+    <div
+        v-cq
+        class="docs"
+    >
         <docs-navigation
+            v-cq
             class="docs__navigation"
             parent-name="docs"
         />
@@ -17,6 +21,11 @@ import DocsNextPrev from './NextPrev';
 
 export default {
     name: 'DocsPage',
+    cq: {
+        large: {
+            maxWidth: 850
+        }
+    },
     components: {
         DocsNavigation,
         DocsNextPrev
@@ -33,6 +42,7 @@ export default {
     --logo-size: 70px;
 
     width: var(--general-width);
+    max-width: calc(100% - #{$grid--xxlarge});
     align-items: start;
     margin: 0 auto;
     display: grid;
@@ -41,6 +51,14 @@ export default {
     margin-top: $grid--xxlarge;
     position: relative;
     margin-bottom: $grid--xlarge;
+
+    &--size\: {
+
+        &large {
+            grid-template-columns: minmax(0, var(--logo-size)) minmax(0, 1fr);
+            gap: $grid--large;
+        }
+    }
 
     &__navigation {
         position: sticky;

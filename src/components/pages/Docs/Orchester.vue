@@ -1,7 +1,6 @@
 <template>
     <div class="orchester">
         <sheet
-            class="docsContent"
             :title="$route.meta.title"
         >
             <package-stats
@@ -40,9 +39,3 @@ export default {
     }
 };
 </script>
-
-<style scoped lang="scss">
-.componentName {
-
-}
-</style>

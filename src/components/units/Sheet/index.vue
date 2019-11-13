@@ -1,8 +1,10 @@
 <template>
     <section
+        v-cq
         class="sheet"
     >
         <div
+            v-cq
             class="sheet__inner"
         >
             <h1>
@@ -18,6 +20,11 @@ import 'highlightjs/styles/atom-one-light.css';
 
 export default {
     name: 'Sheet',
+    cq: {
+        large: {
+            maxWidth: 680
+        }
+    },
     props: {
         title: {
             type: String,
@@ -36,7 +43,7 @@ export default {
     --inner-gap: #{$grid--large};
 
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: minmax(0, 1fr);
     border-radius: 5px;
     padding: var(--inner-gap);
     background-color: #FFFFFF;
@@ -44,8 +51,21 @@ export default {
     color: gray(40);
     line-height: 1.618;
 
+    &--size\: {
+
+        &large {
+
+        }
+    }
+
     &__inner {
         padding-right: $grid--large;
+        &--size\: {
+
+            &large {
+                padding-right: 0;
+            }
+        }
     }
 
     ::v-deep {
@@ -97,6 +117,9 @@ export default {
             font-size: .85em;
             border-radius: 15px;
             padding: $grid--normal;
+            overflow-x: auto;
+            white-space: nowrap;
+            // width: calc(100% - (var(--inner-gap) * 2));
         }
 
         p code,
@@ -107,12 +130,16 @@ export default {
             padding: 0 .25em;
             background-color: $color-secondary-bright;
             font-size: .9em;
+            white-space: pre-wrap;
         }
 
         table {
             margin: $grid--normal 0;
             font-size: .9em;
             width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            display: block;
 
             thead {
 
