@@ -1,5 +1,6 @@
 <template>
     <div
+        v-cq
         :class="{
             'logo--noImage': omitLogo
         }"
@@ -10,10 +11,12 @@
             class="logo__image"
         />
         <div
+            v-cq
             :class="[`logo__texts--${size}`]"
             class="logo__texts"
         >
             <h1
+                v-cq
                 :class="[`logo__name--${size}`, {
                     'logo__name--mask': mask
                 }]"
@@ -36,6 +39,14 @@ import Ghostax from '~core/Ghostax';
 
 export default {
     name: 'Logo',
+    cq: {
+        medium: {
+            maxWidth: 200
+        },
+        small: {
+            maxWidth: 170
+        }
+    },
     components: {
         Ghostax
     },
@@ -65,56 +76,76 @@ export default {
 
 <style scoped lang="scss">
 .logo {
-  --logo-size: 70px;
+    --logo-size: 70px;
 
-  display: grid;
-  grid-template-columns: [logo-start] var(--logo-size) [logo-end text-start] auto [text-end];
-  grid-column-gap: $grid--normal;
-  align-items: center;
+    display: grid;
+    grid-template-columns: [logo-start] var(--logo-size) [logo-end text-start] auto [text-end];
+    grid-column-gap: $grid--normal;
+    align-items: center;
 
-  &--noImage {
-    grid-template-columns: auto;
-  }
+    &--noImage {
+        grid-template-columns: auto;
+    }
+    &--size\: {
 
-  &__image {
-    size: var(--logo-size);
-  }
-
-  &__texts {
-    box: vertical;
-  }
-
-  &__name {
-    font-size: ms(1);
-    font-weight: 600;
-    color: #26215D;
-    line-height: 1;
-    position: relative;
-
-    &--mask {
-      background-image: url('~@/assets/images/galaxy.png');
-      background-size: 150%;
-      background-repeat: no-repeat;
-      background-clip: text;
-      color: transparent;
-      background-position: 55% 75%;
+        &small {
+            grid-template-columns: var(--logo-size);
+        }
     }
 
-    &--big {
-      font-size: ms(6);
-      font-weight: 900;
+    &__image {
+        size: var(--logo-size);
     }
-  }
 
-  &__slogan {
-    font-family: $mono-typeface;
-    font-size: ms(-1);
-    color: $color-primary-500;
-    font-weight: 600;
+    &__texts {
+        box: vertical;
 
-    &--big {
-      font-size: ms(2);
+        &--size\: {
+
+            &small {
+                display: none;
+            }
+        }
     }
-  }
+
+    &__name {
+        font-size: ms(1);
+        font-weight: 600;
+        color: #26215D;
+        line-height: 1;
+        position: relative;
+
+        &--mask {
+            background-image: url('~@/assets/images/galaxy.png');
+            background-size: 150%;
+            background-repeat: no-repeat;
+            background-clip: text;
+            color: transparent;
+            background-position: 55% 75%;
+        }
+
+        &--big {
+            font-size: ms(6);
+            font-weight: 900;
+        }
+
+        &--size\: {
+
+            &medium {
+                font-size: ms(0);
+            }
+        }
+    }
+
+    &__slogan {
+        font-family: $mono-typeface;
+        font-size: ms(-1);
+        color: $color-primary-500;
+        font-weight: 600;
+
+        &--big {
+            font-size: ms(2);
+        }
+    }
 }
 </style>

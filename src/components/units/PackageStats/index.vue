@@ -60,6 +60,7 @@ export default {
 <style scoped lang="scss">
 .packageVersion {
     display: flex;
+    flex-wrap: wrap;
 
     &__item {
         margin-right: $grid;

@@ -1,13 +1,13 @@
 html {
-  background-color: $blue-white;
-  min-height: 100vh;
-  min-width: 100vw;
+    background-color: $blue-white;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 body {
-  min-height: 100vh;
-  min-width: 100vw;
-  font-family: $default-typeface;
-  background-color: var(--background-color);
-  overflow-x: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: $default-typeface;
+    background-color: var(--background-color);
+    overflow-x: hidden;
 }
