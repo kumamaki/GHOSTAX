@@ -43,12 +43,14 @@ export default {
 .dropdown {
 
     &__demo {
+        box: middle center;
         margin: $grid--medium 0;
         padding: $grid--large;
         background-color: gray(30);
         margin-top: calc(#{$grid--large} * -1);
         border-radius: 0 0 5px 5px;
         border-top: 3px solid gray(20);
+        z-index: g-index('mountain');
     }
 }
 </style>

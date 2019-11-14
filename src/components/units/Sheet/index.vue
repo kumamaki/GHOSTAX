@@ -81,6 +81,7 @@ export default {
                 background-color: $color-primary-base;
                 color: $color-primary-100;
                 font-family: $mono-typeface;
+                box-shadow: 0 6px 100px 0 transparentize($color-primary-base, .5);
             }
         }
 
