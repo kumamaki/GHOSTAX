@@ -7611,10 +7611,10 @@ good-listener@^1.2.2:
   dependencies:
     delegate "^3.1.2"
 
-google-fonts-complete@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/google-fonts-complete/-/google-fonts-complete-2.0.0.tgz#d5c764fa9999e95edade159447ca13abf69c1d0e"
-  integrity sha512-OEvi5aC9ypmg8Nahtl3kh5EeCgzVsW3RLJxuP27/irkmE3KozqN/uNzIA8JAAg/yTr5194i/8q6iN/ibbcNhDA==
+google-fonts-complete@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/google-fonts-complete/-/google-fonts-complete-2.1.0.tgz#bb22d446290e2cda54b6fe56add406b0b17914ef"
+  integrity sha512-VRTGBvWdYE7NJuv/KbKp4hakK8QgsV9Z7LRAPdXmQ+cDqjZYZAMEKpBUYeO+uWsnTvMNaAtxTrFVCZrTGyb8VQ==
   dependencies:
     postcss "^7.0.18"
 
@@ -9681,10 +9681,10 @@ linkify-it@^2.0.0:
   dependencies:
     uc.micro "^1.0.1"
 
-lint-staged@^9.4.1:
-  version "9.4.2"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.2.tgz#14cb577a9512f520691f8b5aefce6a8f7ead6c04"
-  integrity sha512-OFyGokJSWTn2M6vngnlLXjaHhi8n83VIZZ5/1Z26SULRUWgR3ITWpAEQC9Pnm3MC/EpCxlwts/mQWDHNji2+zA==
+lint-staged@^9.4.3:
+  version "9.4.3"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.3.tgz#f55ad5f94f6e105294bfd6499b23142961f7b982"
+  integrity sha512-PejnI+rwOAmKAIO+5UuAZU9gxdej/ovSEOAY34yMfC3OS4Ac82vCBPzAWLReR9zCPOMqeVwQRaZ3bUBpAsaL2Q==
   dependencies:
     chalk "^2.4.2"
     commander "^2.20.0"
@@ -12103,14 +12103,14 @@ postcss-focus-within@^3.0.0:
   dependencies:
     postcss "^7.0.2"
 
-postcss-font-magician@^2.2.2:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/postcss-font-magician/-/postcss-font-magician-2.3.0.tgz#567c41289ddacb2f7e59d25d63264dfd6874d16d"
-  integrity sha512-W8baCvCUXTCFmeOgiSfjixWjBQGE0wxtb1F78TD640chcP4YBxqXcy3qwwWqLXA1Vo5aMBajf8xWhCDbu2fSng==
+postcss-font-magician@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/postcss-font-magician/-/postcss-font-magician-2.3.1.tgz#8dba68bcfc09f6801a3dbb616273cb62a91c5e31"
+  integrity sha512-2zTGmrNKyFkRtHW5Pg6lMpsCdUTBLqvNUVr+aJozQ7ZC0TljO4JvreQMYyjad/nErUfUiDHK8zMKqN4EtOEOFQ==
   dependencies:
     bootstrap-fonts-complete "^1.0.0"
     directory-fonts-complete "^1.2.0"
-    google-fonts-complete "^2.0.0"
+    google-fonts-complete "^2.1.0"
     postcss "^7.0.21"
 
 postcss-font-variant@^4.0.0:

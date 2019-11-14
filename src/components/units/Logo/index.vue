@@ -12,7 +12,6 @@
         />
         <div
             v-cq
-            :class="[`logo__texts--${size}`]"
             class="logo__texts"
         >
             <h1

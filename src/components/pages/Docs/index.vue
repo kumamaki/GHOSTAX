@@ -4,7 +4,6 @@
         class="docs"
     >
         <docs-navigation
-            v-cq
             class="docs__navigation"
             parent-name="docs"
         />
