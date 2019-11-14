@@ -1,5 +1,5 @@
 <template>
-    <div class="why">
+    <section class="why">
         <p>
             <span>
                 <span class="brand">
@@ -30,7 +30,7 @@
             <br />
             The point is <b>You can use <i>renderless</i> components to forget about the complexity, and write your very own DOM and CSS.</b>
         </p>
-    </div>
+    </section>
 </template>
 
 <script>
