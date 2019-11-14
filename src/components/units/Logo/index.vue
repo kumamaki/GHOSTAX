@@ -125,7 +125,7 @@ export default {
         }
 
         &--big {
-            font-size: ms(6);
+            font-size: ms(4);
             font-weight: 900;
         }
 
