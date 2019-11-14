@@ -3,7 +3,10 @@
         v-cq
         class="navigation"
     >
-        <router-link :to="{name: 'home'}">
+        <router-link
+            class="navigation__logoLink"
+            :to="{name: 'home'}"
+        >
             <app-logo class="docsHeader__logo" />
         </router-link>
         <div
@@ -97,13 +100,18 @@ export default {
 .navigation {
     display: grid;
     grid-template-rows: auto 1fr;
+    grid-template-columns: min-content;
     gap: $grid--xlarge;
+    overflow: hidden;
 
     &--size\: {
 
         &small {
             gap: $grid--medium;
         }
+    }
+
+    &__logoLink {
     }
 
     &__logo {
