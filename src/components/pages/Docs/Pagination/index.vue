@@ -39,12 +39,13 @@ export default {
 .pagination {
 
     &__demo {
-        width: 100%;
-        margin-top: ms(2);
-        padding: ms(1);
-        box: horizontal center middle;
-        border-radius: 5px;
-        background-color: gray(96);
+        box: middle center;
+        margin: $grid--medium 0;
+        padding: $grid--large;
+        background-color: gray(30);
+        margin-top: calc(#{$grid--large} * -1);
+        border-radius: 0 0 5px 5px;
+        border-top: 3px solid gray(20);
     }
 }
 </style>

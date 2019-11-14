@@ -1,10 +1,10 @@
 <template>
     <gh-pagination
+        #default="{pageNumbersSet, hasNextPage, hasPrevPage, hasFirstPage, hasLastPage, showingInfo, totalPages, goToNextPage, goToPrevPage, goToLastPage, goToFirstPage}"
         v-model="currentPage"
         :total-docs="400"
         :page-limit="10"
         :page-numbers-set-count="6"
-        #default="{ pageNumbersSet, hasNextPage, hasPrevPage, hasFirstPage, hasLastPage, showingInfo, totalPages, goToNextPage, goToPrevPage, goToLastPage, goToFirstPage }"
     >
         <div class="paginator">
             <nav class="paginator__pages">
@@ -112,7 +112,7 @@ export default {
 
 <style scoped lang="scss">
 .paginator {
-    --gap: #{ms(3)};
+    --gap: #{ms(1)};
 
     box: horizontal middle;
     user-select: none;
@@ -125,28 +125,15 @@ export default {
 
     &__page {
         box: horizontal middle center;
-        size: ms(2);
+        size: ms(1);
         transition: color .15s;
         position: relative;
         z-index: 1;
         font-weight: 300;
-
-        &::before {
-            content: '';
-            size: ms(2);
-            position: absolute 0 0 0 0;
-            background-color: $color-thirtary-bright;
-            border-radius: 50%;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity .1s ease-in-out;
-        }
+        color: gray(80);
 
         &:hover {
-
-            &::before {
-                opacity: 1;
-            }
+            color: $color-thirtary-darken;
         }
 
         &--isActive {
@@ -157,7 +144,7 @@ export default {
     }
 
     &__goto {
-        color: gray(50);
+        color: gray(80);
         box: horizontal middle center;
 
         &:hover {
@@ -175,7 +162,7 @@ export default {
         &--state {
 
             &\:disabled {
-                color: gray(80);
+                color: gray(40);
                 pointer-events: none;
             }
         }
@@ -197,7 +184,7 @@ export default {
         margin-left: var(--gap);
         padding-left: var(--gap);
         border-left: 2px solid $color-thirtary-lighter;
-        color: $color-thirtary-darkest;
+        color: gray(80);
     }
 }
 </style>

@@ -4,8 +4,8 @@
         <MdIntro />
         <MdInstallation />
         <MdDemo>
-            <dropdown-demo class="dropdown__demo" />
         </MdDemo>
+        <dropdown-demo class="dropdown__demo" />
         <MdUsage />
         <MdAPI />
         <MdCaveats />
@@ -43,7 +43,12 @@ export default {
 .dropdown {
 
     &__demo {
-        margin-top: calc(#{$grid--medium} * -1);
+        margin: $grid--medium 0;
+        padding: $grid--large;
+        background-color: gray(30);
+        margin-top: calc(#{$grid--large} * -1);
+        border-radius: 0 0 5px 5px;
+        border-top: 3px solid gray(20);
     }
 }
 </style>

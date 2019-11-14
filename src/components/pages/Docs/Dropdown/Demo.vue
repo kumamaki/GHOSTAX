@@ -1,7 +1,6 @@
 <template>
     <div class="dropdown">
         <dropdown
-            v-model="value"
             v-slot="{
                 listToRender,
                 instance,
@@ -10,6 +9,7 @@
 
                 toggle
             }"
+            v-model="value"
             :raw-list="list"
         >
             <div class="dropdown__inner">
