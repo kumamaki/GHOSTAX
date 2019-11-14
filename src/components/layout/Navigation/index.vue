@@ -84,11 +84,9 @@ export default {
     },
     methods: {
         showHamburger() {
-            console.log('YOYO');
             this.hamburgerIsOpen = true;
         },
         hideHamburger() {
-            console.log('HEEHEHE');
             this.hamburgerIsOpen = false;
         }
     }
