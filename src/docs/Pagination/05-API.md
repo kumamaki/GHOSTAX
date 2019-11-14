@@ -13,7 +13,9 @@ Name                      | Description                                         
 `options.query.pageSize`  | Name of page size field to use in query generator          | `String` | `pageSize`   | `false`  | ---
 `options.query.pageLimit` | Name of page limit field to use in query generator         | `String` | `pageNumber` | `false`  | ---
 
-### Provides in `v-slot`
+---
+
+### Provides
 
 `GhPagination` provides many data and some functions for navigation.
 
@@ -32,6 +34,8 @@ nextPage     | Navigate to next page                                            
 prevPage     | Navigate to previous page                                           | `function`
 firstPage    | Navigate to first page                                              | `function`
 lastPage     | Navigate to last page                                               | `function`
+
+---
 
 ### Events
 

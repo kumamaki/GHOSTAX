@@ -1,5 +1,5 @@
 <template>
-    <div class="orchester">
+    <div>
         <sheet
             :title="$route.meta.title"
         >

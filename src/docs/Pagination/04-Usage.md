@@ -16,6 +16,8 @@ export default {
 
 Then wrap your pagination component with `<gh-pagination>...</gh-pagination>`
 
+---
+
 ### Simple
 
 This is basic usage of `Pagination` component. only pass required props and get query string and calculated area.
@@ -50,6 +52,8 @@ export default {
 }
 </script>
 ```
+
+---
 
 ### Advance
 

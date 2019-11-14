@@ -11,13 +11,12 @@
 </template>
 
 <script>
-import MdIntro from '~docs/Pagination/Introduction.md';
-import MdInstallation from '~docs/Pagination/Installation.md';
-import MdUsage from '~docs/Pagination/Usage.md';
-import MdDemo from '~docs/Pagination/Demo.md';
+import MdIntro from '~docs/Pagination/01-Introduction.md';
+import MdInstallation from '~docs/Pagination/02-Installation.md';
+import MdDemo from '~docs/Pagination/03-Demo.md';
+import MdUsage from '~docs/Pagination/04-Usage.md';
+import MdAPI from '~docs/Pagination/05-API.md';
 import PaginationDemo from './Demo';
-import MdAPI from '~docs/Pagination/API.md';
-import MdTOC from '~docs/Pagination/TOC.md';
 
 export default {
     name: 'VueRouter',
@@ -27,8 +26,7 @@ export default {
         MdUsage,
         MdDemo,
         PaginationDemo,
-        MdAPI,
-        MdTOC
+        MdAPI
     },
     props: {},
     data() {

@@ -3,8 +3,9 @@
     <div class="dropdown">
         <MdIntro />
         <MdInstallation />
-        <MdDemo />
-        <dropdown-demo class="dropdown__demo" />
+        <MdDemo>
+            <dropdown-demo class="dropdown__demo" />
+        </MdDemo>
         <MdUsage />
         <MdAPI />
         <MdCaveats />
@@ -13,12 +14,12 @@
 
 <script>
 import DropdownDemo from './Demo';
-import MdIntro from '~docs/Dropdown/Intro.md';
-import MdInstallation from '~docs/Dropdown/Installation.md';
-import MdDemo from '~docs/Dropdown/Demo.md';
-import MdUsage from '~docs/Dropdown/Usage.md';
-import MdAPI from '~docs/Dropdown/API.md';
-import MdCaveats from '~docs/Dropdown/Caveats.md';
+import MdIntro from '~docs/Dropdown/01-Introduction.md';
+import MdInstallation from '~docs/Dropdown/02-Installation.md';
+import MdDemo from '~docs/Dropdown/03-Demo.md';
+import MdUsage from '~docs/Dropdown/04-Usage.md';
+import MdAPI from '~docs/Dropdown/05-API.md';
+import MdCaveats from '~docs/Dropdown/06-Caveats.md';
 
 export default {
     name: 'Dropdown',
