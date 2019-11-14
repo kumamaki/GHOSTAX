@@ -1,0 +1,1 @@
+Dropdowns can be simple until they're complicated. Handling state of list, selected item, filtering, etc. with GHOSTAX's dropdown, you can omit them from your script and just focus on what you want it to look like or how you want it to behave.

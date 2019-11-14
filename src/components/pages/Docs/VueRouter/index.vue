@@ -1,23 +1,15 @@
 <template>
     <div class="vueRouter">
         <MdIntro />
-
-        <h2>
-            Installation
-        </h2>
         <MdInstallation />
-
-        <h2>
-            Methods
-        </h2>
         <MdMethods />
     </div>
 </template>
 
 <script>
-import MdIntro from '~docs/VueRouter/introduction.md';
-import MdInstallation from '~docs/VueRouter/installation.md';
-import MdMethods from '~docs/VueRouter/methods.md';
+import MdIntro from '~docs/VueRouter/01-Introduction.md';
+import MdInstallation from '~docs/VueRouter/02-Installation.md';
+import MdMethods from '~docs/VueRouter/03-Methods.md';
 
 export default {
     name: 'VueRouter',

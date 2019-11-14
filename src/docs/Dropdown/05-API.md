@@ -1,8 +1,8 @@
+## API
+
 This is the list of all APIs and Props you may want to know about.
 
-## Props
-
-### `<dropdown>`
+### Props: `<dropdown>`
 
 Name                       | Description                                                                       | Type             | Default     | Required
 -------------------------- | --------------------------------------------------------------------------------- | ---------------- | ----------- | --------
@@ -15,18 +15,20 @@ Name                       | Description                                        
 `options.fields.unique`    | Unique property of items in list                                                  | `String`         | `id`        | `false`
 `options.fields.label`     | Label property of items in list                                                   | `String`         | `label`     | `false`
 
-### `<dropdown-item>`
+---
+
+### Props: `<dropdown-item>`
 
 Name     | Description                                     | Type     | Default | is Required
 -------- | ----------------------------------------------- | -------- | ------- | -----------
 instance | The instance that `<dropdown>` provides for you | `Object` | ---     | `true`
 item     | An item of your list                            | ---      | ---     | `true`
 
-## Provides in `v-slot`
+---
+
+### Provides: `<dropdown>`
 
 The API mostly contains `Functions` for you to call, `Events` to listen on, and `Flags` to check, plus a `listToRender` to be rendered. use these in `v-slot`
-
-### `<dropdown>`
 
 Name           | Intension                                                     | Type
 -------------- | ------------------------------------------------------------- | --------------------
@@ -44,7 +46,9 @@ close          | Changes state to closed                                       |
 toggle         | Toggle state                                                  | `function (Boolean)`
 filter         | Filters listItems                                             | `function (String)`
 
-### `<dropdown-item>`
+---
+
+### Provides: `<dropdown-item>`
 
 Name          | Intension                                   | Type
 ------------- | ------------------------------------------- | -----------------
@@ -53,9 +57,9 @@ isHighlighted | ID of current selected item                 | `flag`
 itemEvents    | Events to be attached to list item DOM      | `data`
 highlight     | Highlights the item via ID                  | `function (item)`
 
-## Events
+---
 
-### `<dropdown>`
+### Events: `<dropdown>`
 
 Name        | Payload
 ----------- | ---------

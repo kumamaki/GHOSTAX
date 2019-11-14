@@ -44,10 +44,6 @@ export default {
 
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    border-radius: 5px;
-    padding: var(--inner-gap);
-    background-color: #FFFFFF;
-    box-shadow: 0 0 100px rgba(0, 0, 0, .05);
     color: gray(40);
     line-height: 1.618;
 
@@ -71,31 +67,42 @@ export default {
     ::v-deep {
 
         section {
-            margin: $grid--xxxlarge 0;
+            margin-bottom: $grid--normal;
+            border-radius: 5px;
+            padding: var(--inner-gap);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 100px rgba(0, 0, 0, .05);
+
+            &:empty {
+                display: none;
+            }
+
+            &:first-child {
+                background-color: $color-primary-base;
+                color: $color-primary-100;
+                font-family: $mono-typeface;
+            }
         }
 
-        h2,
-        h3,
-        h4 {
-            color: $color-secondary-darken;
-            margin-bottom: $grid;
-            margin-top: $grid--large;
+        p:not(:last-child) {
+            margin-bottom: $grid--normal;
+        }
 
-            &::before {
-                content: '#';
-                color: currentColor;
-                margin-right: .25em;
-            }
+        hr {
+            display: block;
+            margin: 2rem 0;
+            color: gray(85);
         }
 
         h1 {
             font-size: ms(3);
-            color: $color-primary-500;
+            color: $color-primary-base;
             font-weight: 900;
             margin-bottom: var(--inner-gap);
         }
 
         h2 {
+            margin-bottom: $grid--medium;
             font-size: ms(2);
             font-weight: 600;
             color: $color-primary-base;
@@ -104,11 +111,18 @@ export default {
         h3 {
             font-size: ms(1);
             font-weight: 600;
+            margin-bottom: $grid--normal;
         }
 
         h4 {
             font-size: ms(0);
             font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        h3,
+        h4 {
+            color: $color-secondary-darkest;
         }
 
         pre {
@@ -119,7 +133,36 @@ export default {
             padding: $grid--normal;
             overflow-x: auto;
             white-space: nowrap;
-            // width: calc(100% - (var(--inner-gap) * 2));
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        h2,
+        h3 {
+            position: relative;
+
+            &::before {
+                content: '#';
+                position: absolute 0 auto 0 0;
+                color: currentColor;
+                transform-origin: left;
+                transform: translateX(-100%) scale(.9);
+                opacity: 0;
+                margin-right: .25em;
+            }
+
+            &:hover {
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .packageVersion {
+            margin-bottom: $grid--medium;
         }
 
         p code,
@@ -128,8 +171,10 @@ export default {
         h4 code {
             border-radius: 5px;
             padding: 0 .25em;
-            background-color: $color-secondary-bright;
+            background-color: gray(97);
+            color: gray(30);
             font-size: .9em;
+            font-weight: 400;
             white-space: pre-wrap;
         }
 
@@ -140,6 +185,10 @@ export default {
             overflow-x: auto;
             white-space: nowrap;
             display: block;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
 
             thead {
 
@@ -153,8 +202,8 @@ export default {
 
             tbody {
 
-                tr {
-                    border-bottom: 1px solid gray(95);
+                tr:nth-child(odd) {
+                    background-color: gray(98);
                 }
 
                 td {

@@ -13,7 +13,9 @@ export default {
 };
 ```
 
-### `Dropdown`
+---
+
+### `Dropdown` component
 
 You can use `<dropdown>` like this. **required props are listed on API section**
 
@@ -61,7 +63,9 @@ data() {
 }
 ```
 
-### `DropdownItem` Component
+---
+
+### `DropdownItem` component
 
 Inside your `<dropdown>`, there it goes a `<dropdown-item>` with `v-for` on it.
 
