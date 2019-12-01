@@ -51,6 +51,7 @@ Vue.use(vueContainerQuery, {
     },
     useBEM: true,
     ignoredClasses: ['|']
+
 });
 
 Vue.use(PortalVue);
