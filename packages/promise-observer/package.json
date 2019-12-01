@@ -1,33 +1,33 @@
 {
-  "name": "@ghostax/promise-observer",
-  "description": "Renderless component to observe promises",
-  "version": "0.0.1",
-  "main": "dist/promise-observer.umd.js",
-  "module": "dist/promise-observer.esm.js",
-  "unpkg": "dist/promise-observer.iife.js",
-  "jsdelivr": "dist/promise-observer.iife.js",
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "NODE_ENV=production bili --config ./bili.config.js",
-    "watch": "NODE_ENV=development bili --watch --config ./bili.config.js"
-  },
-  "dependencies": {
-    "deepmerge": "^4.2.2"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
-    "bili": "^4.8.1",
-    "bili-babel": "^0.2.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-strip": "^1.2.2"
-  },
-  "peerDependencies": {
-    "vue": "^2.6.x"
-  }
+    "name": "@ghostax/promise-observer",
+    "description": "Renderless component to observe promises",
+    "version": "0.1.0",
+    "main": "dist/promise-observer.umd.js",
+    "module": "dist/promise-observer.esm.js",
+    "unpkg": "dist/promise-observer.iife.js",
+    "jsdelivr": "dist/promise-observer.iife.js",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production bili --config ./bili.config.js",
+        "watch": "NODE_ENV=development bili --watch --config ./bili.config.js"
+    },
+    "dependencies": {
+        "deepmerge": "^4.2.2"
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+        "bili": "^4.8.1",
+        "bili-babel": "^0.2.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-strip": "^1.2.2"
+    },
+    "peerDependencies": {
+        "vue": "^2.6.x"
+    }
 }
