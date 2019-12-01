@@ -9,15 +9,8 @@ const defaultOptions = {
 export default {
     name: 'PromiseObserver',
     props: {
-        promises: {
-            required: false,
-            default: null,
-            validator(value) {
-                return Promise.resolve(value) == value || value == null;
-            }
-        },
         promise: {
-            type: [Object, Array],
+            type: [Promise, null],
             required: false,
             default: null
         },
@@ -97,7 +90,6 @@ export default {
         }
     },
     render(h) {
-        console.log(this);
         if (this.hasPromise) {
             return this.$scopedSlots.default({
                 state: this.state,
