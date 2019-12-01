@@ -18,6 +18,7 @@ module.exports = {
     'plugin:vue/recommended',
     'plugin:vue/essential',
     '@vue/airbnb',
+    '@vue/airbnb',
     'plugin:jest/all'
   ],
 
