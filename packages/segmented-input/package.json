@@ -1,7 +1,7 @@
 {
   "name": "@ghostax/segmented-input",
   "description": "Renderless component to create segmented inputs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/segmented-input.umd.js",
   "module": "dist/segmented-input.esm.js",
   "unpkg": "dist/segmented-input.iife.js",
