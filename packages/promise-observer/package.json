@@ -20,7 +20,7 @@
         "deepmerge": "^4.2.2"
     },
     "devDependencies": {
-        "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+        "@babel/plugin-proposal-optional-chaining": "^7.8.3",
         "bili": "^4.8.1",
         "bili-babel": "^0.2.0",
         "rollup-plugin-commonjs": "^10.1.0",
