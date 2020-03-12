@@ -1,0 +1,37 @@
+{
+  "name": "@ghostax/segmented-input",
+  "description": "Renderless component to create segmented inputs",
+  "version": "0.0.0",
+  "main": "dist/segmented-input.umd.js",
+  "module": "dist/segmented-input.esm.js",
+  "unpkg": "dist/segmented-input.iife.js",
+  "jsdelivr": "dist/segmented-input.iife.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build:prod": "NODE_ENV=production bili --config ./bili.config.js",
+    "build:dev": "NODE_ENV=development bili --config ./bili.config.js",
+    "watch:prod": "NODE_ENV=production bili --watch --config ./bili.config.js",
+    "watch:dev": "NODE_ENV=development bili --watch --config ./bili.config.js"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "bili": "^4.8.1",
+    "bili-babel": "^0.2.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-strip": "^1.2.2"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.x"
+  },
+  "gitHead": "8c81dbb94d3152a3e9764f397e5330377b32d333"
+}
