@@ -88,6 +88,14 @@ export default new Router({
                                         docName: 'Pagination',
                                         title: 'Pagination'
                                     }
+                                },
+                                {
+                                    path: 'segmented-input',
+                                    name: 'docs-components-segmented-input',
+                                    meta: {
+                                        docName: 'SegmentedInput',
+                                        title: 'Segmented Input'
+                                    }
                                 }
                             ]
                         },

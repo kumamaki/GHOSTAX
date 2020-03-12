@@ -1,0 +1,1 @@
+Segmented input are kind of a new pattern, mostly used for getting a confirmation code (OTP or anything) from user. It's like one input which is segmented into multiple inputs, So the user clearly understands how many characters it needs.
