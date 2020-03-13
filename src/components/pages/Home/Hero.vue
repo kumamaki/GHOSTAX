@@ -19,7 +19,7 @@
                 offset="0"
                 stop-color="#fff"
                 stop-opacity="0"
-            ></stop><stop offset="1"></stop></linearGradient></defs><g style="isolation:isolate"><g
+            ></stop><stop offset="1"></stop></linearGradient></defs><g style="isolation: isolate;"><g
                 id="Layer_2"
                 data-name="Layer 2"
             ><g
@@ -72,7 +72,7 @@
                 fill="#c32361"
             ></path><path
                 d="M481.84 235.66a34.9 34.9 0 0 1-59 22.29c6.73-15.58 20-21.15 28.62-23.15 12.1-2.8 24.7-1.8 30.38.86z"
-                style="mix-blend-mode:darken"
+                style="mix-blend-mode: darken;"
                 opacity=".33"
                 fill="url(#linear-gradient)"
             ></path><circle
@@ -126,15 +126,15 @@ export default {
 .cls-6 { fill: #222222; }
 
 .hero {
-  box: middle center;
-  background-image: url('~@/assets/images/galaxy.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: drop-shadow(0 -5px 75px rgba(0, 0, 0, .2));
+    box: middle center;
+    background-image: url('~@/assets/images/galaxy.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: drop-shadow(0 -5px 75px rgba(0, 0, 0, .2));
 
-  &__logo {
-    size: 300px;
-    filter: drop-shadow(-3px 10px 10px rgba(0, 0, 0, .3));
-  }
+    &__logo {
+        size: 300px;
+        filter: drop-shadow(-3px 10px 40px rgba(255, 255, 255, .5));
+    }
 }
 </style>
