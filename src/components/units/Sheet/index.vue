@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import 'highlightjs/styles/atom-one-light.css';
+import 'highlightjs/styles/github.css';
 
 export default {
     name: 'Sheet',
@@ -76,9 +76,9 @@ export default {
             &:first-child {
                 border-radius: 20px;
                 padding: var(--inner-gap);
-                background-color: $color-primary-base;
-                color: $color-primary-100;
-                box-shadow: 10px 10px 0 0 transparentize($color-primary-base, .85);
+                background-color: $color-secondary-darker;
+                color: $color-secondary-bright;
+                box-shadow: 10px 10px 0 0 $color-secondary-bright;
                 font-weight: 600;
             }
         }
@@ -104,7 +104,7 @@ export default {
             margin-bottom: $grid--medium;
             font-size: ms(2);
             font-weight: 600;
-            color: $color-primary-base;
+            color: $color-secondary-darker;
         }
 
         h3 {
@@ -141,20 +141,26 @@ export default {
         h2,
         h3 {
             position: relative;
+            transition: transform .1s;
+            cursor: pointer;
 
             &::before {
                 content: '#';
                 position: absolute 0 auto 0 0;
                 color: currentColor;
+                transition: transform .1s, opacity .1s;
                 transform-origin: left;
-                transform: translateX(-100%) scale(.9);
+                transform: scale(.9);
                 opacity: 0;
                 margin-right: .25em;
+                padding-right: 1rem;
             }
 
             &:hover {
+                transform: translateX(2rem);
 
                 &::before {
+                    transform: translateX(-2rem);
                     opacity: 1;
                 }
             }
