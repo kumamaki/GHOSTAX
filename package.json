@@ -53,6 +53,7 @@
     "yarn": "^1.22.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-optional-chaining": "^7.8.3",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.0",
@@ -80,6 +81,7 @@
     "lerna": "^3.20.2",
     "link-module-alias": "^1.2.0",
     "lint-staged": "^10.0.8",
+    "mathsass": "^0.11.0",
     "modularscale-sass": "^3.0.10",
     "node-sass": "^4.13.1",
     "nyc": "^15.0.0",
@@ -112,7 +114,9 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",
     "style-resources-loader": "^1.3.3",
+    "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.14.2",
     "vue-cli-plugin-style-resources-loader": "^0.1.4",
     "vue-svgicon": "^3.2.6",
     "vue-template-compiler": "^2.6.11"

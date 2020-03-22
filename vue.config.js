@@ -1,12 +1,13 @@
 module.exports = {
-    parallel: false,
-
     lintOnSave: false,
 
     pluginOptions: {
         'style-resources-loader': {
             preProcessor: 'scss',
-            patterns: ['./src/assets/styles/variables/*.scss']
+            patterns: [
+                './src/assets/styles/helpers/*.scss',
+                './src/assets/styles/variables/*.scss'
+            ]
         }
     },
 
@@ -15,20 +16,6 @@ module.exports = {
 
     css: {
         sourceMap: true
-    },
-
-    configureWebpack: {
-        // module: {
-        //     rules: [
-        //         {
-        //             test: /.mdx$/,
-        //             use: [
-        //                 'babel-loader',
-        //                 '@mdx-js/vue-loader'
-        //             ]
-        //         }
-        //     ]
-        // }
     },
 
     chainWebpack: (config) => {

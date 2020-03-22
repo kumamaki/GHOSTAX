@@ -42,30 +42,40 @@ export default {
 
     width: var(--general-width);
     max-width: calc(100% - #{$grid--xxlarge});
-    align-items: start;
     margin: 0 auto;
     display: grid;
+    align-items: stretch;
     grid-template-columns: max-content minmax(0, 1fr);
-    gap: $grid--xxlarge;
-    margin-top: $grid--xxlarge;
+    gap: $grid--xxxlarge;
     position: relative;
-    margin-bottom: $grid--xlarge;
 
-    &--size\: {
-
-        &large {
-            grid-template-columns: minmax(0, var(--logo-size)) minmax(0, 1fr);
-            gap: $grid--large;
-        }
+    @include size(large) {
+        grid-template-columns: minmax(0, var(--logo-size)) minmax(0, 1fr);
+        gap: $grid--large;
     }
 
     &__navigation {
         position: sticky;
-        top: $grid--large;
+        height: 100vh;
+        top: 0;
+        padding: $grid--xxlarge 0;
+
+        &::before {
+            content: '';
+            position: absolute 0 0 0 0;
+            right: calc(#{$grid--large} * -1);
+            z-index: -1;
+            background-color: $selago;
+            transform-origin: right;
+            transform: scaleX(10);
+        }
     }
 
     &__sheet {
-        min-width: 0;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        padding: $grid--xxlarge 0;
+        height: 100%;
     }
 
     &__content {

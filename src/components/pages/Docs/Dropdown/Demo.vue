@@ -1,82 +1,86 @@
 <template>
-    <div class="dropdown">
-        <dropdown
-            v-slot="{
-                listToRender,
-                instance,
-                isOpen,
-                selected,
+    <demo>
+        <div class="dropdown">
+            <dropdown
+                v-slot="{
+                    listToRender,
+                    instance,
+                    isOpen,
+                    selected,
 
-                toggle
-            }"
-            v-model="value"
-            :raw-list="list"
-        >
-            <div class="dropdown__inner">
-                <button
-                    class="dropdown__handler"
-                    @click="toggle"
-                >
-                    <div
-                        :class="{
-                            'dropdown__iconHolder--stateOpen': isOpen
-                        }"
-                        class="dropdown__iconHolder"
+                    toggle
+                }"
+                v-model="value"
+                :raw-list="list"
+            >
+                <div class="dropdown__inner">
+                    <button
+                        class="dropdown__handler"
+                        @click="toggle"
                     >
-                        <svg-icon
-                            name="arrow"
+                        <div
                             :class="{
-                                'dropdown__icon--stateOpen': isOpen
+                                'dropdown__iconHolder--stateOpen': isOpen
                             }"
-                            class="dropdown__icon"
-                        />
-                    </div>
-                    <span class="dropdown__placeholder">
-                        {{ selected.label || 'Select item' }}
-                    </span>
-                </button>
-                <ul
-                    :class="{
-                        'dropdown__list--stateOpen': isOpen
-                    }"
-                    class="dropdown__list"
-                >
-                    <dropdown-item
-                        v-for="listItem in listToRender"
-                        :key="listItem.id"
-                        v-slot="{
-                            itemEvents,
-                            isHighlighted,
-                            isSelected
-                        }"
-                        :instance="instance"
-                        :item="listItem"
-                    >
-                        <li
-                            :class="{
-                                'dropdown__item--isSelected': isSelected,
-                                'dropdown__item--isHovered': isHighlighted
-                            }"
-                            class="dropdown__item"
-                            v-on="itemEvents(listItem)"
+                            class="dropdown__iconHolder"
                         >
-                            {{ listItem.label }}
-                        </li>
-                    </dropdown-item>
-                </ul>
-            </div>
-        </dropdown>
-    </div>
+                            <svg-icon
+                                name="arrow"
+                                :class="{
+                                    'dropdown__icon--stateOpen': isOpen
+                                }"
+                                class="dropdown__icon"
+                            />
+                        </div>
+                        <span class="dropdown__placeholder">
+                            {{ selected.label || 'Select item' }}
+                        </span>
+                    </button>
+                    <ul
+                        :class="{
+                            'dropdown__list--stateOpen': isOpen
+                        }"
+                        class="dropdown__list"
+                    >
+                        <dropdown-item
+                            v-for="listItem in listToRender"
+                            :key="listItem.id"
+                            v-slot="{
+                                itemEvents,
+                                isHighlighted,
+                                isSelected
+                            }"
+                            :instance="instance"
+                            :item="listItem"
+                        >
+                            <li
+                                :class="{
+                                    'dropdown__item--isSelected': isSelected,
+                                    'dropdown__item--isHovered': isHighlighted
+                                }"
+                                class="dropdown__item"
+                                v-on="itemEvents(listItem)"
+                            >
+                                {{ listItem.label }}
+                            </li>
+                        </dropdown-item>
+                    </ul>
+                </div>
+            </dropdown>
+        </div>
+    </demo>
 </template>
 
 <script>
+import Demo from '../Demo';
 import { Dropdown, DropdownItem } from '~packages/dropdown/src/dropdown.js';
 
 export default {
     name: 'DropdownDemo',
     components: {
         Dropdown,
-        DropdownItem
+        DropdownItem,
+        Demo
     },
     props: {},
     data() {
