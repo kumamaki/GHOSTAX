@@ -1,0 +1,47 @@
+@function capitalize($string) {
+    @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+@mixin el($name) {
+
+    &__#{name} {
+        @content;
+    }
+}
+
+@mixin mod($key, $value: null) {
+    @if $value {
+
+        &--#{$key}\:#{$value} {
+            @content;
+        }
+    }
+
+    @else {
+
+        &--#{$key} {
+            @content;
+        }
+    }
+}
+
+@mixin variant($value) {
+
+    &--variant\:#{$value} {
+        @content;
+    }
+}
+
+@mixin size($value) {
+
+    &--size\:#{$value} {
+        @content;
+    }
+}
+
+@mixin is($value) {
+
+    &--is#{capitalize($value)} {
+        @content;
+    }
+}

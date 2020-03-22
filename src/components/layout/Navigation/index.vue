@@ -102,7 +102,6 @@ export default {
     grid-template-rows: auto 1fr;
     grid-template-columns: min-content;
     gap: $grid--xlarge;
-    overflow: hidden;
 
     &--size\: {
 

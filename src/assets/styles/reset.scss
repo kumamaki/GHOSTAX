@@ -5,30 +5,30 @@ h2,
 h3,
 h4,
 h5 {
-  line-height: 1.2;
+    line-height: 1.2;
 }
 
 a {
-  color: currentColor;
-  text-decoration: none;
+    color: currentColor;
+    text-decoration: none;
 }
 
 button {
-  border: none;
-  outline: none;
-  box-shadow: none;
-  padding: 0;
-  cursor: pointer;
-
-  &:focus {
+    border: none;
     outline: none;
-  }
+    box-shadow: none;
+    padding: 0;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 code {
-  font-family: $mono-typeface;
-  margin: 0;
-  white-space: pre-wrap;
-  word-break: keep-all;
-  overflow: hidden;
+    font-family: $mono-typeface;
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: keep-all;
+    overflow: hidden;
 }

@@ -33,7 +33,7 @@ export default {
         documentationFile() {
             const { docName } = this.$route.meta;
             return () => {
-                return import(`./${docName}/index.vue`);
+                return import(/* webpackPreload: true; webpackMode: "eager"; webpackChunkname: docs */`./${docName}/index.vue`);
             };
         }
     }

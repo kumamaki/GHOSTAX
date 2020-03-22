@@ -16,8 +16,8 @@ export default {
 
 <style scoped lang="scss">
 .root {
-  min-height: 100vh;
-  margin: 0 auto;
-  box: vertical;
+    min-height: 100vh;
+    margin: 0 auto;
+    box: vertical;
 }
 </style>

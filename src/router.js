@@ -2,9 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Root from '~pages/Root';
 import Home from '~pages/Home';
-
-const Docs = () => { return import('~pages/Docs'); };
-const DocsOrchester = () => { return import('~pages/Docs/Orchester'); };
+import Docs from '~pages/Docs';
+import DocsOrchester from '~pages/Docs/Orchester';
 
 Vue.use(Router);
 

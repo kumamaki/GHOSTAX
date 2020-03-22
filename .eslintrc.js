@@ -1,42 +1,23 @@
 const path = require('path');
-
 module.exports = {
   root: true,
 
   parserOptions: {
-		parser: "babel-eslint",
-		ecmaVersion: 8,
-		sourceType: "module"
-	},
+    parser: 'babel-eslint',
+    ecmaVersion: 8,
+    sourceType: 'module'
+  },
 
   env: {
-    node: true,
-    'jest/globals': true
+    node: true
   },
 
-  extends: [
-    'plugin:vue/recommended',
-    'plugin:vue/essential',
-    '@vue/airbnb',
-    '@vue/airbnb',
-    'plugin:jest/all'
-  ],
+  extends: ['plugin:vue/essential', '@vue/airbnb'],
 
-  plugins: ['vue', 'jest'],
-
-  settings: {
-    'import/resolver': {
-      'eslint-import-resolver-lerna': {
-        packages: path.resolve(__dirname, 'packages')
-      }
-    }
-  },
+  plugins: ['vue'],
 
   rules: {
-    indent: [
-      'error',
-      4
-    ],
+    indent: ['error', 4],
     'no-param-reassign': [
       'error',
       {
@@ -51,10 +32,7 @@ module.exports = {
         ignoreRestSiblings: false
       }
     ],
-    'arrow-body-style': [
-      'error',
-      'always'
-    ],
+    'arrow-body-style': ['error', 'always'],
     'space-before-function-paren': [
       'error',
       {
@@ -63,10 +41,7 @@ module.exports = {
         asyncArrow: 'always'
       }
     ],
-    'comma-dangle': [
-      'error',
-      'never'
-    ],
+    'comma-dangle': ['error', 'never'],
     'consistent-return': 'off',
     'no-shadow': 'off',
     'no-plusplus': 'off',
@@ -89,7 +64,6 @@ module.exports = {
         }
       }
     ],
-    'vue/html-self-closing': 'off',
     'no-debugger': 'off',
     'import/no-extraneous-dependencies': [
       'error',
@@ -108,12 +82,34 @@ module.exports = {
     'vue/space-unary-ops': 'error',
     'vue/v-on-function-call': 'error',
     'vue/camelcase': 'error',
-    'vue/html-indent': ['error', 4, {
-        "attribute": 1,
-        "baseIndent": 1,
-        "closeBracket": 0,
-        "alignAttributesVertically": true,
-        "ignores": []
-    }]
-  }
+    'vue/html-indent': [
+      'error',
+      4,
+      {
+        attribute: 1,
+        baseIndent: 1,
+        closeBracket: 0,
+        alignAttributesVertically: true,
+        ignores: []
+      }
+    ]
+  },
+
+  settings: {
+    'vue-types/namespace': ['VueTypes'],
+    'import/resolver': {
+      'eslint-import-resolver-lerna': {
+        packages: path.resolve(__dirname, 'packages')
+      }
+    }
+  },
+
+  overrides: [
+    {
+      files: ['**/__tests__/*.{j,t}s?(x)'],
+      env: {
+        jest: true
+      }
+    }
+  ]
 };

@@ -67,21 +67,19 @@ export default {
     ::v-deep {
 
         section {
-            margin-bottom: $grid--normal;
-            border-radius: 5px;
-            padding: var(--inner-gap);
-            background-color: #FFFFFF;
-            box-shadow: 0 0 100px rgba(0, 0, 0, .05);
+            margin-bottom: $grid--xxxlarge;
 
             &:empty {
                 display: none;
             }
 
             &:first-child {
+                border-radius: 20px;
+                padding: var(--inner-gap);
                 background-color: $color-primary-base;
                 color: $color-primary-100;
-                font-family: $mono-typeface;
-                box-shadow: 0 6px 100px 0 transparentize($color-primary-base, .5);
+                box-shadow: 10px 10px 0 0 transparentize($color-primary-base, .85);
+                font-weight: 600;
             }
         }
 

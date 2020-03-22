@@ -141,6 +141,7 @@ export default {
         font-size: ms(-1);
         color: $color-primary-500;
         font-weight: 600;
+        white-space: nowrap;
 
         &--big {
             font-size: ms(2);
