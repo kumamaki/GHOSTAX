@@ -1,9 +1,9 @@
 <template>
-    <div class="vueRouter">
+    <article>
         <MdIntro />
         <MdInstallation />
         <MdMethods />
-    </div>
+    </article>
 </template>
 
 <script>
@@ -24,8 +24,3 @@ export default {
     }
 };
 </script>
-
-<style scoped lang="scss">
-.dropdown {
-}
-</style>

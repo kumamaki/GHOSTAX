@@ -16,7 +16,7 @@ export default {
 
 Then wrap some, or all your template with `<promise-observer>...</promise-observer>`
 
-```vue
+```markup
 <promise-observer
     :promise="promiseVariable"
     #default="{ isPending, hasFulfilled, hasRejected }"

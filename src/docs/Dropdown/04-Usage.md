@@ -19,7 +19,7 @@ export default {
 
 You can use `<dropdown>` like this. **required props are listed on API section**
 
-```vue
+```markup
 <dropdown
   v-model="value"
   v-slot="{ listToRender, instance, isOpen, selected, toggle }"
@@ -71,7 +71,7 @@ Inside your `<dropdown>`, there it goes a `<dropdown-item>` with `v-for` on it.
 
 ❗ **You have to get instance from `<dropdown>` and pass it to `<dropdown-item>`**
 
-```vue
+```markup
 <dropdown-item
   v-for="listItem in listToRender"
   :key="listItem.id"

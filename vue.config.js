@@ -25,8 +25,8 @@ module.exports = {
             .use('vue-loader')
             .loader('vue-loader')
             .end()
-            .use('@vusion/md-vue-loader')
-            .loader('@vusion/md-vue-loader')
+            .use('remark-vue-loader')
+            .loader('remark-vue-loader')
             .end();
     }
 };

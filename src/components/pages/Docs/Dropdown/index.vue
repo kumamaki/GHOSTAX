@@ -1,18 +1,16 @@
 /* eslint-disable */
 <template>
-    <div class="dropdown">
+    <article>
         <MdIntro />
         <MdInstallation />
         <MdDemo />
-        <dropdown-demo class="dropdown__demo" />
         <MdUsage />
         <MdAPI />
         <MdCaveats />
-    </div>
+    </article>
 </template>
 
 <script>
-import DropdownDemo from './Demo';
 import MdIntro from '~docs/Dropdown/01-Introduction.md';
 import MdInstallation from '~docs/Dropdown/02-Installation.md';
 import MdDemo from '~docs/Dropdown/03-Demo.md';
@@ -26,7 +24,6 @@ export default {
         MdIntro,
         MdInstallation,
         MdDemo,
-        DropdownDemo,
         MdUsage,
         MdAPI,
         MdCaveats
@@ -37,12 +34,3 @@ export default {
     }
 };
 </script>
-
-<style scoped lang="scss">
-.dropdown {
-
-    &__demo {
-
-    }
-}
-</style>

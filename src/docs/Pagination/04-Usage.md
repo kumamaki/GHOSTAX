@@ -22,7 +22,7 @@ Then wrap your pagination component with `<gh-pagination>...</gh-pagination>`
 
 This is basic usage of `Pagination` component. only pass required props and get query string and calculated area.
 
-```vue
+```markup
 <template>
     <gh-pagination
         v-model="currentPage"
@@ -60,7 +60,7 @@ export default {
 
 If you are an advance developer, which you are 🤘, you want to use the full power of this component. Pass `page-numbers-set-count` to customize count of pages before and after current page, and customize query fields to match with backend API.
 
-```vue
+```markup
 <gh-pagination
     v-model="currentPage"
     :total-docs="400"
