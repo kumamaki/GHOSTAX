@@ -88,6 +88,8 @@ export default {
     &--size\: {
 
         &small {
+            --logo-size: 50px;
+
             grid-template-columns: var(--logo-size);
         }
     }
@@ -138,13 +140,15 @@ export default {
 
     &__slogan {
         font-family: $mono-typeface;
-        font-size: ms(-1);
+        font-size: ms(-2);
         color: $color-primary-500;
         font-weight: 600;
         white-space: nowrap;
+        font-style: italic;
 
         &--big {
-            font-size: ms(2);
+            font-size: ms(1);
+            font-weight: 400;
         }
     }
 }

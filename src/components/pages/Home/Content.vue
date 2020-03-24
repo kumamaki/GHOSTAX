@@ -19,13 +19,10 @@
                     <svg-icon name="vue" />
                     vue
                 </a>
-                framework that doesn’t render any DOM from itself.
-                <i>
-                    like a free ghost.
-                </i>
+                toolbox that doesn’t render any DOM or CSS from itself. like a free ghost.
             </p>
             <p>
-                You can use renderless components to forget about the logic complexity, and write your very own DOM and CSS.
+                You can use GHOSTAX to forget about the logic complexity, and just write your very own DOM and CSS.
             </p>
         </article>
         <base-button
@@ -57,75 +54,75 @@ export default {
 
 <style scoped lang="scss">
 .content {
-  display: grid;
-  grid-template-rows: 1fr auto 1fr;
-  justify-items: center;
-  align-items: center;
-  width: 450px;
-  align-self: center;
-  justify-self: center;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    justify-items: center;
+    align-items: center;
+    width: 450px;
+    align-self: center;
+    justify-self: center;
 
-  &__header {
-    size: 100%;
-  }
-
-  &__logo {
-    size: 100%;
-  }
-
-  &__texts {
-    box: vertical;
-  }
-
-  &__title {
-    font-size: ms(5);
-    font-weight: 600;
-    color: #26215D;
-    line-height: 1;
-  }
-
-  &__description {
-    font-family: $mono-typeface;
-    font-size: ms(1);
-    font-style: italic;
-    color: $color-primary-500;
-    font-weight: 600;
-  }
-
-  &__sheet {
-    padding: $grid--medium 0;
-    margin-top: $grid--medium;
-    line-height: 1.618;
-
-    ::v-deep {
-
-      a {
-        text-decoration: underline;
-        color: $color-primary-700;
-
-        &.vue {
-          padding: .15rem .5rem;
-          font-size: .9em;
-          background-color: $blue-white;
-          border-radius: 3px;
-          margin: 0 .5rem;
-          text-decoration: none;
-          color: currentColor;
-
-          path:nth-child(1) {
-            fill: #41B883;
-          }
-
-          path:nth-child(2) {
-            fill: #35495E;
-          }
-        }
-      }
+    &__header {
+        size: 100%;
     }
-  }
 
-  &__cta {
-    justify-self: start;
-  }
+    &__logo {
+        size: 100%;
+    }
+
+    &__texts {
+        box: vertical;
+    }
+
+    &__title {
+        font-size: ms(5);
+        font-weight: 600;
+        color: #26215D;
+        line-height: 1;
+    }
+
+    &__description {
+        font-family: $mono-typeface;
+        font-size: ms(1);
+        font-style: italic;
+        color: $color-primary-500;
+        font-weight: 600;
+    }
+
+    &__sheet {
+        padding: $grid--medium 0;
+        margin-top: $grid--medium;
+        line-height: 1.618;
+
+        ::v-deep {
+
+            a {
+                text-decoration: underline;
+                color: $color-primary-700;
+
+                &.vue {
+                    padding: .15rem .5rem;
+                    font-size: .9em;
+                    background-color: $blue-white;
+                    border-radius: 3px;
+                    margin: 0 .5rem;
+                    text-decoration: none;
+                    color: currentColor;
+
+                    path:nth-child(1) {
+                        fill: #41B883;
+                    }
+
+                    path:nth-child(2) {
+                        fill: #35495E;
+                    }
+                }
+            }
+        }
+    }
+
+    &__cta {
+        justify-self: start;
+    }
 }
 </style>
