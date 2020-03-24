@@ -1,11 +1,10 @@
-/* eslint-disable */
 <template>
-    <div class="promiseObserver">
+    <article>
         <MdIntro />
         <MdInstallation />
         <MdUsage />
         <MdApi />
-    </div>
+    </article>
 </template>
 
 <script>
@@ -28,8 +27,3 @@ export default {
     }
 };
 </script>
-
-<style scoped lang="scss">
-.promiseObserver {
-}
-</style>

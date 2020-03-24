@@ -1,12 +1,11 @@
 <template>
-    <div class="pagination">
+    <article>
         <MdIntro />
         <MdInstallation />
         <MdUsage />
         <MdDemo />
-        <pagination-demo class="pagination__demo" />
         <MdAPI />
-    </div>
+    </article>
 </template>
 
 <script>
@@ -15,7 +14,6 @@ import MdInstallation from '~docs/Pagination/02-Installation.md';
 import MdDemo from '~docs/Pagination/03-Demo.md';
 import MdUsage from '~docs/Pagination/04-Usage.md';
 import MdAPI from '~docs/Pagination/05-API.md';
-import PaginationDemo from './Demo';
 
 export default {
     name: 'VueRouter',
@@ -24,7 +22,6 @@ export default {
         MdInstallation,
         MdUsage,
         MdDemo,
-        PaginationDemo,
         MdAPI
     },
     props: {},
@@ -33,11 +30,3 @@ export default {
     }
 };
 </script>
-
-<style scoped lang="scss">
-.pagination {
-
-    &__demo {
-    }
-}
-</style>

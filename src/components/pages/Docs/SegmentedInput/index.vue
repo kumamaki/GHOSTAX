@@ -1,12 +1,11 @@
 <template>
-    <div class="segmented-input">
+    <article>
         <MdIntro />
         <MdInstallation />
         <MdUsage />
         <MdDemo />
-        <segmented-input-demo class="segmented-input__demo" />
         <MdAPI />
-    </div>
+    </article>
 </template>
 
 <script>
@@ -15,7 +14,6 @@ import MdInstallation from '~docs/SegmentedInput/02-Installation.md';
 import MdDemo from '~docs/SegmentedInput/03-Demo.md';
 import MdUsage from '~docs/SegmentedInput/04-Usage.md';
 import MdAPI from '~docs/SegmentedInput/05-API.md';
-import SegmentedInputDemo from './Demo';
 
 export default {
     name: 'VueRouter',
@@ -24,7 +22,6 @@ export default {
         MdInstallation,
         MdUsage,
         MdDemo,
-        SegmentedInputDemo,
         MdAPI
     },
     props: {},
@@ -33,17 +30,3 @@ export default {
     }
 };
 </script>
-
-<style scoped lang="scss">
-.segmented-input {
-
-    &__demo {
-        width: 100%;
-        margin: $grid--medium 0;
-        padding: $grid--large;
-        background-color: white;
-        margin-top: calc(#{$grid--large} * -1);
-        border-radius: 0 0 5px 5px;
-    }
-}
-</style>

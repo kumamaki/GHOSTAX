@@ -2,7 +2,7 @@
 
 Install with either `yarn` or `npm`
 
-```sh
+```bash
 npm i @ghostax/segmented-input
 // or
 yarn add @ghostax/segmented-input
