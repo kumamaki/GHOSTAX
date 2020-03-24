@@ -45,7 +45,7 @@ export default {
     margin: 0 auto;
     display: grid;
     align-items: stretch;
-    grid-template-columns: max-content minmax(0, 1fr);
+    grid-template-columns: ms(7) minmax(0, 1fr);
     gap: $grid--xxxlarge;
     position: relative;
 
@@ -63,7 +63,7 @@ export default {
         &::before {
             content: '';
             position: absolute 0 0 0 0;
-            right: calc(#{$grid--large} * -1);
+            right: 0;
             z-index: -1;
             background-color: $selago;
             transform-origin: right;

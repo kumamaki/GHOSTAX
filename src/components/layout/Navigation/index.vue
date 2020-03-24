@@ -99,8 +99,8 @@ export default {
 <style scoped lang="scss">
 .navigation {
     display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: min-content;
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: $grid--xlarge;
 
     &--size\: {
