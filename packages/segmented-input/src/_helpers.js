@@ -1,10 +1,10 @@
-import Vue from 'vue';
+import { reactive } from 'vue';
 
 const deepMerge = require('deepmerge');
 
 const optionsHelpers = {
     normalize(defaultOption) {
-        return Vue.observable(
+        return reactive(
             deepMerge(defaultOption, this.options)
         );
     },
