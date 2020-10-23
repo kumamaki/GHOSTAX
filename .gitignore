@@ -20,7 +20,6 @@ yarn-error.log*
 *.sw?
 report.*
 packages/*/dist
-lerna-debug.log
 dist/
 
 # Local Netlify folder

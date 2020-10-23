@@ -1,21 +1,8 @@
 module.exports = {
     lintOnSave: false,
-
-    pluginOptions: {
-        'style-resources-loader': {
-            preProcessor: 'scss',
-            patterns: [
-                './src/assets/styles/helpers/*.scss',
-                './src/assets/styles/variables/*.scss'
-            ]
-        }
-    },
-
     assetsDir: 'assets',
-    productionSourceMap: false,
-
-    css: {
-        sourceMap: true
+    devServer: {
+        progress: false
     },
 
     chainWebpack: (config) => {
@@ -28,5 +15,30 @@ module.exports = {
             .use('remark-vue-loader')
             .loader('remark-vue-loader')
             .end();
+
+        const svgRule = config.module.rule('svg');
+        svgRule.uses.clear();
+        svgRule
+            .use('vue-loader')
+            .loader('vue-loader-v16')
+            .end()
+            .use('vue-svg-loader')
+            .loader('vue-svg-loader')
+            .options({
+                svgo: {
+                    plugins: [
+                        {
+                            convertColors: {
+                                currentColor: true
+                            },
+                            addAttributesToSVGElement: {
+                                attributes: {
+                                    fill: 'currentColor'
+                                }
+                            }
+                        }
+                    ]
+                }
+            });
     }
 };
