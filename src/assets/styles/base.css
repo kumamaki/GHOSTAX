@@ -1,0 +1,14 @@
+@import 'tailwindcss/base';
+@import 'custom-base';
+@import 'tailwindcss/components';
+
+/* Start purging... */
+
+@import 'tailwindcss/utilities';
+
+/* Stop purging. */
+
+@import 'tailwindcss/screens';
+
+@import 'global-variables';
+@import 'general';

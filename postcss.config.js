@@ -1,7 +1,10 @@
 /* eslint-disable quote-props */
-const isProductionLike = process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging';
+const path = require('path');
+const tailwindcss = require('tailwindcss');
+const postcssImport = require('postcss-import');
+
 const onlyInProd = (plugin, options) => {
-    if (isProductionLike) {
+    if (process.env.NODE_ENV === 'production') {
         return {
             [plugin]: options
         };
@@ -10,15 +13,8 @@ const onlyInProd = (plugin, options) => {
 
 module.exports = {
     map: true,
-    plugins: {
-        'postcss-import': {},
-        'postcss-preset-env': {
-            autoprefixer: false
-        },
-        'tailwindcss': './node_modules/~styles/tailwind.config.js',
-        ...onlyInProd('cssnano', {
-            preset: 'default'
-        }),
-        autoprefixer: {}
-    }
+    plugins: [
+        postcssImport(),
+        tailwindcss(path.resolve(__dirname, 'src/assets/styles/tailwind.config.js'))
+    ]
 };

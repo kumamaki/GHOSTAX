@@ -1,0 +1,19 @@
+@import './fonts';
+
+html {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: theme(colors.grayscale.700);
+}
+
+body {
+    size: 100%;
+    font-size: 100%;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-family: theme(fontFamily.body), system-ui;
+}
+
+#app {
+    height: 100%;
+}

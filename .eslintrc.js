@@ -13,13 +13,12 @@ module.exports = {
     },
 
     extends: [
-        '@vue/airbnb',
         'plugin:vue/vue3-recommended',
-        'plugin:jest/all',
-        'plugin:json/recommended'
+        'plugin:vue-types/recommended',
+        'plugin:jest/all'
     ],
 
-    plugins: ['vue', 'babel', 'import'],
+    plugins: ['vue', 'babel'],
 
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -58,6 +57,7 @@ module.exports = {
         'prefer-arrow-callback': 'off',
         'func-names': 'off',
         'max-len': 'off',
+        'no-multiple-empty-lines': ['error', { 'max': 2 }],
         'vue/max-attributes-per-line': [
             'error',
             {
@@ -68,14 +68,6 @@ module.exports = {
                 }
             }
         ],
-        'import/no-extraneous-dependencies': [
-            'error',
-            {
-                devDependencies: true
-            }
-        ],
-        'import/extensions': 'off',
-        'import/prefer-default-export': 'off',
         'vue/array-bracket-spacing': 'error',
         'vue/arrow-spacing': 'error',
         'vue/brace-style': 'error',

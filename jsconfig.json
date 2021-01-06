@@ -1,0 +1,43 @@
+{
+    "include": [
+        "./src/**/*"
+    ],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "/@root/*": [
+                "./*"
+            ],
+            "/@src/*": [
+                "./src/*"
+            ],
+            "/@core/*": [
+                "/src/components/core/*"
+            ],
+            "/@unit/*": [
+                "/src/components/unit/*"
+            ],
+            "/@complex/*": [
+                "/src/components/complex/*"
+            ],
+            "/@layout/*": [
+                "./src/components/layout/*"
+            ],
+            "/@page/*": [
+                "./src/components/page/*"
+            ],
+            "/@images/*": [
+                "./src/assets/images/*"
+            ],
+            "/@styles/*": [
+                "./src/assets/styles/*"
+            ],
+            "/@helpers/*": [
+                "./src/helpers/*"
+            ],
+            "/@icons/*": [
+                "./src/assets/svg-icons/*"
+            ],
+        }
+    }
+};
