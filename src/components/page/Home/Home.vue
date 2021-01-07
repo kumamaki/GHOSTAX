@@ -3,8 +3,8 @@
         <div class="h-almost-screen relative flex flex-col items-center justify-center w-full mx-auto">
             <HomeSpaceBackground class="2xl:h-125 xl:h-90 absolute top-0 mx-auto pointer-events-none" />
             <div class="flex flex-col items-center">
-                <Logo class="w-33 xl:-top-10 transform -translate-x-4" />
-                <div class="flex flex-col items-center text-center">
+                <Logo animate class="w-33 xl:-top-10 transform -translate-x-4" />
+                <div class="flex flex-col items-center mt-2 text-center">
                     <h1 class="font-title text-primary-base text-5xl font-black">
                         GHOSTAX
                     </h1>
