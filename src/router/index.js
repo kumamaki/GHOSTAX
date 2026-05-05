@@ -1,23 +1,35 @@
 import { defineAsyncComponent } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Home from '/@page/Home/Home.vue';
-import PageNotFound from '/@page/PageNotFound/PageNotFound.vue';
-
 export const routes = [
     {
         path: '/',
         name: 'Home',
-        component: Home
+        component: defineAsyncComponent(() => { return import('/@page/Home/Home.vue'); })
+    },
+    {
+        path: '/documentations',
+        redirect: {
+            name: 'Documentations',
+            params: {
+                name: 'introduction'
+            }
+        }
+    },
+    {
+        path: '/documentations/:name',
+        name: 'Documentations',
+        component: defineAsyncComponent(() => { return import('/@page/Documentations/Documentations.vue'); })
     },
     {
         path: '/:catchAll(.*)',
-        component: PageNotFound
+        name: 'PageNotFound',
+        component: defineAsyncComponent(() => { return import('/@page/PageNotFound/PageNotFound.vue'); })
     }
 ];
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes
 });
 

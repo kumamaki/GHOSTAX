@@ -16,9 +16,11 @@
                         Vue 3
                     </p>
                     <div class="flex mt-4">
-                        <BaseButton class="mr-1" variant="primary">
-                            Getting Started
-                        </BaseButton>
+                        <router-link to="/documentations">
+                            <BaseButton class="mr-1" variant="primary">
+                                Getting Started
+                            </BaseButton>
+                        </router-link>
                         <a href="https://github.com/kumamaki/GHOSTAX">
                             <BaseButton class="ml-1" variant="ghost">
                                 View on Github
@@ -84,25 +86,6 @@
                 and write your very own HTML and CSS.
             </p>
         </article>
-        <footer class="bg-grayscale-600 text-grayscale-400 p-3 mt-16">
-            <div class=" align-items-center flex justify-center">
-                <a
-                    class="text-primary-light" href="https://github.com/kumamaki"
-                    target="_blank"
-                >
-                    <HomeIconGhLine class="w-3 h-3 mr-1" />
-                </a>
-                <a
-                    class="text-primary-light" href="https://twitter.com/Em_Eh_"
-                    target="_blank"
-                >
-                    <HomeIconTwitter class="w-3 h-3 ml-1" />
-                </a>
-            </div>
-            <p class="mt-2 text-center">
-                Licensed under <a href="http://www.wtfpl.net/" target="_blank">WTFPL</a>
-            </p>
-        </footer>
     </main>
 </template>
 

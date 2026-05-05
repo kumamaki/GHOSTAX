@@ -19,7 +19,7 @@ export default {
             type: String,
             required: true,
             validator(value) {
-                return ['primary', 'ghost'].includes(value);
+                return ['primary', 'ghost'].includes(value)
             }
         }
     },

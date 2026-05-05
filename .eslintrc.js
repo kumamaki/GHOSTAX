@@ -1,11 +1,29 @@
+const path = require('path');
+const alias = {
+    '/@root': path.resolve(__dirname, '.'),
+    '/@src': path.resolve(__dirname, './src'),
+    '/@core': path.resolve(__dirname, './src/components/core'),
+    '/@page': path.resolve(__dirname, './src/components/page'),
+    '/@images': path.resolve(__dirname, './src/assets/images'),
+    '/@styles': path.resolve(__dirname, './src/assets/styles'),
+    '/@helpers': path.resolve(__dirname, './src/helpers'),
+    '/@icons': path.resolve(__dirname, './src/assets/svg-icons'),
+    '/@router': path.resolve(__dirname, './src/router'),
+    '/@packages': path.resolve(__dirname, './packages')
+};
+
 module.exports = {
     root: true,
     parser: 'vue-eslint-parser',
 
     parserOptions: {
-        parser: 'babel-eslint',
-        ecmaVersion: 2019,
-        sourceType: 'module'
+        parser: '@babel/eslint-parser',
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        babelOptions: {
+            configFile: path.resolve(__dirname, 'babel.config.js'),
+            rootMode: 'upward'
+        }
     },
 
     env: {
@@ -13,6 +31,7 @@ module.exports = {
     },
 
     extends: [
+        'standard',
         'plugin:vue/vue3-recommended',
         'plugin:vue-types/recommended',
         'plugin:jest/all'
@@ -23,6 +42,7 @@ module.exports = {
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'semi': ['error', 'always'],
         'indent': ['error', 4],
         'no-param-reassign': [
             'error',
@@ -58,6 +78,7 @@ module.exports = {
         'func-names': 'off',
         'max-len': 'off',
         'no-multiple-empty-lines': ['error', { 'max': 2 }],
+        'import/no-absolute-path': 'off',
         'vue/max-attributes-per-line': [
             'error',
             {
@@ -103,7 +124,23 @@ module.exports = {
     },
 
     settings: {
-        'vue-types/namespace': ['VT']
+        'import/resolver': {
+            'node': {
+                'extensions': [
+                    '.js',
+                    '.vue',
+                    '.css'
+                ]
+            },
+            'eslint-import-resolver-custom-alias': {
+                'alias': alias,
+                'extensions': [
+                    '.js',
+                    '.vue',
+                    '.css'
+                ]
+            }
+        }
     },
 
     overrides: [

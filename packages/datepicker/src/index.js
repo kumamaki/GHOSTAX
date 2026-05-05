@@ -1,2 +1,2 @@
-export { useGhGregDatepicker } from './gregorian';
-export { useGhJalDatepicker } from './jalaali';
+export { useGhGregDatePicker as useGhDatePicker } from './gregorian';
+export { useGhJalaliDatePicker  } from './jalali';

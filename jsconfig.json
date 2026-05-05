@@ -38,6 +38,9 @@
             "/@icons/*": [
                 "./src/assets/svg-icons/*"
             ],
+            "/@directives/*": [
+                "./src/directives/*"
+            ],
         }
     }
-};
+}

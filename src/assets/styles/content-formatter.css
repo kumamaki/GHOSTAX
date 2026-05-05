@@ -1,0 +1,110 @@
+.content-formatter {
+    @apply text-grayscale-100;
+    @apply leading-comfortable text-lg font-medium;
+}
+
+.content-formatter > h1 {
+    @apply text-grayscale-100 text-3xl font-black;
+    @apply mb-2;
+}
+
+.vuedoc > h2 {
+    @apply text-2xl font-bold;
+    @apply mt-7 mb-3;
+}
+
+.vuedoc > h3 {
+    @apply text-grayscale-500 text-sm font-bold;
+    @apply my-2;
+}
+
+.vuedoc > h3 > a {
+    @apply text-grayscale-500;
+}
+
+.vuedoc hr {
+    @apply block;
+    height: 1px;
+    width: 100%;
+    border: none;
+}
+
+.vuedoc > hr {
+    @apply my-3;
+    @apply bg-grayscale-600;
+}
+
+.content-formatter .markdownIt-Anchor {
+    @apply font-title text-xl not-italic no-underline;
+}
+
+.vuedoc > p {
+    @apply my-2;
+}
+
+.vuedoc > ul {
+    @apply px-3 my-2;
+    @apply list-disc;
+}
+
+.content-formatter strong {
+    @apply font-semibold;
+}
+
+.content-formatter p code,
+.content-formatter ul code,
+.content-formatter .DocApi code:not(.DocCode) {
+    @apply py-0-5 bg-grayscale-600 px-1 font-bold rounded-lg;
+    padding-top: 2px;
+}
+
+.content-formatter .vuedoc-demo {
+    @apply mt-3;
+}
+
+pre {
+    @apply bg-grayscale-800 rounded-2xl p-2;
+    @apply font-mono text-base font-semibold;
+}
+
+.vuedoc-demo .vuedoc__hljs {
+    @apply bg-grayscale-800;
+}
+
+.vuedoc-demo .vuedoc-demo__inner {
+    @apply bg-grayscale-600 rounded-2xl overflow-hidden;
+}
+
+.vuedoc-demo .vuedoc-demo__preview {
+    @apply flex items-center justify-center p-4;
+}
+
+.vuedoc-demo .vuedoc-demo__source {
+    transition: height .15s;
+    @apply bg-grayscale-800 overflow-hidden;
+}
+
+.vuedoc-demo .vuedoc-demo__sourceref {
+    @apply overflow-auto;
+}
+
+.vuedoc-demo .vuedoc__code {
+    @apply overflow-auto font-mono text-sm font-bold;
+}
+
+.vuedoc-demo .vuedoc__hljs {
+    @apply px-4 py-2;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.vuedoc-demo .vuedoc__hljs code {
+    word-break: keep-all;
+    white-space: pre;
+}
+
+.vuedoc-demo .vuedoc-demo__footer {
+    @apply bg-grayscale-800 hover:bg-grayscale-900 text-center transition-colors;
+    @apply p-1-5 cursor-pointer;
+    @apply font-bold capitalize;
+}

@@ -1,27 +1,22 @@
-import useGhDatepicker from './common/datepicker';
+import useGhDatePicker from './common/datepicker';
 import {
-    getYear, isAfter, isBefore, addDays, getDay, getDaysInMonth,
-    isWeekend, subDays, setDate,
+    format,
+    isAfter, isBefore, isWithinInterval,
+    getYear, addYears, subYears, isSameYear, isThisYear, differenceInCalendarYears, eachYearOfInterval,
+    addDays, getDay, eachDayOfInterval,
+    isWeekend, subDays, setDate, getDaysInMonth, differenceInCalendarMonths, differenceInMonths,
     isSameDay, getDate, differenceInDays,
-    addMonths, isSameMonth, subMonths
+    getMonth, addMonths, startOfMonth, endOfMonth, isSameMonth, subMonths, lastDayOfMonth, eachMonthOfInterval
 } from 'date-fns';
 
-export function useGhGregDatepicker({
-    initialVisibleDate,
-    numberOfVisibleDays,
-    allowMultiSelect,
-    rangeMode
-} = {}) {
-    return useGhDatepicker({
-        initialVisibleDate,
-        numberOfVisibleDays,
-        allowMultiSelect,
-        rangeMode,
-        d: {
-            getYear, isAfter, isBefore, addDays, getDay, getDaysInMonth,
-            isWeekend, subDays, setDate,
-            isSameDay, getDate, differenceInDays,
-            addMonths, isSameMonth, subMonths
-        }
+export function useGhGregDatePicker(customOptions = {}) {
+    return useGhDatePicker(customOptions, {
+        format,
+        isAfter, isBefore, isWithinInterval,
+        getYear, addYears, subYears, isSameYear, isThisYear, differenceInCalendarYears, eachYearOfInterval,
+        addDays, getDay, eachDayOfInterval,
+        isWeekend, subDays, setDate, getDaysInMonth, differenceInCalendarMonths, differenceInMonths,
+        isSameDay, getDate, differenceInDays,
+        getMonth, addMonths, startOfMonth, endOfMonth, isSameMonth, subMonths, lastDayOfMonth, eachMonthOfInterval
     });
 }
